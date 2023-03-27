@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="2.8.2.3" />
+    <PackageReference Include="Kurukuru" Version="1.4.2" />
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.0.1" />
+    <PackageReference Include="OxyPlot.SkiaSharp" Version="2.1.2" />
+    <PackageReference Include="ProcessX" Version="1.5.5" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sequence.Position\Sequence.Position.csproj" />
+  </ItemGroup>
+
+</Project>
