@@ -20,7 +20,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Chr
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Name of chromosome to be analyzed. If there is more than one, enter them separated by commas. If chrNames is specified, chrSize is disabled.";
+        public const string DESCRIPTION = "Specify the chromosome name to be analyzed. If there are more than one, separate them with commas. ";
 
         private static readonly char[] _delimiter = new[] { ',' };
 
