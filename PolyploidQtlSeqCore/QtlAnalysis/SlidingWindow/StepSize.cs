@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Step size (kb).";
+        public const string DESCRIPTION = "Step size (kbp) of the sliding window analysis.";
 
         /// <summary>
         /// データ検証エラーメッセージ
