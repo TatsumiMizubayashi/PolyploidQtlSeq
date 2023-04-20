@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Average quality threshold at end trim. cut_tail_mean_quality in fastp.";
+        public const string DESCRIPTION = "Threshold of average quality for trimming at 3' end. cut_tail_mean_quality in fastp.";
 
         /// <summary>
         /// データ検証エラーメッセージ
