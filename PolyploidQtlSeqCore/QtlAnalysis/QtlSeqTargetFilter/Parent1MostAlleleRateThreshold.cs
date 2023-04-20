@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Parent1 most allele ratio threshold. If the threshold is exceeded, it is considered homotypic.";
+        public const string DESCRIPTION = "Most allele frequency for Parent1. Variants exceeding this threshold is considered homozygous.";
 
         /// <summary>
         /// データ検証エラーメッセージ
