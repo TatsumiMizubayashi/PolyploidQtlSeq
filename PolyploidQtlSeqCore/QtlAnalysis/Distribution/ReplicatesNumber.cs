@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Number of simulation replicates to create a null distribution.";
+        public const string DESCRIPTION = "Number of simulation replicates to generate a null distribution which is free from QTLs.";
 
         /// <summary>
         /// データ検証エラーメッセージ
