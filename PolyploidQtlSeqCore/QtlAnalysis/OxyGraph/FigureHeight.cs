@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Graph image height (Pixel).";
+        public const string DESCRIPTION = "Height (pixel) of the graph images.";
 
         /// <summary>
         /// データ検証エラーメッセージ
