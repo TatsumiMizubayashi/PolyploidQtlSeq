@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Maximum bulk SNP-index threshold.";
+        public const string DESCRIPTION = "Maximum threshold for SNP-index value for the Bulk samples. Variants with a SNP-index exceeding this value are excluded.";
 
         /// <summary>
         /// データ検証エラーメッセージ
