@@ -20,7 +20,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "reference sequence file.";
+        public const string DESCRIPTION = "Reference sequence file.";
 
         /// <summary>
         /// リファレンスシークエンスファイルを作成する。
