@@ -27,7 +27,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.IO
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Annotation Impact to be included in the SNP-index file. If there is more than one, enter them separated by commas.";
+        public const string DESCRIPTION = "Annotation Impact to be included in the SNP-index file. Separate multiple items with commas.";
 
         /// <summary>
         /// データ検証エラーメッセージ
