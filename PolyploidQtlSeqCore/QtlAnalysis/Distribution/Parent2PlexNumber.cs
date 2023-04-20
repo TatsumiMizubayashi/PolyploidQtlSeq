@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "N-Plex number of parent2.";
+        public const string DESCRIPTION = "Specify the plexity of Parent2 used for QTL analysis.";
 
         /// <summary>
         /// データ検証エラーメッセージ
