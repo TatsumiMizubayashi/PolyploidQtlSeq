@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Base quality threshold. qualified_quality_phred in fastp.";
+        public const string DESCRIPTION = "Threshold for base quality. qualified_quality_phred in fastp.";
 
         /// <summary>
         /// データ検証エラーメッセージ
