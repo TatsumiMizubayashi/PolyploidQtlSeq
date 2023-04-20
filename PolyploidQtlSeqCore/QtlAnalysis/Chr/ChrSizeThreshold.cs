@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Chr
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Chromosome length threshold to be analyzed.";
+        public const string DESCRIPTION = "Threshold for length of chromosomes to be analyzed. Chromosomes with a length more than this value are analyzed.";
 
         /// <summary>
         /// データ検証エラーメッセージ
