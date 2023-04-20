@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Number of threads.";
+        public const string DESCRIPTION = "Number of threads to use. Up to 16.";
 
         /// <summary>
         /// データ検証エラーメッセージ
