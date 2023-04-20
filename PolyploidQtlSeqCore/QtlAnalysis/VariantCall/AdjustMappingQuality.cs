@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "adjust-MQ in bcftools mpileup.";
+        public const string DESCRIPTION = "Value for adjust mapping quality at variant detection in bcftools mpileup. \r\nSpecify 0, to disable this function.\r\n";
 
         /// <summary>
         /// データ検証エラーメッセージ
