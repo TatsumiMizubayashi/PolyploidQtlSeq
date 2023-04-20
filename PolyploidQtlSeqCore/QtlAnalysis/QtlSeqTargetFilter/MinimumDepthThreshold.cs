@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Minimum Depth threshold.";
+        public const string DESCRIPTION = "Minimum Depth threshold. The variants with even one sample below this threshold are excluded for QTL analysis.";
 
         /// <summary>
         /// データ検証エラーメッセージ
