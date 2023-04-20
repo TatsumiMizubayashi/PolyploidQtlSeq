@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Window size at end trim. cut_tail_window_size in fastp.";
+        public const string DESCRIPTION = "Window size when trimmed at 3' end. cut_tail_window_size in fastp.";
 
         /// <summary>
         /// データ検証エラーメッセージ
