@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "X axis major step (MB).";
+        public const string DESCRIPTION = "X-axis scale interval (Mb) of the graphs.";
 
         /// <summary>
         /// データ検証エラーメッセージ
