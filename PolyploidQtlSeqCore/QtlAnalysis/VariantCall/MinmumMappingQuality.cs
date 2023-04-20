@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "minimum mapping quality in bcftools mpileup.";
+        public const string DESCRIPTION = "Minimum mapping quality at variant detection in bcftools mpileup.";
 
         /// <summary>
         /// データ検証エラーメッセージ
