@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "ploidy.";
+        public const string DESCRIPTION = "Ploidy.";
 
         /// <summary>
         /// データ検証エラーメッセージ
