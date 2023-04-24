@@ -22,7 +22,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
         /// <summary>
         /// Parent2 SNP-index範囲の規定値
         /// </summary>
-        public const string DEFAULT = "0.1-0.36";
+        public const string DEFAULT = "0.15-0.375";
 
         /// <summary>
         /// オプションスイッチのShortName
