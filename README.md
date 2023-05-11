@@ -8,7 +8,7 @@ The main modifications are as follows:
 - Supports polyploidy.
 - Supports plexity-adapted simulation based on a F1 null distribution assuming free from QTLs to calculates P-value.
 - Draws Bulk1 and Bulk2 SNP-index plots, and ΔSNP-index plot.
-- Draws sliding window-averaged -log10P plot.
+- Draws sliding window-averaged -log10(P) plot.
 - Draws QTL-deduced variant counts per window plot.
 - Appends annotation information by SnpEff.
 
@@ -326,7 +326,7 @@ All Sliding window information is included.
 - **Mean Bulk2 SNP-index** : Mean of bulk2 SNP-index for all variants in the window.
 - **Mean ΔSNP-index** : Mean of ΔSNP-index for all variants in the window.
 - **Mean P-value** : Mean of P value for all variants in the window.
-- **Mean-log10(P)** : Mean of -log10P for all variants in the window.
+- **Mean-log10(P)** : Mean of -log10(P) for all variants in the window.
 - **Bulk1 SNP-index=0 variant count** : Number of variants with Bulk1 SNP-index of 0.
 - **Bulk2 SNP-index=0 variant count** : Number of variants with Bulk2 SNP-index of 0.
 
@@ -439,10 +439,10 @@ Variants that meet all these conditions are extracted and used for QTL-seq analy
 
 ## Calculation of SNP-index
 SNP-index is calculated by the following formula: 
-<br>
 ```
 SNP-index = Number of reads of P2-type allele / Depth
 ```
+
 <br>
 The P2-type allele is estimated using the GT value of P1.
 If the GT value of P1 is 0/0 (Ref homozygous), the P2 allele is 1 (Alt allele).
