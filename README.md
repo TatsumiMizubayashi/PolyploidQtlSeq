@@ -234,13 +234,13 @@ The value of the p2SnpIndexRange(p2r) and minDepth(md) arguments should be deter
 ![Tetraploid](Images/Tetraploid.png)
 [Tetraploid graph data file](Data/Tetraploid.txt)
 
-By increasing depths, SNP-index of simplex, duplex, and triplex are converged to 0.25, 0.50, and 0.75, respectively. Ninety five percent of N-plex variant population are included between two same color lines. Therefore, setting of -md 40 and -p2r 0.15-0.375 allows enrichment of simplex (>95% of variants with depth of >40) and elimination of duplex (<2.5% of variants with depth of >40). 
+By increasing depths, SNP-index of simplex, duplex, and triplex are converged to 0.25, 0.50, and 0.75, respectively. Ninety percent of N-plex simulated population are included between two same color lines. Therefore, setting of -md 40 and -p2r 0.15-0.375 allows extraction of simplex.
 
 ## Hexaploid
 ![Hexaploid](Images/Hexaploid.png)
 [Hexaploid graph data file](Data/Hexaploid.txt)
 
-By increasing depths, SNP-index of simplex, duplex, triplex, tetraplex, and pentaplex are converged to 0.17, 0.33, 0.50, 0.66, and 0.83, respectively. Ninety five percent of N-plex variant population are included between two same color lines. Therefore, setting of -md 70 and -p2r 0.10-0.24 allows enrichment of simplex (>95% of variants with depth of >70) and elimination of duplex (<2.5% of variants with depth of >70). However, since setting high md values reduces the number of variants selected for analysis, the following settings are recommended.
+By increasing depths, SNP-index of simplex, duplex, triplex, tetraplex, and pentaplex are converged to 0.17, 0.33, 0.50, 0.66, and 0.83, respectively. Ninety percent of N-plex simulated population are included between two same color lines. Therefore, setting of -md 70 and -p2r 0.10-0.24 allows extraction of simplex.
 
 ## Examples of setting
 |Ploidy (p)|Nplex (np)|minDepth (md)|P2SnpIndexRange (p2r)|
