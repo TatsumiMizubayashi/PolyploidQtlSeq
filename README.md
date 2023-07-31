@@ -511,3 +511,8 @@ Sliding window analysis performs QTL determination by using the variants in the 
 
 ## P-value and -log10(P) for sliding windows
 Average P-value of sliding window is the average value of P-values of variants in the window. Average -log10(P) of sliding window is the logarithm of average P-value of sliding window.
+
+# License
+This project is licensed under the MIT License.
+<br>
+This software includes the work that is distributed in the Apache License 2.0.
