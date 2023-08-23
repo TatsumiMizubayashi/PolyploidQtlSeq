@@ -15,7 +15,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// 3'末端トリム時の平均クオリティの最大値
         /// </summary>
-        public const int MAXIMUM = 36;
+        public const int MAXIMUM = 30;
 
         /// <summary>
         /// 3'末端トリム時の平均クオリティの規定値
@@ -40,7 +40,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
-        public const string VALIDATION_ERROR_MESSAGE = "The -Q option must be an integer greater than 1 and less than or equal to 36.";
+        public const string VALIDATION_ERROR_MESSAGE = "The -Q option must be an integer greater than 1 and less than or equal to 30.";
 
         /// <summary>
         /// 3'末端トリム時の平均クオリティを作成する。
