@@ -3,6 +3,7 @@
     /// <summary>
     /// FastpによるQCコマンドオプションインターフェイス
     /// </summary>
+    [Obsolete("削除予定")]
     public interface IFastpQualityControlCommandOptions
     {
         /// <summary>
