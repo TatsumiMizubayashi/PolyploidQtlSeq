@@ -11,16 +11,19 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "i";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "inputDir";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Raw fastq directory.";
 
         /// <summary>
@@ -29,6 +32,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <param name="inputDirPath">入力RawFastqディレクトリPath</param>
         /// <param name="parameterDictionary">パラメータファイルの中身</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        [Obsolete("削除予定")]
         public InputRawFastqDirectory(string inputDirPath, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
@@ -47,6 +51,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// パラメータファイル記載用行テキストに変換する。
         /// </summary>
         /// <returns>パラメータ行テキスト</returns>
+        [Obsolete("削除予定")]
         public string ToParameterFileLine()
         {
             return $"{LONG_NAME}\t{Path}";

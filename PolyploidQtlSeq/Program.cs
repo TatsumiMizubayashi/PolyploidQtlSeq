@@ -1,4 +1,9 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
+#if DEBUG
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("PolyploidQtlSeqTests")]
+#endif
+
 
 namespace PolyploidQtlSeq;
 
