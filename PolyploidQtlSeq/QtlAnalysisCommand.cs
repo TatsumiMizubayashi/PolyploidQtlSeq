@@ -135,8 +135,8 @@ namespace PolyploidQtlSeq
         [Range(qa.ThreadNumber.MINIMUM, qa.ThreadNumber.MAXIMUM, ErrorMessage = qa.ThreadNumber.VALIDATION_ERROR_MESSAGE)]
         public int ThreadNumber { get; set; }
 
-        [Option(ShortName = op.ParameterFile.SHORT_NAME, LongName = op.ParameterFile.LONG_NAME,
-            Description = op.ParameterFile.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = op.ParameterFileParser.SHORT_NAME, LongName = op.ParameterFileParser.LONG_NAME,
+            Description = op.ParameterFileParser.DESCRIPTION, ValueName = "")]
         public string ParameterFile { get; set; }
 
 

@@ -3,6 +3,7 @@
     /// <summary>
     /// オプションの値
     /// </summary>
+    [Obsolete("削除予定")]
     internal static class OptionValue
     {
         /// <summary>

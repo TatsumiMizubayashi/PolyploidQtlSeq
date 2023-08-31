@@ -11,7 +11,8 @@ namespace PolyploidQtlSeqCore.Options
     /// <summary>
     /// パラメータファイル
     /// </summary>
-    public class ParameterFile
+    [Obsolete("削除予定")]
+    public class ParameterFileParser
     {
         private const string COMMENT = "#";
         private static readonly char[] _splitter = new[] { '\t' };
@@ -35,7 +36,7 @@ namespace PolyploidQtlSeqCore.Options
         /// パラメータファイルを作成する。
         /// </summary>
         /// <param name="filePath">パラメータファイルのPATH</param>
-        public ParameterFile(string filePath)
+        public ParameterFileParser(string filePath)
         {
             Path = filePath;
             IsEnabled = !string.IsNullOrWhiteSpace(filePath) && File.Exists(filePath);

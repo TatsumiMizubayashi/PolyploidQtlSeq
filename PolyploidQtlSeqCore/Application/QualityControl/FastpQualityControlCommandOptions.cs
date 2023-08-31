@@ -44,7 +44,7 @@ namespace PolyploidQtlSeqCore.Application.QualityControl
         public FastpQualityControlCommandOptions(IFastpQualityControlCommandOptions optionValue,
             IReadOnlyCollection<CommandOption> options)
         {
-            ParameterFile = new ParameterFile(optionValue.ParameterFile);
+            ParameterFile = new ParameterFileParser(optionValue.ParameterFile);
             var parameterDictionary = ParameterFile.ToParameterDictionary(_toLongNameDictionary);
             var userOptionDictionary = UserSpecifiedLongNameDictionaryCreator.Create(options);
 
@@ -101,7 +101,7 @@ namespace PolyploidQtlSeqCore.Application.QualityControl
         /// <summary>
         /// パラメータファイル
         /// </summary>
-        public ParameterFile ParameterFile { get; }
+        public ParameterFileParser ParameterFile { get; }
 
         /// <summary>
         /// FastpCommonOptionに変換する。

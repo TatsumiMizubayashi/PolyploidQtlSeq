@@ -65,8 +65,8 @@ namespace PolyploidQtlSeq
         [Range(dq.ThreadNumber.MINIMUM, dq.ThreadNumber.MAXIMUM, ErrorMessage = dq.ThreadNumber.VALIDATION_ERROR_MESSAGE)]
         public int ThreadNumber { get; set; }
 
-        [Option(ShortName = op.ParameterFile.SHORT_NAME, LongName = op.ParameterFile.LONG_NAME,
-            Description = op.ParameterFile.DESCRIPTION, ValueName = "")]        
+        [Option(ShortName = op.ParameterFileParser.SHORT_NAME, LongName = op.ParameterFileParser.LONG_NAME,
+            Description = op.ParameterFileParser.DESCRIPTION, ValueName = "")]        
         public string ParameterFile { get; set; }
 
         public override async Task<int> OnExecuteAsync(CommandLineApplication app)

@@ -34,7 +34,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
         /// <param name="options">CommandOptions</param>
         public QtlAnalysisCommandOption(IQtlAnalysisCommandOptions optionValues, IReadOnlyCollection<CommandOption> options)
         {
-            ParameterFile = new ParameterFile(optionValues.ParameterFile);
+            ParameterFile = new ParameterFileParser(optionValues.ParameterFile);
             var longNameParameterDictionary = ParameterFile.ToParameterDictionary(_toLongNameDictionary);
             var userOptionDictionary = UserSpecifiedLongNameDictionaryCreator.Create(options);
 
@@ -55,7 +55,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
         /// <summary>
         /// パラメータファイル
         /// </summary>
-        public ParameterFile ParameterFile { get; }
+        public ParameterFileParser ParameterFile { get; }
 
         /// <summary>
         /// パラメータファイルを保存する。
