@@ -5,7 +5,7 @@ using PolyploidQtlSeqCore.QtlAnalysis.Chr;
 using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
 
-namespace PolyploidQtlSeqCore.Application
+namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
     /// 変異検出シナリオ
