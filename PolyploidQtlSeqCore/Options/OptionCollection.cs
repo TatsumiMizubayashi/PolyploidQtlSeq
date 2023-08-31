@@ -5,7 +5,7 @@ namespace PolyploidQtlSeqCore.Options
     /// <summary>
     /// オプションコレクションの抽象クラス
     /// </summary>
-    public abstract class OptionsCollection
+    public abstract class OptionCollection
     {
         private readonly Option[] _options;
 
@@ -13,7 +13,7 @@ namespace PolyploidQtlSeqCore.Options
         /// オプションコレクション インスタンスを作成する。
         /// </summary>
         /// <param name="options">オプション配列</param>
-        public OptionsCollection(Option[] options)
+        public OptionCollection(Option[] options)
         {
             _options = options;
         }
