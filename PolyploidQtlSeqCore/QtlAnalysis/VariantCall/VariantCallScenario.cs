@@ -1,11 +1,9 @@
 ﻿using Kurukuru;
 using PolyploidQtlSeqCore.IO;
-using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
 using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
-using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
 
-namespace PolyploidQtlSeqCore.VariantCall
+namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
 {
     /// <summary>
     /// 変異検出シナリオ
