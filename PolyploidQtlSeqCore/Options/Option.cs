@@ -3,7 +3,7 @@
     /// <summary>
     /// オプションの抽象クラス
     /// </summary>
-    public abstract class OptionBase
+    public abstract class Option
     {
         /// <summary>
         /// 該当するLongOptionNameを取得する。
@@ -42,6 +42,12 @@
         {
             return $"{GetLongName()}\t{GetStringValue()}";
         }
+
+        /// <summary>
+        /// データ検証を行う。
+        /// </summary>
+        /// <returns>データ検証結果</returns>
+        public abstract DataValidationResult Validation();
 
         /// <summary>
         /// オプションスイッチShortNameを取得する。
