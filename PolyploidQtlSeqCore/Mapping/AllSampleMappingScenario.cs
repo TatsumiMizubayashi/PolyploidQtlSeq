@@ -3,7 +3,7 @@ using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
 
-namespace PolyploidQtlSeqCore.Application
+namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// 全サンプルのMappingを行うシナリオ

@@ -4,6 +4,7 @@ using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
+using PolyploidQtlSeqCore.Mapping;
 
 namespace PolyploidQtlSeqCore.Application
 {
