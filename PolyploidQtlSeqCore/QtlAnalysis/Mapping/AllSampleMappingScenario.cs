@@ -1,9 +1,7 @@
 ﻿using Kurukuru;
 using PolyploidQtlSeqCore.IO;
-using PolyploidQtlSeqCore.QtlAnalysis;
-using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
 
-namespace PolyploidQtlSeqCore.Mapping
+namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
 {
     /// <summary>
     /// 全サンプルのMappingを行うシナリオ
