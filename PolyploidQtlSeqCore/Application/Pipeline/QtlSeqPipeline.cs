@@ -7,7 +7,7 @@ using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
 using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.VariantCall;
 
-namespace PolyploidQtlSeqCore.Application
+namespace PolyploidQtlSeqCore.Application.Pipeline
 {
     /// <summary>
     /// QTL-Seqパイプライン

@@ -6,7 +6,7 @@ using PolyploidQtlSeqCore.QtlAnalysis.Chr;
 using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
 
-namespace PolyploidQtlSeqCore.Application
+namespace PolyploidQtlSeqCore.Application.Pipeline
 {
     /// <summary>
     /// QtlSeqコマンドオプション
@@ -49,7 +49,7 @@ namespace PolyploidQtlSeqCore.Application
             ReferenceSequence = new ReferenceSequence(optionValues.ReferenceSequence, longNameParameterDictionary, userOptionDictionary);
             MappingOption = new MappingOption(optionValues, longNameParameterDictionary, userOptionDictionary);
             AnalysisChrOption = new AnalysisChrOption(optionValues, longNameParameterDictionary, userOptionDictionary);
-            BcfToolsVariantCallOption = new BcfToolsVariantCallOption(optionValues,longNameParameterDictionary, userOptionDictionary);
+            BcfToolsVariantCallOption = new BcfToolsVariantCallOption(optionValues, longNameParameterDictionary, userOptionDictionary);
             SnpEffOption = new SnpEffOption(optionValues, longNameParameterDictionary, userOptionDictionary);
             QtlAnalysisScenarioOptions = new QtlAnalysisScenarioOptions(optionValues, longNameParameterDictionary, userOptionDictionary);
         }
@@ -106,7 +106,7 @@ namespace PolyploidQtlSeqCore.Application
                 .Concat(BcfToolsVariantCallOption.ToParameterFileLines())
                 .Concat(SnpEffOption.ToParameterFileLines())
                 .Concat(QtlAnalysisScenarioOptions.ToParameterFileLines());
-            foreach(var line in parameterLineQuery)
+            foreach (var line in parameterLineQuery)
             {
                 writer.WriteLine(line);
             }
