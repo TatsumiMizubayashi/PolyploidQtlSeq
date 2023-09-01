@@ -39,7 +39,7 @@ namespace PolyploidQtlSeqCore.Options
         /// </summary>
         /// <param name="longNameParamsDictionary">LongNameパラメーター辞書</param>
         /// <param name="commandOptions">ユーザー指定オプション</param>
-        public void SetValues(IReadOnlyDictionary<string, string> longNameParamsDictionary, IReadOnlyList<CommandOption> commandOptions)
+        public void SetValues(IReadOnlyDictionary<string, string> longNameParamsDictionary, IReadOnlyCollection<CommandOption> commandOptions)
         {
             var userSetLongNameTable = UserSpecifiedLongNameDictionaryCreator.Create(commandOptions);
 

@@ -1,9 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using McMaster.Extensions.CommandLineUtils;
+﻿using McMaster.Extensions.CommandLineUtils;
+using PolyploidQtlSeq.Options.QualityControl;
 using PolyploidQtlSeqCore.Application.QualityControl;
-using PolyploidQtlSeqCore.QualityControl;
-using dq = PolyploidQtlSeqCore.QualityControl;
-using op = PolyploidQtlSeqCore.Options;
+using PolyploidQtlSeqCore.Options;
 
 namespace PolyploidQtlSeq
 {
@@ -11,8 +9,10 @@ namespace PolyploidQtlSeq
     /// QualityControlコマンド
     /// </summary>
     [Command("qc", Description = "Quality Control by fastp.")]
-    internal sealed class QualityControlCommand : CommandBase, IFastpQualityControlCommandOptions
+    internal sealed class QualityControlCommand : CommandBase, IFastpQualityControlSettingValue
     {
+        private static readonly string _parameterFileTitle = "Quality Control Parameter file";
+
         /// <summary>
         /// QualityControlコマンドを作成する。
         /// </summary>
@@ -20,55 +20,61 @@ namespace PolyploidQtlSeq
         {
             InputDir = "";
             OutputDir = "";
-            ReadLengthRequired = dq.ReadLengthRequired.DEFAULT;
-            NBaseLimit = dq.NBaseLimit.DEFAULT;
-            Quality = BaseQuality.DEFAULT;
-            CutTailMeanQuality = dq.CutTailMeanQuality.DEFAULT;
-            CutTailWindowSize = dq.CutTailWindowSize.DEFAULT;
-            ThreadNumber = dq.ThreadNumber.DEFAULT;
-            ParameterFile = "";
+            ReadLengthRequired = ReadLengthRequiredOption.DEFAULT;
+            NBaseLimit = NBaseLimitOption.DEFAULT;
+            BaseQuality = BaseQualityOption.DEFAULT;
+            CutTailMeanQuality = CutTailMeanQualityOption.DEFAULT;
+            CutTailWindowSize = CutTailWindowSizeOption.DEFAULT;
+            ThreadNumber = ThreadNumberOption.DEFAULT;
+            ParameterFilePath = "";
         }
 
-        [Option(ShortName = InputRawFastqDirectory.SHORT_NAME, LongName = InputRawFastqDirectory.LONG_NAME,
-            Description = InputRawFastqDirectory.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = InputRawFastqDirectoryOption.SHORT_NAME, LongName = InputRawFastqDirectoryOption.LONG_NAME,
+            Description = InputRawFastqDirectoryOption.DESCRIPTION, ValueName = "")]
         public string InputDir { get; set; }
 
-        [Option(ShortName = OutputDirectory.SHORT_NAME, LongName = OutputDirectory.LONG_NAME,
-            Description = OutputDirectory.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = OutputFastqDirectoryOption.SHORT_NAME, LongName = OutputFastqDirectoryOption.LONG_NAME,
+            Description = OutputFastqDirectoryOption.DESCRIPTION, ValueName = "")]
         public string OutputDir { get; set; }
 
-        [Option(ShortName = dq.ReadLengthRequired.SHORT_NAME, LongName = dq.ReadLengthRequired.LONG_NAME,
-            Description = dq.ReadLengthRequired.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = ReadLengthRequiredOption.SHORT_NAME, LongName = ReadLengthRequiredOption.LONG_NAME,
+            Description = ReadLengthRequiredOption.DESCRIPTION, ValueName = "")]
         public int ReadLengthRequired { get; set; }
 
-        [Option(ShortName = dq.NBaseLimit.SHORT_NAME, LongName = dq.NBaseLimit.LONG_NAME,
-            Description = dq.NBaseLimit.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = NBaseLimitOption.SHORT_NAME, LongName = NBaseLimitOption.LONG_NAME,
+            Description = NBaseLimitOption.DESCRIPTION, ValueName = "")]
         public int NBaseLimit { get; set; }
 
-        [Option(ShortName = BaseQuality.SHORT_NAME, LongName = BaseQuality.LONG_NAME,
-            Description = BaseQuality.DESCRIPTION, ValueName = "")]
-        public int Quality { get; set; }
+        [Option(ShortName = BaseQualityOption.SHORT_NAME, LongName = BaseQualityOption.LONG_NAME,
+            Description = BaseQualityOption.DESCRIPTION, ValueName = "")]
+        public int BaseQuality { get; set; }
 
-        [Option(ShortName = dq.CutTailMeanQuality.SHORT_NAME, LongName = dq.CutTailMeanQuality.LONG_NAME,
-            Description = dq.CutTailMeanQuality.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = CutTailMeanQualityOption.SHORT_NAME, LongName = CutTailMeanQualityOption.LONG_NAME,
+            Description = CutTailMeanQualityOption.DESCRIPTION, ValueName = "")]
         public int CutTailMeanQuality { get; set; }
 
-        [Option(ShortName = dq.CutTailWindowSize.SHORT_NAME, LongName = dq.CutTailWindowSize.LONG_NAME, Description = dq.CutTailWindowSize.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = CutTailWindowSizeOption.SHORT_NAME, LongName = CutTailWindowSizeOption.LONG_NAME, 
+            Description = CutTailWindowSizeOption.DESCRIPTION, ValueName = "")]
         public int CutTailWindowSize { get; set; }
 
-        [Option(ShortName = dq.ThreadNumber.SHORT_NAME, LongName = dq.ThreadNumber.LONG_NAME, Description = dq.ThreadNumber.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = ThreadNumberOption.SHORT_NAME, LongName = ThreadNumberOption.LONG_NAME,
+            Description = ThreadNumberOption.DESCRIPTION, ValueName = "")]
         public int ThreadNumber { get; set; }
 
-        [Option(ShortName = op.ParameterFileParser.SHORT_NAME, LongName = op.ParameterFileParser.LONG_NAME,
-            Description = op.ParameterFileParser.DESCRIPTION, ValueName = "")]        
-        public string ParameterFile { get; set; }
+        [Option(ShortName = ParameterFile.SHORT_NAME, LongName = ParameterFile.LONG_NAME,
+            Description = ParameterFile.DESCRIPTION, ValueName = "")]        
+        public string ParameterFilePath { get; set; }
 
         public override async Task<int> OnExecuteAsync(CommandLineApplication app)
         {
+            var options = FastpQualityControlOptions.Create(this);
+            LoadParameterFile(options, app);
+            if (Validation(options)) Environment.Exit(1);
+
             int code;
             try
             {
-                var fastpQC = new FastpQualityControl(this, app.Options);
+                var fastpQC = new FastpQualityControl(this);
                 code = await fastpQC.RunAsync();
             }
             catch (Exception ex)
@@ -76,8 +82,56 @@ namespace PolyploidQtlSeq
                 Console.Error.WriteLine(ex.Message);
                 code = 1;
             }
+            finally
+            {
+                CreateParameterFile(options);
+            }
 
             return code;
+        }
+
+        /// <summary>
+        /// パラメーターファイルから設定を読み込む。
+        /// </summary>
+        /// <param name="options">オプション</param>
+        /// <param name="app">app</param>
+        private void LoadParameterFile(FastpQualityControlOptions options, CommandLineApplication app)
+        {
+            if (string.IsNullOrEmpty(ParameterFilePath)) return;
+
+            Console.WriteLine($"Load settings from {ParameterFilePath}.");
+            var parameterFile = new ParameterFile(_parameterFileTitle, options);
+            var paramsDict = parameterFile.Parse(ParameterFilePath);
+            options.SetValues(paramsDict, app.Options);
+        }
+
+        /// <summary>
+        /// データ検証を行う。
+        /// </summary>
+        /// <param name="options">オプション</param>
+        /// <returns>エラーがある場合はtrue</returns>
+        private static bool Validation(FastpQualityControlOptions options)
+        {
+            var errorValidations = options.Validation();
+            if (errorValidations.Length == 0) return false;
+
+            foreach (var error in errorValidations)
+            {
+                error.Print();
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// パラメーターファイルを作成する。
+        /// </summary>
+        /// <param name="options">オプション</param>
+        private void CreateParameterFile(FastpQualityControlOptions options)
+        {
+            var filePath = Path.Combine(OutputDir, "QC.params.txt");
+            var parameterFile = new ParameterFile(_parameterFileTitle, options);
+            parameterFile.Create(filePath);
         }
     }
 }
