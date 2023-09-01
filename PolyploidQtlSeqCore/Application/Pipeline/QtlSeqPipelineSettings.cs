@@ -47,7 +47,9 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             var userOptionDictionary = UserSpecifiedLongNameDictionaryCreator.Create(options);
 
             ReferenceSequence = new ReferenceSequence(optionValues.ReferenceSequence, longNameParameterDictionary, userOptionDictionary);
-            MappingOption = new MappingSampleSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
+
+            MappingSettings = new MappingSettings(optionValues);
+            MappingSampleSettings = new MappingSampleSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
             AnalysisChrOption = new AnalysisChrOption(optionValues, longNameParameterDictionary, userOptionDictionary);
             BcfToolsVariantCallOption = new BcfToolsVariantCallOption(optionValues, longNameParameterDictionary, userOptionDictionary);
             SnpEffOption = new SnpEffOption(optionValues, longNameParameterDictionary, userOptionDictionary);
@@ -57,12 +59,18 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         /// <summary>
         /// リファレンスシークエンスを取得する。
         /// </summary>
+        [Obsolete("削除予定")]
         public ReferenceSequence ReferenceSequence { get; }
 
         /// <summary>
-        /// Mappingオプションを取得する。
+        /// Mapping設定を取得する。
         /// </summary>
-        public MappingSampleSettings MappingOption { get; }
+        public MappingSettings MappingSettings { get; }
+
+        /// <summary>
+        /// Mappingサンプル設定を取得する。
+        /// </summary>
+        public MappingSampleSettings MappingSampleSettings { get; }
 
         /// <summary>
         /// 解析染色体オプションを取得する。
@@ -101,7 +109,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             writer.WriteLine("#LongName\tValue");
             writer.WriteLine(ReferenceSequence.ToParameterFileLine());
 
-            var parameterLineQuery = MappingOption.ToParameterFileLines()
+            var parameterLineQuery = MappingSampleSettings.ToParameterFileLines()
                 .Concat(AnalysisChrOption.ToParameterFileLines())
                 .Concat(BcfToolsVariantCallOption.ToParameterFileLines())
                 .Concat(SnpEffOption.ToParameterFileLines())

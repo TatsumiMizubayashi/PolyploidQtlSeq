@@ -8,14 +8,9 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
     /// <summary>
     /// QTL-seq解析パイプライン設定値 インターフェース
     /// </summary>
-    public interface IQtlSeqPipelineSettingValue : IMappingSampleSettingValue, IAnalysisChrOptions, IBcftoolsVariantCallOption,
+    public interface IQtlSeqPipelineSettingValue : IMappingSettingValue, IMappingSampleSettingValue, IAnalysisChrOptions, IBcftoolsVariantCallOption,
         ISnpEffOption, IQtlAnalysisScenarioOptions
     {
-        /// <summary>
-        /// リファレンスシークエンスファイルを取得する。
-        /// </summary>
-        string ReferenceSequence { get; }
-
         /// <summary>
         /// パラメータファイルを取得する。
         /// </summary>

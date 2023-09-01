@@ -65,8 +65,8 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
 
         private async ValueTask<AllSampleBamFiles> MappingAsync()
         {
-            var allSampleMappingScenario = new AllSampleMappingScenario(_option.ReferenceSequence, _threadNumber);
-            return await allSampleMappingScenario.MappingAsync(_option.MappingOption).AsTask();
+            var allSampleMappingScenario = new AllSampleMappingScenario(_option.MappingSettings);
+            return await allSampleMappingScenario.MappingAsync(_option.MappingSampleSettings).AsTask();
         }
 
         private ValueTask<VcfFile> VariantCallAsync(AllSampleBamFiles allSampleBamFiles)

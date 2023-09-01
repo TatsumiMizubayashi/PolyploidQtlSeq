@@ -1,6 +1,6 @@
 ﻿using Cysharp.Diagnostics;
+using PolyploidQtlSeqCore.Application.Pipeline;
 using PolyploidQtlSeqCore.IO;
-using PolyploidQtlSeqCore.Share;
 using static Zx.Env;
 
 namespace PolyploidQtlSeqCore.Mapping
@@ -10,18 +10,15 @@ namespace PolyploidQtlSeqCore.Mapping
     /// </summary>
     internal class MappingPipeline
     {
-        private readonly ReferenceSequence _refSeq;
-        private readonly ThreadNumber _thread;
+        private readonly MappingSettings _settings;
 
         /// <summary>
         /// Mappingパイプラインを作成する。
         /// </summary>
-        /// <param name="refSeq">リファレンスシークエンス</param>
-        /// <param name="threadNumber">使用するスレッド数</param>
-        public MappingPipeline(ReferenceSequence refSeq, ThreadNumber threadNumber)
+        /// <param name="settings">Mapping設定</param>
+        public MappingPipeline(MappingSettings settings)
         {
-            _refSeq = refSeq;
-            _thread = threadNumber;
+            _settings = settings;
         }
 
         /// <summary>
@@ -35,9 +32,11 @@ namespace PolyploidQtlSeqCore.Mapping
             var readGroup = CreateReadGroup(sampleName, fastqFilePair);
             var bamFilePath = CreateBamFilePath(fastqFilePair);
 
-            var command = $"bwa mem -t {_thread.Value} -M -R '{readGroup}' {_refSeq.Path} {fastqFilePair.Fastq1Path} {fastqFilePair.Fastq2Path} "
+            var refSeq = _settings.ReferenceSequence.Path;
+            var threadNum = _settings.ThreadNumber.Value;
+            var command = $"bwa mem -t {threadNum} -M -R '{readGroup}' {refSeq} {fastqFilePair.Fastq1Path} {fastqFilePair.Fastq2Path} "
                 + "| samtools fixmate -m - - "
-                + $"| samtools sort -@ {_thread.Value} "
+                + $"| samtools sort -@ {threadNum} "
                 + "| samtools markdup -r - - "
                 + $"| samtools view -b -f 2 -F 2048 -o {bamFilePath}";
             CommandLog.Add(command);

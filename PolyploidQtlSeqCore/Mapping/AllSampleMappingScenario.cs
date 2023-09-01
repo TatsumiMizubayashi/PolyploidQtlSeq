@@ -1,6 +1,6 @@
 ﻿using Kurukuru;
+using PolyploidQtlSeqCore.Application.Pipeline;
 using PolyploidQtlSeqCore.IO;
-using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.Mapping
 {
@@ -14,24 +14,23 @@ namespace PolyploidQtlSeqCore.Mapping
         /// <summary>
         /// 全サンプルのMappingシナリオを作成する。
         /// </summary>
-        /// <param name="refSeq">リファレンスシークエンス</param>
-        /// <param name="thread">スレッド数</param>
-        public AllSampleMappingScenario(ReferenceSequence refSeq, ThreadNumber thread)
+        /// <param name="setting">Mapping設定</param>
+        public AllSampleMappingScenario(MappingSettings setting)
         {
-            _sampleMappingService = new SampleMappingService(refSeq, thread);
+            _sampleMappingService = new SampleMappingService(setting);
         }
 
         /// <summary>
         /// 全サンプルのMappingを行う。
         /// </summary>
-        /// <param name="option">Mappingオプション</param>
+        /// <param name="sampleSetting">Mappingサンプル設定</param>
         /// <returns>全サンプルのBAMファイル</returns>
-        public async ValueTask<AllSampleBamFiles> MappingAsync(MappingSampleSettings option)
+        public async ValueTask<AllSampleBamFiles> MappingAsync(MappingSampleSettings sampleSetting)
         {
-            var p1BamFile = await MappingAsync(option.Parent1Directory);
-            var p2BamFile = await MappingAsync(option.Parent2Directory);
-            var bulk1BamFile = await MappingAsync(option.Bulk1Directory);
-            var bulk2BamFile = await MappingAsync(option.Bulk2Directory);
+            var p1BamFile = await MappingAsync(sampleSetting.Parent1Directory);
+            var p2BamFile = await MappingAsync(sampleSetting.Parent2Directory);
+            var bulk1BamFile = await MappingAsync(sampleSetting.Bulk1Directory);
+            var bulk2BamFile = await MappingAsync(sampleSetting.Bulk2Directory);
 
             Log.Clear();
 

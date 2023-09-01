@@ -1,4 +1,5 @@
-﻿using PolyploidQtlSeqCore.Share;
+﻿using PolyploidQtlSeqCore.Application.Pipeline;
+using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.Mapping
 {
@@ -12,11 +13,10 @@ namespace PolyploidQtlSeqCore.Mapping
         /// <summary>
         /// 1サンプル分のMappingを行うサービスを作成する。
         /// </summary>
-        /// <param name="refSeq">リファレンスシークエンス</param>
-        /// <param name="thread">スレッド数</param>
-        public SampleMappingService(ReferenceSequence refSeq, ThreadNumber thread)
+        /// <param name="setting">Mapping設定</param>
+        public SampleMappingService(MappingSettings setting)
         {
-            _mappingPipeline = new MappingPipeline(refSeq, thread);
+            _mappingPipeline = new MappingPipeline(setting);
         }
 
         /// <summary>
