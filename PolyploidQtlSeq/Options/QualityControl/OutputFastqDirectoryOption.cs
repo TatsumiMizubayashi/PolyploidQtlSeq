@@ -23,13 +23,13 @@ namespace PolyploidQtlSeq.Options.QualityControl
         /// </summary>
         public const string DESCRIPTION = "Output directory.";
 
-        private readonly IFastpQualityControlOptionValue _optionValue;
+        private readonly IFastpQualityControlSettingValue _optionValue;
 
         /// <summary>
         /// 出力Fastqディレクトリオプション インスタンスを作成する。
         /// </summary>
         /// <param name="optionValue">Fastq QCオプション値</param>
-        public OutputFastqDirectoryOption(IFastpQualityControlOptionValue optionValue)
+        public OutputFastqDirectoryOption(IFastpQualityControlSettingValue optionValue)
         {
             _optionValue = optionValue;
         }

@@ -3,7 +3,7 @@
     /// <summary>
     /// Fastp QCオプション値 インターフェース
     /// </summary>
-    public interface IFastpQualityControlOptionValue
+    public interface IFastpQualityControlSettingValue
     {
         /// <summary>
         /// 入力Fastqファイル置き場のPathを設定、または取得する。

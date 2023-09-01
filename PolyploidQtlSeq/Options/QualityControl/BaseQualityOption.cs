@@ -38,13 +38,13 @@ namespace PolyploidQtlSeq.Options.QualityControl
         /// </summary>
         private const int MAXIMUM = 50;
 
-        private readonly IFastpQualityControlOptionValue _optionValue;
+        private readonly IFastpQualityControlSettingValue _optionValue;
 
         /// <summary>
         /// 塩基クオリティオプションインスタンスを作成する。
         /// </summary>
         /// <param name="optionValue">Fastq QCオプション値</param>
-        public BaseQualityOption(IFastpQualityControlOptionValue optionValue)
+        public BaseQualityOption(IFastpQualityControlSettingValue optionValue)
         {
             _optionValue = optionValue;
         }

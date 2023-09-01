@@ -23,13 +23,13 @@ namespace PolyploidQtlSeq.Options.QualityControl
         /// </summary>
         public const string DESCRIPTION = "Raw fastq directory.";
 
-        private readonly IFastpQualityControlOptionValue _optionValue;
+        private readonly IFastpQualityControlSettingValue _optionValue;
 
         /// <summary>
         /// 入力RawFastqディレクトリオプションインスタンスを作成する。
         /// </summary>
         /// <param name="optionValue">Fastq QCオプション値</param>
-        public InputRawFastqDirectoryOption(IFastpQualityControlOptionValue optionValue)
+        public InputRawFastqDirectoryOption(IFastpQualityControlSettingValue optionValue)
         {
             _optionValue = optionValue;
         }

@@ -21,7 +21,7 @@ namespace PolyploidQtlSeq.Options.QualityControl
         /// </summary>
         /// <param name="optionValue">Fastp QCオプション値</param>
         /// <returns>Fastp QCオプション</returns>
-        public static FastpQualityControlOptions Create(IFastpQualityControlOptionValue optionValue)
+        public static FastpQualityControlOptions Create(IFastpQualityControlSettingValue optionValue)
         {
             var options = new Option[]
             {
