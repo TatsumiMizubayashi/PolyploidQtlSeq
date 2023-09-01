@@ -47,7 +47,7 @@ namespace PolyploidQtlSeqCore.Mapping
         /// </summary>
         /// <param name="option">解析対象染色体オプション</param>
         /// <returns>解析対象染色体</returns>
-        public Chromosome[] GetAnalysisChrs(AnalysisChrOption option)
+        public Chromosome[] GetAnalysisChrs(AnalysisChrSettings option)
         {
             var bamHeader = Parent1BamFile.ToHeader();
             var allChrs = bamHeader.ToChromosomes();

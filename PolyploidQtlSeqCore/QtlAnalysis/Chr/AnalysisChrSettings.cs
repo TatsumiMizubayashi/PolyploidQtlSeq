@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.QtlAnalysis.Chr
 {
     /// <summary>
-    /// 解析対象染色体オプション
+    /// 解析対象染色体設定
     /// </summary>
-    internal class AnalysisChrOption
+    internal class AnalysisChrSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
         {
@@ -27,16 +27,16 @@
         }
 
         /// <summary>
-        /// 解析対象染色体オプションを作成する。
+        /// 解析対象染色体設定を作成する。
         /// </summary>
-        /// <param name="optionValues">オプション値</param>
+        /// <param name="settingValue">設定値</param>
         /// <param name="parameterDictionary">パラメータファイルの中身</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        public AnalysisChrOption(IAnalysisChrOptions optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public AnalysisChrSettings(IAnalysisChrSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
-            ChrSizeThreshold = new ChrSizeThreshold(optionValues.ChrSizeThreshold, parameterDictionary, userOptionDictionary);
-            AnalysisChrNames = new AnalysisChrNames(optionValues.AnalysisChrNames, parameterDictionary, userOptionDictionary);
+            ChrSizeThreshold = new ChrSizeThreshold(settingValue.ChrSizeThreshold, parameterDictionary, userOptionDictionary);
+            AnalysisChrNames = new AnalysisChrNames(settingValue.AnalysisChrNames, parameterDictionary, userOptionDictionary);
         }
 
         /// <summary>

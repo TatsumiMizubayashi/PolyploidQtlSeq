@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.QtlAnalysis.Chr
 {
     /// <summary>
-    /// 解析対象染色体オプションインターフェイス
+    /// 解析対象染色体設定値インターフェイス
     /// </summary>
-    public interface IAnalysisChrOptions
+    public interface IAnalysisChrSettingValue
     {
         /// <summary>
         /// 染色体サイズのしきい値を取得する。

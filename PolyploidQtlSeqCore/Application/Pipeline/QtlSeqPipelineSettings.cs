@@ -27,7 +27,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             };
 
             MappingSampleSettings.AddLongNameKeyValuePair(toLongNameDictionary);
-            AnalysisChrOption.AddLongNameKeyValuePair(toLongNameDictionary);
+            AnalysisChrSettings.AddLongNameKeyValuePair(toLongNameDictionary);
             BcfToolsVariantCallOption.AddLongNameKeyValuePair(toLongNameDictionary);
             SnpEffOption.AddLongNameKeyValuePair(toLongNameDictionary);
             QtlAnalysisScenarioOptions.AddLongNameKeyValuePair(toLongNameDictionary);
@@ -50,7 +50,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
 
             MappingSettings = new MappingSettings(optionValues);
             MappingSampleSettings = new MappingSampleSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
-            AnalysisChrOption = new AnalysisChrOption(optionValues, longNameParameterDictionary, userOptionDictionary);
+            AnalysisChrOption = new AnalysisChrSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
             BcfToolsVariantCallOption = new BcfToolsVariantCallOption(optionValues, longNameParameterDictionary, userOptionDictionary);
             SnpEffOption = new SnpEffOption(optionValues, longNameParameterDictionary, userOptionDictionary);
             QtlAnalysisScenarioOptions = new QtlAnalysisScenarioOptions(optionValues, longNameParameterDictionary, userOptionDictionary);
@@ -75,7 +75,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         /// <summary>
         /// 解析染色体オプションを取得する。
         /// </summary>
-        public AnalysisChrOption AnalysisChrOption { get; }
+        public AnalysisChrSettings AnalysisChrOption { get; }
 
         /// <summary>
         /// bcftools変異検出オプションを取得する。

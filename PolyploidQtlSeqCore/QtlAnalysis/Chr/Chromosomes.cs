@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="option">オプション</param>
         /// <returns>染色体配列</returns>
-        public Chromosome[] Get(AnalysisChrOption option)
+        public Chromosome[] Get(AnalysisChrSettings option)
         {
             if (option.AnalysisChrNames.HasNames) return Get(option.AnalysisChrNames);
 
