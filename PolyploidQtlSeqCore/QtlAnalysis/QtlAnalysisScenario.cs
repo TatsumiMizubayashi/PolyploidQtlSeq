@@ -1,12 +1,11 @@
 ﻿using Kurukuru;
-using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.OxyGraph;
 using PolyploidQtlSeqCore.QtlAnalysis.Preprocess;
 using PolyploidQtlSeqCore.QtlAnalysis.IO;
 using PolyploidQtlSeqCore.QtlAnalysis.Preprocess.IO;
 using PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow;
 
-namespace PolyploidQtlSeqCore.Application.QtlAnalysis
+namespace PolyploidQtlSeqCore.QtlAnalysis
 {
     /// <summary>
     /// QTL解析シナリオ

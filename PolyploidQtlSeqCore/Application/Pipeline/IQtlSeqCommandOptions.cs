@@ -1,5 +1,5 @@
-﻿using PolyploidQtlSeqCore.Application.QtlAnalysis;
-using PolyploidQtlSeqCore.Mapping;
+﻿using PolyploidQtlSeqCore.Mapping;
+using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
 using PolyploidQtlSeqCore.VariantCall;
 

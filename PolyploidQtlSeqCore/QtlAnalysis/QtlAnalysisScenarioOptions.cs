@@ -1,12 +1,11 @@
-﻿using PolyploidQtlSeqCore.QtlAnalysis;
-using PolyploidQtlSeqCore.QtlAnalysis.Distribution;
+﻿using PolyploidQtlSeqCore.QtlAnalysis.Distribution;
 using PolyploidQtlSeqCore.QtlAnalysis.IO;
 using PolyploidQtlSeqCore.QtlAnalysis.OxyGraph;
 using PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter;
 using PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow;
 using PolyploidQtlSeqCore.Share;
 
-namespace PolyploidQtlSeqCore.Application.QtlAnalysis
+namespace PolyploidQtlSeqCore.QtlAnalysis
 {
     /// <summary>
     /// QTL解析シナリオオプション

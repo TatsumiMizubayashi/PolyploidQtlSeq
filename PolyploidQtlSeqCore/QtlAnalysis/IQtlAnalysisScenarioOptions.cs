@@ -3,11 +3,12 @@ using PolyploidQtlSeqCore.QtlAnalysis.OxyGraph;
 using PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter;
 using PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow;
 
-namespace PolyploidQtlSeqCore.Application.QtlAnalysis
+namespace PolyploidQtlSeqCore.QtlAnalysis
 {
     /// <summary>
     /// QTL解析シナリオオプション インターフェイス
     /// </summary>
+    [Obsolete("internalにする予定")]
     public interface IQtlAnalysisScenarioOptions : IQtlSeqTargetPolicyOptions, INoQtlDistributionOption, ISlidingWindowAnalysisOption, IGraphOptions
     {
         /// <summary>

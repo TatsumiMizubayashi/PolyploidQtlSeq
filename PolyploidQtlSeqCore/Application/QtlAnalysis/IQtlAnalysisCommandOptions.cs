@@ -1,4 +1,6 @@
-﻿namespace PolyploidQtlSeqCore.Application.QtlAnalysis
+﻿using PolyploidQtlSeqCore.QtlAnalysis;
+
+namespace PolyploidQtlSeqCore.Application.QtlAnalysis
 {
     /// <summary>
     /// QTL解析コマンドオプション インターフェイス
