@@ -10,14 +10,12 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// リード最低長の最小値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MINIMUM = 10;
+        private const int MINIMUM = 10;
 
         /// <summary>
         /// リード最低長の最大値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MAXIMUM = 150;
+        private const int MAXIMUM = 150;
 
         /// <summary>
         /// リード最低長の規定値
@@ -63,6 +61,17 @@ namespace PolyploidQtlSeqCore.QualityControl
             Value = OptionValue.GetValue(LONG_NAME, length, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// リードの最低長を作成する。
+        /// </summary>
+        /// <param name="length">リード最低長</param>
+        public ReadLengthRequired(int length)
+        {
+            if (length < MINIMUM || length > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(length));
+
+            Value = length;
         }
 
         /// <summary>

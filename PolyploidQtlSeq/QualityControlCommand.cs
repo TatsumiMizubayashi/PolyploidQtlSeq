@@ -39,7 +39,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = dq.ReadLengthRequired.SHORT_NAME, LongName = dq.ReadLengthRequired.LONG_NAME,
             Description = dq.ReadLengthRequired.DESCRIPTION, ValueName = "")]
-        [Range(dq.ReadLengthRequired.MINIMUM, dq.ReadLengthRequired.MAXIMUM, ErrorMessage = dq.ReadLengthRequired.VALIDATION_ERROR_MESSAGE)]
         public int ReadLengthRequired { get; set; }
 
         [Option(ShortName = dq.NBaseLimit.SHORT_NAME, LongName = dq.NBaseLimit.LONG_NAME,
