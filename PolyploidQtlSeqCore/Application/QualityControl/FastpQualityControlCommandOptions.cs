@@ -7,6 +7,7 @@ namespace PolyploidQtlSeqCore.Application.QualityControl
     /// <summary>
     /// Fastp QCコマンドオプション
     /// </summary>
+    [Obsolete("削除予定")]
     internal class FastpQualityControlCommandOptions
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
