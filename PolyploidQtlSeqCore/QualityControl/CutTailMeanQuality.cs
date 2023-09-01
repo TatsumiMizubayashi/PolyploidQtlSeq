@@ -10,36 +10,43 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// 3'末端トリム時の平均クオリティの最小値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int MINIMUM = 1;
 
         /// <summary>
         /// 3'末端トリム時の平均クオリティの最大値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int MAXIMUM = 30;
 
         /// <summary>
         /// 3'末端トリム時の平均クオリティの規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 20;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "Q";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "cutTailMeanQuality";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Threshold of average quality for trimming at 3' end. cut_tail_mean_quality in fastp.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -Q option must be an integer greater than 1 and less than or equal to 30.";
 
         /// <summary>
