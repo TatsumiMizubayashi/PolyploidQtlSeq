@@ -37,6 +37,20 @@ namespace PolyploidQtlSeqCore.Share
         }
 
         /// <summary>
+        /// リファレンスシークエンスファイルを作成する。
+        /// </summary>
+        /// <param name="refSeqFilePath">リファレンスシークエンスファイルPath</param>
+        public ReferenceSequence(string refSeqFilePath)
+        {
+            if (string.IsNullOrEmpty(Path)) throw new ArgumentException(null, nameof(refSeqFilePath));
+            if (!File.Exists(refSeqFilePath)) throw new FileNotFoundException($"{refSeqFilePath} not found.");
+
+            Path = refSeqFilePath;
+        }
+
+
+
+         /// <summary>
         /// リファレンスシークエンスファイルPathを取得する。
         /// </summary>
         internal string Path { get; }

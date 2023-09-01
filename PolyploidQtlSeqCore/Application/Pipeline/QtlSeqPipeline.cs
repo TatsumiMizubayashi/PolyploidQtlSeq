@@ -1,5 +1,4 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
-using PolyploidQtlSeqCore.Application.QtlAnalysis;
 using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis;
