@@ -3,7 +3,7 @@
     /// <summary>
     /// Bcftools 変異検出オプション
     /// </summary>
-    internal class BcfToolsVariantCallOption
+    internal class BcfToolsVariantCallSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
         {
@@ -36,7 +36,7 @@
         /// <param name="optionValues">bcftools変異検出オプション値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        public BcfToolsVariantCallOption(IBcftoolsVariantCallOption optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public BcfToolsVariantCallSettings(IBcftoolsVariantCallSettingValue optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
             MinmumBaseQuality = new MinmumBaseQuality(optionValues.MinBq, parameterDictionary, userOptionDictionary);

@@ -3,7 +3,7 @@
     /// <summary>
     /// Bcftools変異検出オプションインターフェイス
     /// </summary>
-    public interface IBcftoolsVariantCallOption
+    public interface IBcftoolsVariantCallSettingValue
     {
         /// <summary>
         /// MQ最低値を取得する。

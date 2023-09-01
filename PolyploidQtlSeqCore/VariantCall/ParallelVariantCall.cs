@@ -13,7 +13,7 @@ namespace PolyploidQtlSeqCore.VariantCall
         private const string VCF_FILENAME = "polyQtlseq.vcf.gz";
 
         private readonly object _syncObj = new();
-        private readonly BcfToolsVariantCallOption _option;
+        private readonly BcfToolsVariantCallSettings _option;
         private readonly ReferenceSequence _refSeq;
         private readonly ThreadNumber _threadNumber;
 
@@ -23,7 +23,7 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <param name="option">オプション</param>
         /// <param name="refSeq">リファレンスシークエンス</param>
         /// <param name="thread">スレッド数</param>
-        public ParallelVariantCall(BcfToolsVariantCallOption option, ReferenceSequence refSeq, ThreadNumber thread)
+        public ParallelVariantCall(BcfToolsVariantCallSettings option, ReferenceSequence refSeq, ThreadNumber thread)
         {
             _option = option;
             _refSeq = refSeq;

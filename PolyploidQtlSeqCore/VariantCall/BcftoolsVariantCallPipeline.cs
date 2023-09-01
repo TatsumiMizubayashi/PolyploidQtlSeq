@@ -13,7 +13,7 @@ namespace PolyploidQtlSeqCore.VariantCall
     /// </summary>
     internal class BcftoolsVariantCallPipeline
     {
-        private readonly BcfToolsVariantCallOption _option;
+        private readonly BcfToolsVariantCallSettings _option;
         private readonly ReferenceSequence _refSeq;
         private const int MAX_DEPTH = 10000;
 
@@ -22,7 +22,7 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// </summary>
         /// <param name="option">オプション</param>
         /// <param name="refSeq">リファレンスシークエンス</param>
-        public BcftoolsVariantCallPipeline(BcfToolsVariantCallOption option, ReferenceSequence refSeq)
+        public BcftoolsVariantCallPipeline(BcfToolsVariantCallSettings option, ReferenceSequence refSeq)
         {
             _option = option;
             _refSeq = refSeq;

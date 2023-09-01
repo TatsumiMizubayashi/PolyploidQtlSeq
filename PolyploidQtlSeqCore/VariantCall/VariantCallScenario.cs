@@ -14,7 +14,7 @@ namespace PolyploidQtlSeqCore.VariantCall
     {
         private const string SNPEFF_VCF_FILENAME = "polyQtlseq.snpEff.vcf.gz";
 
-        private readonly BcfToolsVariantCallOption _bcfToolsVariantCallOption;
+        private readonly BcfToolsVariantCallSettings _bcfToolsVariantCallOption;
         private readonly SnpEffOption _snpEffOption;
         private readonly ReferenceSequence _refSeq;
         private readonly ThreadNumber _thread;
@@ -26,7 +26,7 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <param name="snpEffOption">snpEffオプション</param>
         /// <param name="refSeq">リファレンスシークエンス</param>
         /// <param name="thread">使用するスレッド数</param>
-        public VariantCallScenario(BcfToolsVariantCallOption bcftoolsOption, SnpEffOption snpEffOption,
+        public VariantCallScenario(BcfToolsVariantCallSettings bcftoolsOption, SnpEffOption snpEffOption,
             ReferenceSequence refSeq, ThreadNumber thread)
         {
             _bcfToolsVariantCallOption = bcftoolsOption;
