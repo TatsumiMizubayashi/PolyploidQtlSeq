@@ -43,7 +43,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = dq.NBaseLimit.SHORT_NAME, LongName = dq.NBaseLimit.LONG_NAME,
             Description = dq.NBaseLimit.DESCRIPTION, ValueName = "")]
-        [Range(dq.NBaseLimit.MINIMUM, dq.NBaseLimit.MAXIMUM, ErrorMessage = dq.NBaseLimit.VALIDATION_ERROR_MESSAGE)]
         public int NBaseLimit { get; set; }
 
         [Option(ShortName = BaseQuality.SHORT_NAME, LongName = BaseQuality.LONG_NAME,

@@ -10,14 +10,12 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// N塩基数の最小値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MINIMUM = 0;
+        private const int MINIMUM = 0;
 
         /// <summary>
         /// N塩基数の最大値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MAXIMUM = 30;
+        private const int MAXIMUM = 30;
 
         /// <summary>
         /// N塩基数の規定値
@@ -61,6 +59,17 @@ namespace PolyploidQtlSeqCore.QualityControl
             Value = OptionValue.GetValue(LONG_NAME, limit, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// N塩基数の最大値を作成する。
+        /// </summary>
+        /// <param name="limit">N塩基最大数</param>
+        public NBaseLimit(int limit)
+        {
+            if (limit < MINIMUM || limit > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(limit));
+
+            Value = limit;
         }
 
         /// <summary>
