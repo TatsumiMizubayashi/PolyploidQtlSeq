@@ -1,5 +1,4 @@
 ﻿using Kurukuru;
-using McMaster.Extensions.CommandLineUtils;
 using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.QualityControl;
 
@@ -12,19 +11,7 @@ namespace PolyploidQtlSeqCore.Application.QualityControl
     {
         private const string LOG_DIR_NAME = "Log";
 
-        //private readonly FastpQualityControlCommandOptions _qcCommandOption;
         private readonly FastpQualityControlSettings _settings;
-
-        /// <summary>
-        /// Fastp Quality Controlを作成する。
-        /// </summary>
-        /// <param name="optionValues">コマンドオプションの値</param>
-        /// <param name="options">オプションリスト</param>
-        public FastpQualityControl(IFastpQualityControlCommandOptions optionValues,
-            IReadOnlyCollection<CommandOption> options)
-        {
-            //_qcCommandOption = new FastpQualityControlCommandOptions(optionValues, options);
-        }
 
         /// <summary>
         /// Fastp Quality Controlインスタンスを作成する。

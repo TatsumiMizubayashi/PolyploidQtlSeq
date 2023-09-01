@@ -1,46 +1,12 @@
 ﻿using PolyploidQtlSeqCore.IO;
-using PolyploidQtlSeqCore.Options;
 
 namespace PolyploidQtlSeqCore.QualityControl
 {
     /// <summary>
     /// 出力ディレクトリ
     /// </summary>
-    public class OutputDirectory
+    internal class OutputDirectory
     {
-        /// <summary>
-        /// オプションスイッチのShortName
-        /// </summary>
-        [Obsolete("削除予定")]
-        public const string SHORT_NAME = "o";
-
-        /// <summary>
-        /// オプションスイッチのLongName
-        /// </summary>
-        [Obsolete("削除予定")]
-        public const string LONG_NAME = "outputDir";
-
-        /// <summary>
-        /// オプションスイッチの説明
-        /// </summary>
-        [Obsolete("削除予定")]
-        public const string DESCRIPTION = "Output directory.";
-
-        /// <summary>
-        /// 出力ディレクトリを作成する。
-        /// </summary>
-        /// <param name="outputDirPath">出力ディレクトリPath</param>
-        /// <param name="parameterDictionary">パラメータファイルの中身</param>
-        /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        [Obsolete("削除予定")]
-        public OutputDirectory(string outputDirPath, IReadOnlyDictionary<string, string> parameterDictionary,
-            IReadOnlyDictionary<string, bool> userOptionDictionary)
-        {
-            Path = OptionValue.GetValue(LONG_NAME, outputDirPath, parameterDictionary, userOptionDictionary);
-
-            if (string.IsNullOrWhiteSpace(Path)) throw new ArgumentException("Specify the output directory in the -o option.");
-        }
-
         /// <summary>
         /// 出力ディレクトリ インスタンスを作成する。
         /// </summary>
@@ -93,17 +59,6 @@ namespace PolyploidQtlSeqCore.QualityControl
             if (Directory.Exists(Path)) return;
 
             Directory.CreateDirectory(Path);
-        }
-
-
-        /// <summary>
-        /// パラメータファイル記載用行テキストに変換する。
-        /// </summary>
-        /// <returns>パラメータ行テキスト</returns>
-        [Obsolete("削除予定")]
-        public string ToParameterFileLine()
-        {
-            return $"{LONG_NAME}\t{Path}";
         }
 
 
