@@ -10,36 +10,43 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// N塩基数の最小値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int MINIMUM = 0;
 
         /// <summary>
         /// N塩基数の最大値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int MAXIMUM = 30;
 
         /// <summary>
         /// N塩基数の規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 5;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "n";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "nBaseLimit";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Maximum number of N bases. n_base_limit in fastp.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -n option must be an integer greater than or equal to 0 and less than or equal to 30.";
 
         /// <summary>
