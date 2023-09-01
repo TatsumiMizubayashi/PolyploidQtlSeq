@@ -16,7 +16,6 @@ namespace PolyploidQtlSeqCore.VariantCall
 
         private readonly BcfToolsVariantCallSettings _bcfToolsVariantCallOption;
         private readonly SnpEffOption _snpEffOption;
-        private readonly ReferenceSequence _refSeq;
         private readonly ThreadNumber _thread;
 
         /// <summary>
@@ -26,12 +25,10 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <param name="snpEffOption">snpEffオプション</param>
         /// <param name="refSeq">リファレンスシークエンス</param>
         /// <param name="thread">使用するスレッド数</param>
-        public VariantCallScenario(BcfToolsVariantCallSettings bcftoolsOption, SnpEffOption snpEffOption,
-            ReferenceSequence refSeq, ThreadNumber thread)
+        public VariantCallScenario(BcfToolsVariantCallSettings bcftoolsOption, SnpEffOption snpEffOption, ThreadNumber thread)
         {
             _bcfToolsVariantCallOption = bcftoolsOption;
             _snpEffOption = snpEffOption;
-            _refSeq = refSeq;
             _thread = thread;
         }
 
@@ -73,7 +70,7 @@ namespace PolyploidQtlSeqCore.VariantCall
             {
                 try
                 {
-                    var variantCaller = new ParallelVariantCall(_bcfToolsVariantCallOption, _refSeq, _thread);
+                    var variantCaller = new ParallelVariantCall(_bcfToolsVariantCallOption, _thread);
                     var qtlseqVcf = await variantCaller.CallAsync(bamFiles, outputDir, chromosomes);
                     spinner.Succeed("Variant call completed");
 

@@ -76,7 +76,6 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             var variantCallScenario = new VariantCallScenario(
                 _option.BcfToolsVariantCallOption,
                 _option.SnpEffOption,
-                _option.ReferenceSequence,
                 _threadNumber);
 
             return variantCallScenario.CallAsync(allSampleBamFiles, _outputDir, analysisChrs);

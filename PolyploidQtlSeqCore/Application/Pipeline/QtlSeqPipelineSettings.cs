@@ -46,7 +46,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             var longNameParameterDictionary = ParameterFile.ToParameterDictionary(_toLongNameDictionary);
             var userOptionDictionary = UserSpecifiedLongNameDictionaryCreator.Create(options);
 
-            ReferenceSequence = new ReferenceSequence(optionValues.ReferenceSequence, longNameParameterDictionary, userOptionDictionary);
+            //ReferenceSequence = new ReferenceSequence(optionValues.ReferenceSequence, longNameParameterDictionary, userOptionDictionary);
 
             MappingSettings = new MappingSettings(optionValues);
             MappingSampleSettings = new MappingSampleSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
@@ -101,13 +101,14 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         /// パラメータファイルを保存する。
         /// </summary>
         /// <param name="filePath">パラメータファイルPath</param>
+        [Obsolete("削除予定")]
         public void SaveParameterFile(string filePath)
         {
             using var writer = new StreamWriter(filePath);
 
             writer.WriteLine("#QTL-Seq Command");
             writer.WriteLine("#LongName\tValue");
-            writer.WriteLine(ReferenceSequence.ToParameterFileLine());
+            //writer.WriteLine(ReferenceSequence.ToParameterFileLine());
 
             var parameterLineQuery = MappingSampleSettings.ToParameterFileLines()
                 .Concat(AnalysisChrOption.ToParameterFileLines())

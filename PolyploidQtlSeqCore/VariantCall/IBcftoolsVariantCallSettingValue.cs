@@ -6,6 +6,11 @@
     public interface IBcftoolsVariantCallSettingValue
     {
         /// <summary>
+        /// リファレンスシークエンスファイルを取得する。
+        /// </summary>
+        string ReferenceSequence { get; }
+
+        /// <summary>
         /// MQ最低値を取得する。
         /// </summary>
         int MinMq { get; }

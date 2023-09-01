@@ -1,4 +1,6 @@
-﻿namespace PolyploidQtlSeqCore.VariantCall
+﻿using PolyploidQtlSeqCore.Share;
+
+namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
     /// Bcftools 変異検出オプション
@@ -33,17 +35,22 @@
         /// <summary>
         /// Bcftools変異検出オプションを作成する。
         /// </summary>
-        /// <param name="optionValues">bcftools変異検出オプション値</param>
+        /// <param name="settingValue">bcftools変異検出オプション値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        public BcfToolsVariantCallSettings(IBcftoolsVariantCallSettingValue optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public BcfToolsVariantCallSettings(IBcftoolsVariantCallSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
-            MinmumBaseQuality = new MinmumBaseQuality(optionValues.MinBq, parameterDictionary, userOptionDictionary);
-            MinmumMappingQuality = new MinmumMappingQuality(optionValues.MinMq, parameterDictionary, userOptionDictionary);
-            AdjustMappingQuality = new AdjustMappingQuality(optionValues.AdjustMq, parameterDictionary, userOptionDictionary);
+            ReferenceSequence = new ReferenceSequence(settingValue.ReferenceSequence);
+            MinmumBaseQuality = new MinmumBaseQuality(settingValue.MinBq, parameterDictionary, userOptionDictionary);
+            MinmumMappingQuality = new MinmumMappingQuality(settingValue.MinMq, parameterDictionary, userOptionDictionary);
+            AdjustMappingQuality = new AdjustMappingQuality(settingValue.AdjustMq, parameterDictionary, userOptionDictionary);
         }
 
+        /// <summary>
+        /// リファレンスシークエンス
+        /// </summary>
+        public ReferenceSequence ReferenceSequence { get; }
 
         /// <summary>
         /// Base Quality最低値

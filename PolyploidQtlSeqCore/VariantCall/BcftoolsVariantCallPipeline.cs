@@ -3,7 +3,6 @@ using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
-using PolyploidQtlSeqCore.Share;
 using static Zx.Env;
 
 namespace PolyploidQtlSeqCore.VariantCall
@@ -14,7 +13,6 @@ namespace PolyploidQtlSeqCore.VariantCall
     internal class BcftoolsVariantCallPipeline
     {
         private readonly BcfToolsVariantCallSettings _option;
-        private readonly ReferenceSequence _refSeq;
         private const int MAX_DEPTH = 10000;
 
         /// <summary>
@@ -22,10 +20,9 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// </summary>
         /// <param name="option">オプション</param>
         /// <param name="refSeq">リファレンスシークエンス</param>
-        public BcftoolsVariantCallPipeline(BcfToolsVariantCallSettings option, ReferenceSequence refSeq)
+        public BcftoolsVariantCallPipeline(BcfToolsVariantCallSettings option)
         {
             _option = option;
-            _refSeq = refSeq;
         }
 
         /// <summary>
@@ -41,11 +38,11 @@ namespace PolyploidQtlSeqCore.VariantCall
 
             var command = $"bcftools mpileup -a AD,ADF,ADR -B "
                 + $"-q {_option.MinmumMappingQuality.Value} -Q {_option.MinmumBaseQuality.Value} -C {_option.AdjustMappingQuality.Value} "
-                + $"-f {_refSeq.Path} -d {MAX_DEPTH} -r {targetChr.ToRegion()} -O u "
+                + $"-f {_option.ReferenceSequence.Path} -d {MAX_DEPTH} -r {targetChr.ToRegion()} -O u "
                 + $"{bamFiles.Parent1BamFile.Path} {bamFiles.Parent2BamFile.Path} {bamFiles.Bulk1BamFile.Path} {bamFiles.Bulk2BamFile.Path} "
                 + "| bcftools call -v -m -a GQ,GP -O u "
                 + $"| bcftools filter -i 'INFO/MQ>={_option.MinmumMappingQuality.Value}' -O u "
-                + $"| bcftools norm -f {_refSeq.Path} -O u "
+                + $"| bcftools norm -f {_option.ReferenceSequence.Path} -O u "
                 + $"| bcftools sort -O z -o {outputVcfPath}";
             CommandLog.Add(command);
 

@@ -13,20 +13,17 @@ namespace PolyploidQtlSeqCore.VariantCall
         private const string VCF_FILENAME = "polyQtlseq.vcf.gz";
 
         private readonly object _syncObj = new();
-        private readonly BcfToolsVariantCallSettings _option;
-        private readonly ReferenceSequence _refSeq;
+        private readonly BcfToolsVariantCallSettings _settings;
         private readonly ThreadNumber _threadNumber;
 
         /// <summary>
         /// 並列変異検出を作成する。
         /// </summary>
         /// <param name="option">オプション</param>
-        /// <param name="refSeq">リファレンスシークエンス</param>
         /// <param name="thread">スレッド数</param>
-        public ParallelVariantCall(BcfToolsVariantCallSettings option, ReferenceSequence refSeq, ThreadNumber thread)
+        public ParallelVariantCall(BcfToolsVariantCallSettings option, ThreadNumber thread)
         {
-            _option = option;
-            _refSeq = refSeq;
+            _settings = option;
             _threadNumber = thread;
         }
 
@@ -47,7 +44,7 @@ namespace PolyploidQtlSeqCore.VariantCall
             var chrVcfList = new List<OneChromosomeVcfFile>();
             await Parallel.ForEachAsync(chromosomes, pOption, async (chr, cancelToken) =>
             {
-                var variantCallPipeline = new BcftoolsVariantCallPipeline(_option, _refSeq);
+                var variantCallPipeline = new BcftoolsVariantCallPipeline(_settings);
                 var chrVcfFile = await variantCallPipeline.CallAsync(bamFiles, outputDir, chr);
                 lock (_syncObj) chrVcfList.Add(chrVcfFile);
             });
