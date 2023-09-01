@@ -42,6 +42,17 @@ namespace PolyploidQtlSeqCore.QualityControl
         }
 
         /// <summary>
+        /// 出力ディレクトリ インスタンスを作成する。
+        /// </summary>
+        /// <param name="outputDirPath">出力ディレクトリPath</param>
+        public OutputDirectory(string outputDirPath)
+        {
+            if (string.IsNullOrEmpty(outputDirPath)) throw new ArgumentException(null, nameof(outputDirPath));
+
+            Path = System.IO.Path.GetFullPath(outputDirPath);
+        }
+
+        /// <summary>
         /// 出力ディレクトリPATHを取得する。
         /// </summary>
         internal string Path { get; }
