@@ -12,7 +12,8 @@ namespace PolyploidQtlSeqCore.Application.QualityControl
     {
         private const string LOG_DIR_NAME = "Log";
 
-        private readonly FastpQualityControlCommandOptions _qcCommandOption;
+        //private readonly FastpQualityControlCommandOptions _qcCommandOption;
+        private readonly FastpQualityControlSettings _settings;
 
         /// <summary>
         /// Fastp Quality Controlを作成する。
@@ -22,7 +23,16 @@ namespace PolyploidQtlSeqCore.Application.QualityControl
         public FastpQualityControl(IFastpQualityControlCommandOptions optionValues,
             IReadOnlyCollection<CommandOption> options)
         {
-            _qcCommandOption = new FastpQualityControlCommandOptions(optionValues, options);
+            //_qcCommandOption = new FastpQualityControlCommandOptions(optionValues, options);
+        }
+
+        /// <summary>
+        /// Fastp Quality Controlインスタンスを作成する。
+        /// </summary>
+        /// <param name="settingValue">設定値</param>
+        public FastpQualityControl(IFastpQualityControlSettingValue settingValue)
+        {
+            _settings = new FastpQualityControlSettings(settingValue);
         }
 
         /// <summary>
@@ -31,8 +41,8 @@ namespace PolyploidQtlSeqCore.Application.QualityControl
         /// <returns>終了コード</returns>
         public async ValueTask<int> RunAsync()
         {
-            var inputFastqFilePairs = _qcCommandOption.InputRawFastqDirectory.ToFastqFilePairs();
-            var fastpCommonOption = _qcCommandOption.ToFastpCommonOption();
+            var inputFastqFilePairs = _settings.InputRawFastqDirectory.ToFastqFilePairs();
+            var fastpCommonOption = _settings.ToFastpCommonOption();
 
             var outputDir = fastpCommonOption.OutputDirectory;
             var logDirPath = outputDir.CreateSubDir(LOG_DIR_NAME);
@@ -67,9 +77,6 @@ namespace PolyploidQtlSeqCore.Application.QualityControl
                 });
 
             }
-
-            var parameterFilePath = outputDir.CreateFilePath("QC parameter.txt");
-            _qcCommandOption.SaveParameterFile(parameterFilePath);
 
             var commandListFilePath = outputDir.CreateFilePath(LOG_DIR_NAME, "QC Command List.txt");
             CommandLog.Save(commandListFilePath);
