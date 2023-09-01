@@ -31,7 +31,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
                 [ThreadNumber.LONG_NAME] = ThreadNumber.LONG_NAME
             };
 
-            QtlSeqTargetPolicyOption.AddLongNameKeyValuePair(toLongNameDictionary);
+            QtlSeqTargetPolicySettings.AddLongNameKeyValuePair(toLongNameDictionary);
             NoQtlDistributionOption.AddLongNameKeyValuePair(toLongNameDictionary);
             SlidingWindowAnalysisOption.AddLongNameKeyValuePair(toLongNameDictionary);
             GraphOption.AddLongNameKeyValuePair(toLongNameDictionary);
@@ -64,7 +64,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
             DisplayAnnotationImpacts = new DisplayAnnotationImpacts(optionValues.DisplayAnnotationImpacts, parameterDictionary, userOptionDictionary);
             ThreadNumber = new ThreadNumber(optionValues.ThreadNumber, parameterDictionary, userOptionDictionary);
 
-            QtlSeqTargetPolicyOption = new QtlSeqTargetPolicyOption(optionValues, parameterDictionary, userOptionDictionary);
+            QtlSeqTargetPolicyOption = new QtlSeqTargetPolicySettings(optionValues, parameterDictionary, userOptionDictionary);
             NoQtlDistributionOption = new NoQtlDistributionOption(optionValues, parameterDictionary, userOptionDictionary);
             SlidingWindowAnalysisOption = new SlidingWindowAnalysisOption(optionValues, parameterDictionary, userOptionDictionary);
             GraphOption = new GraphOption(optionValues, parameterDictionary, userOptionDictionary);
@@ -88,7 +88,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <summary>
         /// QTL-seq対象ポリシーオプション
         /// </summary>
-        public QtlSeqTargetPolicyOption QtlSeqTargetPolicyOption { get; }
+        public QtlSeqTargetPolicySettings QtlSeqTargetPolicyOption { get; }
 
         /// <summary>
         /// QTLなし分布オプション

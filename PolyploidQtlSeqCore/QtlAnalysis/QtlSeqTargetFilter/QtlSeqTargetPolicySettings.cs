@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
 {
     /// <summary>
-    /// QTL-seq解析対象変異ポリシーオプション
+    /// QTL-seq解析対象変異ポリシー設定
     /// </summary>
-    internal class QtlSeqTargetPolicyOption
+    internal class QtlSeqTargetPolicySettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
         {
@@ -36,16 +36,16 @@
         /// <summary>
         /// QTL-seq解析対象変異ポリシー設定を作成する。
         /// </summary>
-        /// <param name="optionValues">オプションの値</param>
+        /// <param name="settingValue">オプションの値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        public QtlSeqTargetPolicyOption(IQtlSeqTargetPolicyOptions optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public QtlSeqTargetPolicySettings(IQtlSeqTargetPolicySettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
-            Parent1MostAlleleRateThreshold = new Parent1MostAlleleRateThreshold(optionValues.Parent1MostAlleleRateThreshold, parameterDictionary, userOptionDictionary);
-            Parent2SnpIndexRange = new Parent2SnpIndexRange(optionValues.Parent2SnpIndexRange, parameterDictionary, userOptionDictionary);
-            MinimumDepthThreshold = new MinimumDepthThreshold(optionValues.MinimumDepthThreshold, parameterDictionary, userOptionDictionary);
-            MaxBulkSnpIndexThreshold = new MaxBulkSnpIndexThreshold(optionValues.MaxBulkSnpIndexThreshold, parameterDictionary, userOptionDictionary);
+            Parent1MostAlleleRateThreshold = new Parent1MostAlleleRateThreshold(settingValue.Parent1MostAlleleRateThreshold, parameterDictionary, userOptionDictionary);
+            Parent2SnpIndexRange = new Parent2SnpIndexRange(settingValue.Parent2SnpIndexRange, parameterDictionary, userOptionDictionary);
+            MinimumDepthThreshold = new MinimumDepthThreshold(settingValue.MinimumDepthThreshold, parameterDictionary, userOptionDictionary);
+            MaxBulkSnpIndexThreshold = new MaxBulkSnpIndexThreshold(settingValue.MaxBulkSnpIndexThreshold, parameterDictionary, userOptionDictionary);
         }
 
         /// <summary>

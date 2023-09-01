@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
 {
     /// <summary>
-    /// QTL seq対象ポリシーオプションのインターフェイス
+    /// QTL seq対象ポリシー設定値のインターフェイス
     /// </summary>
-    public interface IQtlSeqTargetPolicyOptions
+    public interface IQtlSeqTargetPolicySettingValue
     {
         /// <summary>
         /// P1 MostAlleleRateのしきい値を取得する。
