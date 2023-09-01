@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
-    /// SnpEff オプションインターフェイス
+    /// SnpEff設定値インターフェイス
     /// </summary>
-    public interface ISnpEffOption
+    public interface ISnpEffSettingValue
     {
         /// <summary>
         /// SnpEffに指定するjava Max Heapサイズ(GB)を取得する。

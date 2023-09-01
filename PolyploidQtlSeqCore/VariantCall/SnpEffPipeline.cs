@@ -6,13 +6,13 @@
     internal class SnpEffPipeline
     {
         private const string GzExtension = ".gz";
-        private readonly SnpEffOption _option;
+        private readonly SnpEffSettings _option;
 
         /// <summary>
         /// SnpEffパイプラインを作成する。
         /// </summary>
         /// <param name="option">オプション</param>
-        public SnpEffPipeline(SnpEffOption option)
+        public SnpEffPipeline(SnpEffSettings option)
         {
             _option = option;
         }

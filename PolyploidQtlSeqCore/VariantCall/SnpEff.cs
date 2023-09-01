@@ -8,13 +8,13 @@ namespace PolyploidQtlSeqCore.VariantCall
     /// </summary>
     internal class SnpEff
     {
-        private readonly SnpEffOption _option;
+        private readonly SnpEffSettings _option;
 
         /// <summary>
         /// SnpEffを作成する。
         /// </summary>
         /// <param name="option">オプション</param>
-        public SnpEff(SnpEffOption option)
+        public SnpEff(SnpEffSettings option)
         {
             _option = option;
         }

@@ -29,7 +29,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             MappingSampleSettings.AddLongNameKeyValuePair(toLongNameDictionary);
             AnalysisChrSettings.AddLongNameKeyValuePair(toLongNameDictionary);
             BcfToolsVariantCallSettings.AddLongNameKeyValuePair(toLongNameDictionary);
-            SnpEffOption.AddLongNameKeyValuePair(toLongNameDictionary);
+            SnpEffSettings.AddLongNameKeyValuePair(toLongNameDictionary);
             QtlAnalysisScenarioOptions.AddLongNameKeyValuePair(toLongNameDictionary);
 
             _toLongNameDictionary = toLongNameDictionary;
@@ -52,7 +52,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             MappingSampleSettings = new MappingSampleSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
             AnalysisChrOption = new AnalysisChrSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
             BcfToolsVariantCallOption = new BcfToolsVariantCallSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
-            SnpEffOption = new SnpEffOption(optionValues, longNameParameterDictionary, userOptionDictionary);
+            SnpEffOption = new SnpEffSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
             QtlAnalysisScenarioOptions = new QtlAnalysisScenarioOptions(optionValues, longNameParameterDictionary, userOptionDictionary);
         }
 
@@ -85,7 +85,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         /// <summary>
         /// SnpEffオプションを取得する。
         /// </summary>
-        public SnpEffOption SnpEffOption { get; }
+        public SnpEffSettings SnpEffOption { get; }
 
         /// <summary>
         /// QTL解析シナリオオプションを取得する。

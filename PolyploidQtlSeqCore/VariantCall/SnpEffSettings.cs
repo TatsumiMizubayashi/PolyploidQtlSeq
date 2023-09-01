@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
-    /// SnpEffオプション
+    /// SnpEff設定
     /// </summary>
-    internal class SnpEffOption
+    internal class SnpEffSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
         {
@@ -31,17 +31,17 @@
 
 
         /// <summary>
-        /// SnpEffオプションを作成する。
+        /// SnpEff設定を作成する。
         /// </summary>
-        /// <param name="optionValues">オプションの値</param>
+        /// <param name="settingValue">オプションの値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        public SnpEffOption(ISnpEffOption optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public SnpEffSettings(ISnpEffSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
-            MaxHeap = new SnpEffMaxHeap(optionValues.SnpEffMaxHeap, parameterDictionary, userOptionDictionary);
-            ConfigFile = new SnpEffConfigFile(optionValues.SnpEffConfigFile, parameterDictionary, userOptionDictionary);
-            Database = new SnpEffDatabase(optionValues.SnpEffDatabaseName, parameterDictionary, userOptionDictionary);
+            MaxHeap = new SnpEffMaxHeap(settingValue.SnpEffMaxHeap, parameterDictionary, userOptionDictionary);
+            ConfigFile = new SnpEffConfigFile(settingValue.SnpEffConfigFile, parameterDictionary, userOptionDictionary);
+            Database = new SnpEffDatabase(settingValue.SnpEffDatabaseName, parameterDictionary, userOptionDictionary);
         }
 
         /// <summary>
