@@ -3,9 +3,9 @@
 namespace PolyploidQtlSeqCore.Application.QtlAnalysis
 {
     /// <summary>
-    /// QTL解析コマンドオプション インターフェイス
+    /// QTL-Seq解析オプション値 インターフェイス
     /// </summary>
-    public interface IQtlAnalysisCommandOptions : IQtlAnalysisScenarioOptions
+    public interface IQtlSeqAnalysisSettingValue : IQtlAnalysisScenarioOptions
     {
         /// <summary>
         /// InputVCFファイルPathを取得する。

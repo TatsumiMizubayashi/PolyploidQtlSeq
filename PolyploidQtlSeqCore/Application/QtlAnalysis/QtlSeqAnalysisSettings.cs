@@ -5,16 +5,17 @@ using PolyploidQtlSeqCore.QtlAnalysis;
 namespace PolyploidQtlSeqCore.Application.QtlAnalysis
 {
     /// <summary>
-    /// Qtl解析コマンドオプション
+    /// QtlSeq解析設定
     /// </summary>
-    internal class QtlAnalysisCommandOption
+    [Obsolete("オプションスイッチ周りの機能を削除する予定")]
+    internal class QtlSeqAnalysisSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary;
 
         /// <summary>
         /// static コンストラクタ
         /// </summary>
-        static QtlAnalysisCommandOption()
+        static QtlSeqAnalysisSettings()
         {
             var toLongNameDictionary = new Dictionary<string, string>()
             {
@@ -32,7 +33,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
         /// </summary>
         /// <param name="optionValues">オプションの値</param>
         /// <param name="options">CommandOptions</param>
-        public QtlAnalysisCommandOption(IQtlAnalysisCommandOptions optionValues, IReadOnlyCollection<CommandOption> options)
+        public QtlSeqAnalysisSettings(IQtlSeqAnalysisSettingValue optionValues, IReadOnlyCollection<CommandOption> options)
         {
             ParameterFile = new ParameterFileParser(optionValues.ParameterFile);
             var longNameParameterDictionary = ParameterFile.ToParameterDictionary(_toLongNameDictionary);

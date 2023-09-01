@@ -8,16 +8,16 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
     /// </summary>
     public class QtlSeqAnalysis
     {
-        private readonly QtlAnalysisCommandOption _option;
+        private readonly QtlSeqAnalysisSettings _option;
 
         /// <summary>
         /// QTL-Seq解析インスタンスを作成する。
         /// </summary>
         /// <param name="optionValue">オプションの値</param>
         /// <param name="options">CommandOptions</param>
-        public QtlSeqAnalysis(IQtlAnalysisCommandOptions optionValue, IReadOnlyCollection<CommandOption> options)
+        public QtlSeqAnalysis(IQtlSeqAnalysisSettingValue optionValue, IReadOnlyCollection<CommandOption> options)
         {
-            _option = new QtlAnalysisCommandOption(optionValue, options);
+            _option = new QtlSeqAnalysisSettings(optionValue, options);
         }
 
         /// <summary>
