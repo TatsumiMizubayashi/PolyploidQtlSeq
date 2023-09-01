@@ -47,7 +47,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = BaseQuality.SHORT_NAME, LongName = BaseQuality.LONG_NAME,
             Description = BaseQuality.DESCRIPTION, ValueName = "")]
-        [Range(BaseQuality.MINIMUM, BaseQuality.MAXIMUM, ErrorMessage = BaseQuality.VALIDATION_ERROR_MESSAGE)]
         public int Quality { get; set; }
 
         [Option(ShortName = dq.CutTailMeanQuality.SHORT_NAME, LongName = dq.CutTailMeanQuality.LONG_NAME,
