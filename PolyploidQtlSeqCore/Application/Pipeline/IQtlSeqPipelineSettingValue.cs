@@ -6,9 +6,9 @@ using PolyploidQtlSeqCore.VariantCall;
 namespace PolyploidQtlSeqCore.Application.Pipeline
 {
     /// <summary>
-    /// QTL-seq解析コマンドオプションインターフェイス
+    /// QTL-seq解析パイプライン設定値 インターフェース
     /// </summary>
-    public interface IQtlSeqCommandOptions : IMappingOptions, IAnalysisChrOptions, IBcftoolsVariantCallOption,
+    public interface IQtlSeqPipelineSettingValue : IMappingOptions, IAnalysisChrOptions, IBcftoolsVariantCallOption,
         ISnpEffOption, IQtlAnalysisScenarioOptions
     {
         /// <summary>

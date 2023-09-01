@@ -13,7 +13,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
     /// </summary>
     public class QtlSeqPipeline
     {
-        private readonly QtlSeqCommandOption _option;
+        private readonly QtlSeqPipelineSettings _option;
         private readonly OutputDirectory _outputDir;
         private readonly ThreadNumber _threadNumber;
 
@@ -22,9 +22,9 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         /// </summary>
         /// <param name="optionValues">オプションの値</param>
         /// <param name="options">コマンドオプション</param>
-        public QtlSeqPipeline(IQtlSeqCommandOptions optionValues, IReadOnlyCollection<CommandOption> options)
+        public QtlSeqPipeline(IQtlSeqPipelineSettingValue optionValues, IReadOnlyCollection<CommandOption> options)
         {
-            _option = new QtlSeqCommandOption(optionValues, options);
+            _option = new QtlSeqPipelineSettings(optionValues, options);
             _outputDir = _option.QtlAnalysisScenarioOptions.OutputDir;
             _threadNumber = _option.QtlAnalysisScenarioOptions.ThreadNumber;
         }

@@ -23,7 +23,7 @@ namespace PolyploidQtlSeq
     [Subcommand(
         typeof(QualityControlCommand),
         typeof(QtlAnalysisCommand))]
-    internal sealed class PolyploidQtlSeqCommand : CommandBase, IQtlSeqCommandOptions
+    internal sealed class PolyploidQtlSeqCommand : CommandBase, IQtlSeqPipelineSettingValue
     {
         /// <summary>
         /// 高次倍数性QTL-Seqコマンドを作成する。

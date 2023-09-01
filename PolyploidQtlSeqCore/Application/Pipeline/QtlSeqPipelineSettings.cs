@@ -9,16 +9,16 @@ using PolyploidQtlSeqCore.VariantCall;
 namespace PolyploidQtlSeqCore.Application.Pipeline
 {
     /// <summary>
-    /// QtlSeqコマンドオプション
+    /// QtlSeqパイプライン設定
     /// </summary>
-    internal class QtlSeqCommandOption
+    internal class QtlSeqPipelineSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary;
 
         /// <summary>
         /// static コンストラクタ
         /// </summary>
-        static QtlSeqCommandOption()
+        static QtlSeqPipelineSettings()
         {
             var toLongNameDictionary = new Dictionary<string, string>()
             {
@@ -36,11 +36,11 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         }
 
         /// <summary>
-        /// QtlSeqコマンドオプションを作成する。
+        /// QtlSeqパイプライン設定を作成する。
         /// </summary>
         /// <param name="optionValues">オプションの値</param>
         /// <param name="options">コマンドオプション</param>
-        public QtlSeqCommandOption(IQtlSeqCommandOptions optionValues, IReadOnlyCollection<CommandOption> options)
+        public QtlSeqPipelineSettings(IQtlSeqPipelineSettingValue optionValues, IReadOnlyCollection<CommandOption> options)
         {
             ParameterFile = new ParameterFileParser(optionValues.ParameterFile);
             var longNameParameterDictionary = ParameterFile.ToParameterDictionary(_toLongNameDictionary);
