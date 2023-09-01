@@ -54,7 +54,6 @@ namespace PolyploidQtlSeq
         public int CutTailMeanQuality { get; set; }
 
         [Option(ShortName = dq.CutTailWindowSize.SHORT_NAME, LongName = dq.CutTailWindowSize.LONG_NAME, Description = dq.CutTailWindowSize.DESCRIPTION, ValueName = "")]
-        [Range(dq.CutTailWindowSize.MINIMUM, dq.CutTailWindowSize.MAXIMUM, ErrorMessage = dq.CutTailWindowSize.VALIDATION_ERROR_MESSAGE)]
         public int CutTailWindowSize { get; set; }
 
         [Option(ShortName = dq.ThreadNumber.SHORT_NAME, LongName = dq.ThreadNumber.LONG_NAME, Description = dq.ThreadNumber.DESCRIPTION, ValueName = "")]

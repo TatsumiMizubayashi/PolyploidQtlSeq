@@ -10,14 +10,12 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// 3'末端トリム時のウインドウサイズの最小値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
 
         /// <summary>
         /// 3'末端トリム時のウインドウサイズの最大値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MAXIMUM = 100;
+        private const int MAXIMUM = 100;
 
         /// <summary>
         /// 3'末端トリム時のウインドウサイズの規定値
@@ -61,6 +59,17 @@ namespace PolyploidQtlSeqCore.QualityControl
             Value = OptionValue.GetValue(LONG_NAME, windowSize, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// 3'末端トリム時のウインドウサイズを作成する。
+        /// </summary>
+        /// <param name="windowSize">ウインドウサイズ</param>
+        public CutTailWindowSize(int windowSize)
+        {
+            if (windowSize < MINIMUM || windowSize > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(windowSize));
+
+            Value = windowSize;
         }
 
         /// <summary>
