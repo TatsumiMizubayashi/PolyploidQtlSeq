@@ -54,7 +54,7 @@ namespace PolyploidQtlSeq.Options.QualityControl
             if (MINIMUM <= _optionValue.ReadLengthRequired && _optionValue.ReadLengthRequired <= MAXIMUM) return new DataValidationResult();
 
             return new DataValidationResult(SHORT_NAME, LONG_NAME, 
-                $"Minimum read length must be an integer greater than {MINIMUM} and less than or equal to {MAXIMUM}.");
+                $"Minimum read length should be an integer between {MINIMUM} and {MAXIMUM}.");
         }
 
         protected override string GetLongName() => LONG_NAME;
