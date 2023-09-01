@@ -10,14 +10,12 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// 使用するスレッド数の最小値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
 
         /// <summary>
         /// 使用するスレッド数の最大値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MAXIMUM = 16;
+        private const int MAXIMUM = 16;
 
         /// <summary>
         /// 使用するスレッド数の規定値
@@ -62,6 +60,17 @@ namespace PolyploidQtlSeqCore.QualityControl
             Value = OptionValue.GetValue(LONG_NAME, number, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// 使用するスレッド数を作成する。
+        /// </summary>
+        /// <param name="number">スレッド数</param>
+        public ThreadNumber(int number)
+        {
+            if (number < MINIMUM || number > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(number));
+
+            Value = number;
         }
 
         /// <summary>
