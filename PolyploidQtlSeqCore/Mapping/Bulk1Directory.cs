@@ -1,34 +1,34 @@
 ﻿using PolyploidQtlSeqCore.Options;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
+namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
-    /// Bulk2ディレクトリ
+    /// Bulk1ディレクトリ
     /// </summary>
-    public class Bulk2Directory : ISampleDirectory
+    public class Bulk1Directory : ISampleDirectory
     {
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
-        public const string SHORT_NAME = "b2";
+        public const string SHORT_NAME = "b1";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
-        public const string LONG_NAME = "bulk2";
+        public const string LONG_NAME = "bulk1";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Bulk2 Directory.";
+        public const string DESCRIPTION = "Bulk1 Directory.";
 
         /// <summary>
-        /// Bulk2ディレクトリを作成する。
+        /// Bulk1ディレクトリを作成する。
         /// </summary>
-        /// <param name="dirPath">Bulk2ディレクトリのPath</param>
+        /// <param name="dirPath">Bulk1ディレクトリのPath</param>
         /// <param name="parameterDictionary">パラメータファイルの中身</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        public Bulk2Directory(string dirPath, IReadOnlyDictionary<string, string> parameterDictionary,
+        public Bulk1Directory(string dirPath, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
             Path = OptionValue.GetValue(LONG_NAME, dirPath, parameterDictionary, userOptionDictionary);
@@ -41,6 +41,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
 
         public string SampleName { get; }
 
+
         /// <summary>
         /// パラメータファイル記載用行テキストに変換する。
         /// </summary>
@@ -49,5 +50,6 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
         {
             return $"{LONG_NAME}\t{Path}";
         }
+
     }
 }

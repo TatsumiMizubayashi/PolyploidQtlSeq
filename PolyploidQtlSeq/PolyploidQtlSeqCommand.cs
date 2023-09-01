@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils;
-using PolyploidQtlSeqCore.Application;
 using PolyploidQtlSeqCore.Application.Pipeline;
-using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
+using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
 using chr = PolyploidQtlSeqCore.QtlAnalysis.Chr;
 using d = PolyploidQtlSeqCore.QtlAnalysis.Distribution;

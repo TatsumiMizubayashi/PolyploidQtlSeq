@@ -1,6 +1,6 @@
 ﻿using PolyploidQtlSeqCore.IO;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
+namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// サンプルディレクトリインターフェイス

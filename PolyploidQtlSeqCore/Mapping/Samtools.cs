@@ -3,7 +3,7 @@ using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
 using static Zx.Env;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
+namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// samtools

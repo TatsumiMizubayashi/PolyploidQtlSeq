@@ -1,9 +1,9 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
 using PolyploidQtlSeqCore.Application.QtlAnalysis;
+using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.Options;
 using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
-using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
 
 namespace PolyploidQtlSeqCore.Application.Pipeline

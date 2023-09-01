@@ -1,6 +1,6 @@
 ﻿using PolyploidQtlSeqCore.QtlAnalysis.Chr;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
+namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// 全サンプルのBAMファイル

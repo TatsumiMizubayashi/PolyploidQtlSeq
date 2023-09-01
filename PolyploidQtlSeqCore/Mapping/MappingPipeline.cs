@@ -1,8 +1,9 @@
 ﻿using Cysharp.Diagnostics;
 using PolyploidQtlSeqCore.IO;
+using PolyploidQtlSeqCore.QtlAnalysis;
 using static Zx.Env;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
+namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// Mappingパイプライン

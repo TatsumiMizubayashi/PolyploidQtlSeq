@@ -1,4 +1,6 @@
-﻿namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
+﻿using PolyploidQtlSeqCore.QtlAnalysis;
+
+namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// 1サンプル分のMappingを行うサービス

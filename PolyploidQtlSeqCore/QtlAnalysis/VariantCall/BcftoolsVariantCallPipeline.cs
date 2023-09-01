@@ -1,7 +1,7 @@
 ﻿using Cysharp.Diagnostics;
 using PolyploidQtlSeqCore.IO;
+using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
-using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
 using static Zx.Env;
 
 namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall

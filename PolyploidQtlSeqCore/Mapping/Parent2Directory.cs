@@ -1,6 +1,6 @@
 ﻿using PolyploidQtlSeqCore.Options;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
+namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// Parent2ディレクトリ

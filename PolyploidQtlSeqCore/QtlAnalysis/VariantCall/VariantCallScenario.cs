@@ -1,7 +1,7 @@
 ﻿using Kurukuru;
 using PolyploidQtlSeqCore.IO;
+using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
-using PolyploidQtlSeqCore.QtlAnalysis.Mapping;
 
 namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
 {

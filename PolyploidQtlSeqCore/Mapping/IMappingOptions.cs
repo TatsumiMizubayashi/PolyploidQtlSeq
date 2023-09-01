@@ -1,4 +1,4 @@
-﻿namespace PolyploidQtlSeqCore.QtlAnalysis.Mapping
+﻿namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// Mappingオプションインターフェイス
