@@ -19,7 +19,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// </summary>
         /// <param name="distributionOption">分布オプション</param>
         /// <param name="threadNumber">スレッド数</param>
-        public VariantQtlAanlyzer(NoQtlDistributionOption distributionOption, ThreadNumber threadNumber)
+        public VariantQtlAanlyzer(NoQtlDistributionSettings distributionOption, ThreadNumber threadNumber)
         {
             _distributionGenerator = new F1NoQtlDeltaSnpIndexDistributionGenerator(distributionOption);
             _threadNumber = threadNumber;

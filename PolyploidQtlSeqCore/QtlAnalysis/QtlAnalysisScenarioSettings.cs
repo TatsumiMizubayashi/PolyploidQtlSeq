@@ -32,7 +32,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
             };
 
             QtlSeqTargetPolicySettings.AddLongNameKeyValuePair(toLongNameDictionary);
-            NoQtlDistributionOption.AddLongNameKeyValuePair(toLongNameDictionary);
+            NoQtlDistributionSettings.AddLongNameKeyValuePair(toLongNameDictionary);
             SlidingWindowAnalysisOption.AddLongNameKeyValuePair(toLongNameDictionary);
             GraphOption.AddLongNameKeyValuePair(toLongNameDictionary);
 
@@ -65,7 +65,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
             ThreadNumber = new ThreadNumber(optionValues.ThreadNumber, parameterDictionary, userOptionDictionary);
 
             QtlSeqTargetPolicyOption = new QtlSeqTargetPolicySettings(optionValues, parameterDictionary, userOptionDictionary);
-            NoQtlDistributionOption = new NoQtlDistributionOption(optionValues, parameterDictionary, userOptionDictionary);
+            NoQtlDistributionOption = new NoQtlDistributionSettings(optionValues, parameterDictionary, userOptionDictionary);
             SlidingWindowAnalysisOption = new SlidingWindowAnalysisOption(optionValues, parameterDictionary, userOptionDictionary);
             GraphOption = new GraphOption(optionValues, parameterDictionary, userOptionDictionary);
         }
@@ -93,7 +93,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <summary>
         /// QTLなし分布オプション
         /// </summary>
-        public NoQtlDistributionOption NoQtlDistributionOption { get; }
+        public NoQtlDistributionSettings NoQtlDistributionOption { get; }
 
         /// <summary>
         /// SlidingWindow解析オプション

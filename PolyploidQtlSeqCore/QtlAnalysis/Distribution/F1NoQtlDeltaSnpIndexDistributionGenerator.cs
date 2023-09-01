@@ -5,14 +5,14 @@
     /// </summary>
     internal class F1NoQtlDeltaSnpIndexDistributionGenerator
     {
-        private readonly NoQtlDistributionOption _option;
+        private readonly NoQtlDistributionSettings _option;
         private readonly BulkF1SamplesGenerator _bulkF1SamplesGenerator;
 
         /// <summary>
         /// F1 NoQtlΔSNP-index分布ジェネレータを作成する。
         /// </summary>
         /// <param name="option">オプション</param>
-        public F1NoQtlDeltaSnpIndexDistributionGenerator(NoQtlDistributionOption option)
+        public F1NoQtlDeltaSnpIndexDistributionGenerator(NoQtlDistributionSettings option)
         {
             _option = option;
 

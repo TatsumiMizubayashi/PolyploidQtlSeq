@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
 {
     /// <summary>
-    /// QTLなし分布作成オプション
+    /// QTLなし分布作成設定
     /// </summary>
-    internal class NoQtlDistributionOption
+    internal class NoQtlDistributionSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
         {
@@ -36,19 +36,19 @@
         }
 
         /// <summary>
-        /// QTLなし分布作成オプションを作成する。
+        /// QTLなし分布作成設定を作成する。
         /// </summary>
-        /// <param name="optionValues">オプションの値</param>
+        /// <param name="settingValue">設定値値</param>
         /// <param name="parameterDictionary">パラメータファイルの中身</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        public NoQtlDistributionOption(INoQtlDistributionOption optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public NoQtlDistributionSettings(INoQtlDistributionSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
-            Ploidy = new Ploidy(optionValues.Ploidy, parameterDictionary, userOptionDictionary);
-            Parent2PlexNumber = new Parent2PlexNumber(optionValues.Parent2PlexNumber, parameterDictionary, userOptionDictionary);
-            Bulk1Number = new Bulk1Number(optionValues.Bulk1Number, parameterDictionary, userOptionDictionary);
-            Bulk2Number = new Bulk2Number(optionValues.Bulk2Number, parameterDictionary, userOptionDictionary);
-            ReplicatesNumber = new ReplicatesNumber(optionValues.ReplicatesNumber, parameterDictionary, userOptionDictionary);
+            Ploidy = new Ploidy(settingValue.Ploidy, parameterDictionary, userOptionDictionary);
+            Parent2PlexNumber = new Parent2PlexNumber(settingValue.Parent2PlexNumber, parameterDictionary, userOptionDictionary);
+            Bulk1Number = new Bulk1Number(settingValue.Bulk1Number, parameterDictionary, userOptionDictionary);
+            Bulk2Number = new Bulk2Number(settingValue.Bulk2Number, parameterDictionary, userOptionDictionary);
+            ReplicatesNumber = new ReplicatesNumber(settingValue.ReplicatesNumber, parameterDictionary, userOptionDictionary);
         }
 
         /// <summary>

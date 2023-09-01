@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
 {
     /// <summary>
-    /// QTLなし分布オプションインターフェイス
+    /// QTLなし分布作成設定値インターフェイス
     /// </summary>
-    public interface INoQtlDistributionOption
+    public interface INoQtlDistributionSettingValue
     {
         /// <summary>
         /// 倍数性の値を取得する。
