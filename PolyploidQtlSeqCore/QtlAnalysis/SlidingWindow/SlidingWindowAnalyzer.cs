@@ -1,4 +1,5 @@
-﻿using Sequence.Position;
+﻿using PolyploidQtlSeqCore.Share;
+using Sequence.Position;
 using Sequence.Position.Extract;
 
 namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow

@@ -1,6 +1,6 @@
 ﻿using PolyploidQtlSeqCore.Options;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis
+namespace PolyploidQtlSeqCore.Share
 {
     /// <summary>
     /// リファレンスシークエンス

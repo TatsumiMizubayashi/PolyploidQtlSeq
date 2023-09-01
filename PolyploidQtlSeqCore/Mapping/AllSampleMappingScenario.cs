@@ -1,6 +1,6 @@
 ﻿using Kurukuru;
 using PolyploidQtlSeqCore.IO;
-using PolyploidQtlSeqCore.QtlAnalysis;
+using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.Mapping
 {

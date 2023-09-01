@@ -3,6 +3,7 @@ using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
+using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.VariantCall
 {

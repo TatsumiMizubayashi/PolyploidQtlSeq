@@ -4,6 +4,7 @@ using PolyploidQtlSeqCore.QtlAnalysis.IO;
 using PolyploidQtlSeqCore.QtlAnalysis.OxyGraph;
 using PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter;
 using PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow;
+using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.Application.QtlAnalysis
 {

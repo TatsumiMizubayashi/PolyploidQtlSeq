@@ -1,4 +1,4 @@
-﻿using PolyploidQtlSeqCore.QtlAnalysis;
+﻿using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.Mapping
 {

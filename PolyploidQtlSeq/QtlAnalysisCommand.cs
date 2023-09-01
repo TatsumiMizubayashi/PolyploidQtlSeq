@@ -40,7 +40,7 @@ namespace PolyploidQtlSeq
             FigureHeight = og.FigureHeight.DEFAULT;
             XAxisMajorStep = og.XAxisMajorStep.DEFAULT;
             DisplayAnnotationImpacts = io.DisplayAnnotationImpacts.DEFAULT;
-            ThreadNumber = qa.ThreadNumber.DEFAULT;
+            ThreadNumber = PolyploidQtlSeqCore.Share.ThreadNumber.DEFAULT;
             ParameterFile = "";
         }
 
@@ -130,9 +130,9 @@ namespace PolyploidQtlSeq
             Description = io.DisplayAnnotationImpacts.DESCRIPTION, ValueName = "")]
         public string DisplayAnnotationImpacts { get; set; }
 
-        [Option(ShortName = qa.ThreadNumber.SHORT_NAME, LongName = qa.ThreadNumber.LONG_NAME,
-            Description = qa.ThreadNumber.DESCRIPTION, ValueName = "")]
-        [Range(qa.ThreadNumber.MINIMUM, qa.ThreadNumber.MAXIMUM, ErrorMessage = qa.ThreadNumber.VALIDATION_ERROR_MESSAGE)]
+        [Option(ShortName = PolyploidQtlSeqCore.Share.ThreadNumber.SHORT_NAME, LongName = PolyploidQtlSeqCore.Share.ThreadNumber.LONG_NAME,
+            Description = PolyploidQtlSeqCore.Share.ThreadNumber.DESCRIPTION, ValueName = "")]
+        [Range(PolyploidQtlSeqCore.Share.ThreadNumber.MINIMUM, PolyploidQtlSeqCore.Share.ThreadNumber.MAXIMUM, ErrorMessage = PolyploidQtlSeqCore.Share.ThreadNumber.VALIDATION_ERROR_MESSAGE)]
         public int ThreadNumber { get; set; }
 
         [Option(ShortName = op.ParameterFileParser.SHORT_NAME, LongName = op.ParameterFileParser.LONG_NAME,

@@ -1,4 +1,5 @@
 ﻿using PolyploidQtlSeqCore.QtlAnalysis.Distribution;
+using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.QtlAnalysis
 {
