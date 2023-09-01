@@ -1,7 +1,8 @@
 ﻿using PolyploidQtlSeqCore.Mapping;
+using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
+namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
     /// 並列変異検出

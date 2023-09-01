@@ -1,7 +1,7 @@
 ﻿using PolyploidQtlSeqCore.Application.QtlAnalysis;
 using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
-using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
+using PolyploidQtlSeqCore.VariantCall;
 
 namespace PolyploidQtlSeqCore.Application.Pipeline
 {

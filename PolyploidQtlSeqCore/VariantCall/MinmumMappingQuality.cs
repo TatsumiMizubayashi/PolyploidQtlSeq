@@ -1,6 +1,6 @@
 ﻿using PolyploidQtlSeqCore.Options;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
+namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
     /// Mapping Quality最小値

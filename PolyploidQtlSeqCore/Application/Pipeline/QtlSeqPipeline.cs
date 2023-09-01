@@ -3,7 +3,7 @@ using PolyploidQtlSeqCore.Application.QtlAnalysis;
 using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis;
-using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
+using PolyploidQtlSeqCore.VariantCall;
 
 namespace PolyploidQtlSeqCore.Application.Pipeline
 {

@@ -1,6 +1,6 @@
 ﻿using PolyploidQtlSeqCore.QtlAnalysis.Chr;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
+namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
     /// 染色体1本分のVCFファイル

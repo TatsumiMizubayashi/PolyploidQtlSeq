@@ -1,10 +1,11 @@
 ﻿using Cysharp.Diagnostics;
 using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.Mapping;
+using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
 using static Zx.Env;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
+namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
     /// Bcftools変異検出パイプライン

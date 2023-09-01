@@ -2,7 +2,7 @@
 using PolyploidQtlSeqCore.IO;
 using static Zx.Env;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
+namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
     /// VCFファイル連結

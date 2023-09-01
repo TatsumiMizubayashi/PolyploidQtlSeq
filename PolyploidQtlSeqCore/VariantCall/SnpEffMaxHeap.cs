@@ -1,63 +1,63 @@
 ﻿using PolyploidQtlSeqCore.Options;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
+namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
-    /// BaseQuality最低値
+    /// SnpEff MaxHeap
     /// </summary>
-    public class MinmumBaseQuality
+    public class SnpEffMaxHeap
     {
         /// <summary>
-        /// min-BQの最小値
+        /// max heapの最小値
         /// </summary>
-        public const int MINIMUM = 0;
+        public const int MINIMUM = 2;
 
         /// <summary>
-        /// min-BQの最大値
+        /// max heapの最大値
         /// </summary>
-        public const int MAXIMUM = 60;
+        public const int MAXIMUM = 100;
 
         /// <summary>
-        /// min-BQの規定値
+        /// max heapの規定値
         /// </summary>
-        public const int DEFAULT = 13;
+        public const int DEFAULT = 4;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
-        public const string SHORT_NAME = "Q";
+        public const string SHORT_NAME = "sm";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
-        public const string LONG_NAME = "minBQ";
+        public const string LONG_NAME = "snpEffMaxHeap";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Minimum base quality at variant detection in bcftools mpileup.";
+        public const string DESCRIPTION = "SnpEff maximum heap size (GB).";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
-        public const string VALIDATION_ERROR_MESSAGE = "The -Q option must be an integer greater than or equal to 0 and less than or equal to 60.";
+        public const string VALIDATION_ERROR_MESSAGE = "The -sm option must be an integer greater than or equal to 2 and less than or equal to 100.";
 
         /// <summary>
-        /// Base Qualityの最小値を作成する。
+        /// SnpEff MaxHeapを作成する。
         /// </summary>
-        /// <param name="minBq">Base Quality最小値</param>
+        /// <param name="maxHeap">最大ヒープサイズ(GB)</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        public MinmumBaseQuality(int minBq, IReadOnlyDictionary<string, string> parameterDictionary,
+        public SnpEffMaxHeap(int maxHeap, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
-            Value = OptionValue.GetValue(LONG_NAME, minBq, parameterDictionary, userOptionDictionary);
+            Value = OptionValue.GetValue(LONG_NAME, maxHeap, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
         }
 
         /// <summary>
-        /// Base Quality最小値を取得する。
+        /// 最大ヒープサイズ(GB)を取得する。
         /// </summary>
         internal int Value { get; }
 

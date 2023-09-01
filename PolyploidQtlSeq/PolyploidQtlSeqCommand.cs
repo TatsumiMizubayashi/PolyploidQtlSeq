@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Reflection;
-using McMaster.Extensions.CommandLineUtils;
+﻿using McMaster.Extensions.CommandLineUtils;
 using PolyploidQtlSeqCore.Application.Pipeline;
 using PolyploidQtlSeqCore.Mapping;
-using PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
+using PolyploidQtlSeqCore.VariantCall;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 using chr = PolyploidQtlSeqCore.QtlAnalysis.Chr;
 using d = PolyploidQtlSeqCore.QtlAnalysis.Distribution;
 using io = PolyploidQtlSeqCore.QtlAnalysis.IO;
@@ -12,7 +12,6 @@ using op = PolyploidQtlSeqCore.Options;
 using qa = PolyploidQtlSeqCore.QtlAnalysis;
 using qsf = PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter;
 using sw = PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow;
-using vc = PolyploidQtlSeqCore.QtlAnalysis.VariantCall;
 
 namespace PolyploidQtlSeq
 {
@@ -41,7 +40,7 @@ namespace PolyploidQtlSeq
             MinMq = MinmumMappingQuality.DEFAULT;
             MinBq = MinmumBaseQuality.DEFAULT;
             AdjustMq = AdjustMappingQuality.DEFAULT;
-            SnpEffMaxHeap = vc.SnpEffMaxHeap.DEFAULT;
+            SnpEffMaxHeap = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.DEFAULT;
             SnpEffConfigFile = "";
             SnpEffDatabaseName = "";
             OutputDir = "";
@@ -112,13 +111,13 @@ namespace PolyploidQtlSeq
         [Range(AdjustMappingQuality.MINIMUM, AdjustMappingQuality.MAXIMUM, ErrorMessage = AdjustMappingQuality.VALIDATION_ERROR_MESSAGE)]
         public int AdjustMq { get; set; }
 
-        [Option(ShortName = vc.SnpEffMaxHeap.SHORT_NAME, LongName = vc.SnpEffMaxHeap.LONG_NAME,
-            Description = vc.SnpEffMaxHeap.DESCRIPTION, ValueName = "")]
-        [Range(vc.SnpEffMaxHeap.MINIMUM, vc.SnpEffMaxHeap.MAXIMUM, ErrorMessage = vc.SnpEffMaxHeap.VALIDATION_ERROR_MESSAGE)]
+        [Option(ShortName = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.SHORT_NAME, LongName = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.LONG_NAME,
+            Description = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.DESCRIPTION, ValueName = "")]
+        [Range(PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.MINIMUM, PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.MAXIMUM, ErrorMessage = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.VALIDATION_ERROR_MESSAGE)]
         public int SnpEffMaxHeap { get; set; }
 
-        [Option(ShortName = vc.SnpEffConfigFile.SHORT_NAME, LongName = vc.SnpEffConfigFile.LONG_NAME,
-            Description = vc.SnpEffConfigFile.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = PolyploidQtlSeqCore.VariantCall.SnpEffConfigFile.SHORT_NAME, LongName = PolyploidQtlSeqCore.VariantCall.SnpEffConfigFile.LONG_NAME,
+            Description = PolyploidQtlSeqCore.VariantCall.SnpEffConfigFile.DESCRIPTION, ValueName = "")]
         public string SnpEffConfigFile { get; set; }
 
         [Option(ShortName = SnpEffDatabase.SHORT_NAME, LongName = SnpEffDatabase.LONG_NAME,

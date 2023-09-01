@@ -2,7 +2,7 @@
 using Cysharp.Diagnostics;
 using PolyploidQtlSeqCore.IO;
 
-namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
+namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
     /// tabixによるVCF indexファイル作成

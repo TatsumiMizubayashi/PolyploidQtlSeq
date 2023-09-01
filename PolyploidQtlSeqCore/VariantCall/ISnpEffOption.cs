@@ -1,4 +1,4 @@
-﻿namespace PolyploidQtlSeqCore.QtlAnalysis.VariantCall
+﻿namespace PolyploidQtlSeqCore.VariantCall
 {
     /// <summary>
     /// SnpEff オプションインターフェイス
