@@ -7,15 +7,15 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
     /// </summary>
     internal class QtlSeqGraphCreator
     {
-        private readonly GraphOption _option;
+        private readonly GraphSettings _settings;
 
         /// <summary>
         /// QtlSeqグラフクリエーターを作成する。
         /// </summary>
-        /// <param name="option">グラフオプション</param>
-        public QtlSeqGraphCreator(GraphOption option)
+        /// <param name="setting">グラフ設定</param>
+        public QtlSeqGraphCreator(GraphSettings setting)
         {
-            _option = option;
+            _settings = setting;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <param name="allWindows">全Windowデータ</param>
         public void Create(OutputDirectory outDir, SnpIndexVariantWithSlidingWindowQtl[] allVariants, Window[] allWindows)
         {
-            var graphData = new GraphData(allVariants, allWindows, _option.XAxisMajorStep);
+            var graphData = new GraphData(allVariants, allWindows, _settings.XAxisMajorStep);
             var graphCreator = GetGrhaphCreators(graphData.GraphAxes);
 
             foreach (var chrName in graphData.ChrNames)
@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
 
                 var files = graphCreator.Select(x => x.Create(outDir, chrName, graphData)).ToArray();
                 var graphFiles = new GraphFiles(files);
-                graphFiles.VerticalMerge(mergeGraphFilePath, _option);
+                graphFiles.VerticalMerge(mergeGraphFilePath, _settings);
                 graphFiles.Delete();
             }
         }
@@ -47,12 +47,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <returns>グラフクリエーター配列</returns>
         private GraphCreator[] GetGrhaphCreators(GraphAxes graphAxes)
         {
-            var correctAxies = graphAxes.CorrectYAxis(_option);
+            var correctAxies = graphAxes.CorrectYAxis(_settings);
 
-            var snpIndexConfig = correctAxies.CreateSnpIndexGraphConfig(_option);
-            var deltaSnpIndexConfig = correctAxies.CreateDeltaSnpIndexGraphConfig(_option);
-            var scoreConfig = correctAxies.CreateWindowScoreGraphConfig(_option);
-            var qtlCountConfig = correctAxies.CreateQtlCountGraphConfig(_option);
+            var snpIndexConfig = correctAxies.CreateSnpIndexGraphConfig(_settings);
+            var deltaSnpIndexConfig = correctAxies.CreateDeltaSnpIndexGraphConfig(_settings);
+            var scoreConfig = correctAxies.CreateWindowScoreGraphConfig(_settings);
+            var qtlCountConfig = correctAxies.CreateQtlCountGraphConfig(_settings);
 
             return new GraphCreator[]
             {

@@ -22,13 +22,13 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// グラフ画像を縦に連結した画像を作成する。
         /// </summary>
         /// <param name="mergeImageFilePath">連結画像ファイルのPath</param>
-        /// <param name="option">グラフオプション</param>
-        public void VerticalMerge(string mergeImageFilePath, GraphOption option)
+        /// <param name="setting">グラフ設定</param>
+        public void VerticalMerge(string mergeImageFilePath, GraphSettings setting)
         {
             if (string.IsNullOrWhiteSpace(mergeImageFilePath)) throw new ArgumentException(null, nameof(mergeImageFilePath));
 
-            var mergeImageWidth = option.FigureWidth.Value;
-            var mergeImageHeight = option.FigureHeight.Value * _graphFiles.Length;
+            var mergeImageWidth = setting.FigureWidth.Value;
+            var mergeImageHeight = setting.FigureHeight.Value * _graphFiles.Length;
             using var mergeBitmap = new SKBitmap(mergeImageWidth, mergeImageHeight);
             using var canvas = new SKCanvas(mergeBitmap);
             var y = 0;

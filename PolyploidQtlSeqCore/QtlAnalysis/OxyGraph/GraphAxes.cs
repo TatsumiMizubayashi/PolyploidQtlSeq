@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
+﻿namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
 {
     /// <summary>
     /// グラフ軸
@@ -38,14 +31,14 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <summary>
         /// Y軸補正を行う。
         /// </summary>
-        /// <param name="option">オプション</param>
+        /// <param name="setting">設定</param>
         /// <returns>補正済みGraphAxes</returns>
-        public GraphAxes CorrectYAxis(GraphOption option)
+        public GraphAxes CorrectYAxis(GraphSettings setting)
         {
-            var snpIndexGraphConfig = CreateSnpIndexGraphConfig(option);
-            var deltaSnpIndexGraphConfig = CreateDeltaSnpIndexGraphConfig(option);
-            var scoreGraphConfig = CreateWindowScoreGraphConfig(option);
-            var qtlCountGraphConfig = CreateQtlCountGraphConfig(option);
+            var snpIndexGraphConfig = CreateSnpIndexGraphConfig(setting);
+            var deltaSnpIndexGraphConfig = CreateDeltaSnpIndexGraphConfig(setting);
+            var scoreGraphConfig = CreateWindowScoreGraphConfig(setting);
+            var qtlCountGraphConfig = CreateQtlCountGraphConfig(setting);
 
             var creators = new GraphCreator[]
             {
@@ -70,42 +63,42 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <summary>
         /// Bulk SnpIndexグラフ設定を作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
+        /// <param name="setting">設定</param>
         /// <returns>Bulk SnpIndexグラフ設定</returns>
-        public GraphConfig CreateSnpIndexGraphConfig(GraphOption option)
+        public GraphConfig CreateSnpIndexGraphConfig(GraphSettings setting)
         {
-            return new GraphConfig(_xConfig, _bulkYConfig, option);
+            return new GraphConfig(_xConfig, _bulkYConfig, setting);
         }
 
         /// <summary>
         /// ΔSnpIndexグラフ設定を作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
+        /// <param name="setting">設定</param>
         /// <returns>ΔSnpIndexグラフ設定</returns>
-        public GraphConfig CreateDeltaSnpIndexGraphConfig(GraphOption option)
+        public GraphConfig CreateDeltaSnpIndexGraphConfig(GraphSettings setting)
         {
-            return new GraphConfig(_xConfig, _deltaYConfig, option);
+            return new GraphConfig(_xConfig, _deltaYConfig, setting);
         }
 
 
         /// <summary>
         /// WindowScoreグラフ設定を作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
+        /// <param name="setting">設定</param>
         /// <returns>WindowScoreグラフ設定</returns>
-        public GraphConfig CreateWindowScoreGraphConfig(GraphOption option)
+        public GraphConfig CreateWindowScoreGraphConfig(GraphSettings setting)
         {
-            return new GraphConfig(_xConfig, _scoreYConfig, option);
+            return new GraphConfig(_xConfig, _scoreYConfig, setting);
         }
 
         /// <summary>
         /// QTL数グラフ設定を作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
+        /// <param name="setting">設定</param>
         /// <returns>QTL数グラフ設定</returns>
-        public GraphConfig CreateQtlCountGraphConfig(GraphOption option)
+        public GraphConfig CreateQtlCountGraphConfig(GraphSettings setting)
         {
-            return new GraphConfig(_xConfig, _countYConfig, option);
+            return new GraphConfig(_xConfig, _countYConfig, setting);
         }
     }
 }

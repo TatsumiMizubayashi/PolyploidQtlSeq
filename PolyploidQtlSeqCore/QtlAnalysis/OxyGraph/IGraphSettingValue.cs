@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
 {
     /// <summary>
-    /// グラフ作成オプション
+    /// グラフ作成設定値 インターフェース
     /// </summary>
-    public interface IGraphOptions
+    public interface IGraphSettingValue
     {
         /// <summary>
         /// グラフ画像の幅(Pixel)を取得する。

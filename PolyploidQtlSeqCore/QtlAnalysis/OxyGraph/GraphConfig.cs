@@ -10,13 +10,13 @@
         /// </summary>
         /// <param name="xConfig">X軸設定</param>
         /// <param name="yConfig">Y軸設定</param>
-        /// <param name="option">グラフサイズOption</param>
-        public GraphConfig(XAxisConfig xConfig, YAxisConfig yConfig, GraphOption option)
+        /// <param name="setting">グラフ設定</param>
+        public GraphConfig(XAxisConfig xConfig, YAxisConfig yConfig, GraphSettings setting)
         {
             XAxisConfig = xConfig;
             YAxisConfig = yConfig;
-            FigureWidth = option.FigureWidth;
-            FigureHeight = option.FigureHeight;
+            FigureWidth = setting.FigureWidth;
+            FigureHeight = setting.FigureHeight;
         }
 
         /// <summary>
