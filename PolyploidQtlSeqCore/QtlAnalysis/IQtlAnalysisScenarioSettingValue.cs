@@ -9,7 +9,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
     /// QTL解析シナリオオプション インターフェイス
     /// </summary>
     [Obsolete("internalにする予定")]
-    public interface IQtlAnalysisScenarioOptions : IQtlSeqTargetPolicyOptions, INoQtlDistributionOption, ISlidingWindowAnalysisOption, IGraphOptions
+    public interface IQtlAnalysisScenarioSettingValue : IQtlSeqTargetPolicyOptions, INoQtlDistributionOption, ISlidingWindowAnalysisOption, IGraphOptions
     {
         /// <summary>
         /// 出力ディレクトリを取得する。

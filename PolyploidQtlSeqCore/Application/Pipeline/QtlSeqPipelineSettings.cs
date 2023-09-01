@@ -30,7 +30,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             AnalysisChrSettings.AddLongNameKeyValuePair(toLongNameDictionary);
             BcfToolsVariantCallSettings.AddLongNameKeyValuePair(toLongNameDictionary);
             SnpEffSettings.AddLongNameKeyValuePair(toLongNameDictionary);
-            QtlAnalysisScenarioOptions.AddLongNameKeyValuePair(toLongNameDictionary);
+            QtlAnalysisScenarioSettings.AddLongNameKeyValuePair(toLongNameDictionary);
 
             _toLongNameDictionary = toLongNameDictionary;
         }
@@ -53,7 +53,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             AnalysisChrOption = new AnalysisChrSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
             BcfToolsVariantCallOption = new BcfToolsVariantCallSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
             SnpEffOption = new SnpEffSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
-            QtlAnalysisScenarioOptions = new QtlAnalysisScenarioOptions(optionValues, longNameParameterDictionary, userOptionDictionary);
+            QtlAnalysisScenarioOptions = new QtlAnalysisScenarioSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         /// <summary>
         /// QTL解析シナリオオプションを取得する。
         /// </summary>
-        public QtlAnalysisScenarioOptions QtlAnalysisScenarioOptions { get; }
+        public QtlAnalysisScenarioSettings QtlAnalysisScenarioOptions { get; }
 
         /// <summary>
         /// パラメータファイルを取得する。

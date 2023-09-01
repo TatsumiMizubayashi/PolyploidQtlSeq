@@ -12,13 +12,13 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
     /// </summary>
     internal class QtlAnalysisScenario
     {
-        private readonly QtlAnalysisScenarioOptions _option;
+        private readonly QtlAnalysisScenarioSettings _option;
 
         /// <summary>
         /// QTL解析シナリオを作成する。
         /// </summary>
         /// <param name="option">オプション</param>
-        public QtlAnalysisScenario(QtlAnalysisScenarioOptions option)
+        public QtlAnalysisScenario(QtlAnalysisScenarioSettings option)
         {
             _option = option;
         }

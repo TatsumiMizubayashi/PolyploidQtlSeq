@@ -8,16 +8,16 @@ using PolyploidQtlSeqCore.Share;
 namespace PolyploidQtlSeqCore.QtlAnalysis
 {
     /// <summary>
-    /// QTL解析シナリオオプション
+    /// QTL解析シナリオ設定
     /// </summary>
-    internal class QtlAnalysisScenarioOptions
+    internal class QtlAnalysisScenarioSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary;
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        static QtlAnalysisScenarioOptions()
+        static QtlAnalysisScenarioSettings()
         {
             var toLongNameDictionary = new Dictionary<string, string>()
             {
@@ -52,12 +52,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         }
 
         /// <summary>
-        /// QTL解析シナリオオプションを作成する。
+        /// QTL解析シナリオ設定を作成する。
         /// </summary>
         /// <param name="optionValues">オプションの値</param>
         /// <param name="parameterDictionary">パラメータファイルの中身</param>
         /// <param name="userOptionDictionary">ユーザー指定オプション辞書</param>
-        public QtlAnalysisScenarioOptions(IQtlAnalysisScenarioOptions optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public QtlAnalysisScenarioSettings(IQtlAnalysisScenarioSettingValue optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
             OutputDir = new OutputDirectory(optionValues.OutputDir, parameterDictionary, userOptionDictionary);
