@@ -26,7 +26,7 @@ namespace PolyploidQtlSeqCore.Mapping
         /// </summary>
         /// <param name="option">Mappingオプション</param>
         /// <returns>全サンプルのBAMファイル</returns>
-        public async ValueTask<AllSampleBamFiles> MappingAsync(MappingOption option)
+        public async ValueTask<AllSampleBamFiles> MappingAsync(MappingSampleSettingValue option)
         {
             var p1BamFile = await MappingAsync(option.Parent1Directory);
             var p2BamFile = await MappingAsync(option.Parent2Directory);

@@ -3,7 +3,7 @@
     /// <summary>
     /// Mappingオプション
     /// </summary>
-    internal class MappingOption
+    internal class MappingSampleSettingValue
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
         {
@@ -38,7 +38,7 @@
         /// <param name="optionValues">Mappingオプションの値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定オプション辞書</param>
-        public MappingOption(IMappingOptions optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public MappingSampleSettingValue(IMappingSampleSettingValue optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
             Parent1Directory = new Parent1Directory(optionValues.Parent1Dir, parameterDictionary, userOptionDictionary);

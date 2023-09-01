@@ -26,7 +26,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
                 [ReferenceSequence.LONG_NAME] = ReferenceSequence.LONG_NAME,
             };
 
-            MappingOption.AddLongNameKeyValuePair(toLongNameDictionary);
+            MappingSampleSettingValue.AddLongNameKeyValuePair(toLongNameDictionary);
             AnalysisChrOption.AddLongNameKeyValuePair(toLongNameDictionary);
             BcfToolsVariantCallOption.AddLongNameKeyValuePair(toLongNameDictionary);
             SnpEffOption.AddLongNameKeyValuePair(toLongNameDictionary);
@@ -47,7 +47,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             var userOptionDictionary = UserSpecifiedLongNameDictionaryCreator.Create(options);
 
             ReferenceSequence = new ReferenceSequence(optionValues.ReferenceSequence, longNameParameterDictionary, userOptionDictionary);
-            MappingOption = new MappingOption(optionValues, longNameParameterDictionary, userOptionDictionary);
+            MappingOption = new MappingSampleSettingValue(optionValues, longNameParameterDictionary, userOptionDictionary);
             AnalysisChrOption = new AnalysisChrOption(optionValues, longNameParameterDictionary, userOptionDictionary);
             BcfToolsVariantCallOption = new BcfToolsVariantCallOption(optionValues, longNameParameterDictionary, userOptionDictionary);
             SnpEffOption = new SnpEffOption(optionValues, longNameParameterDictionary, userOptionDictionary);
@@ -62,7 +62,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         /// <summary>
         /// Mappingオプションを取得する。
         /// </summary>
-        public MappingOption MappingOption { get; }
+        public MappingSampleSettingValue MappingOption { get; }
 
         /// <summary>
         /// 解析染色体オプションを取得する。

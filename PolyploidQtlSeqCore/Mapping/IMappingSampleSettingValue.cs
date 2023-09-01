@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
-    /// Mappingオプションインターフェイス
+    /// Mappingサンプル設定値インターフェイス
     /// </summary>
-    public interface IMappingOptions
+    public interface IMappingSampleSettingValue
     {
         /// <summary>
         /// 親1ディレクトリを取得する。

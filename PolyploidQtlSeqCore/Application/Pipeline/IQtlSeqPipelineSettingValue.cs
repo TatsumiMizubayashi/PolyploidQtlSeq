@@ -8,7 +8,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
     /// <summary>
     /// QTL-seq解析パイプライン設定値 インターフェース
     /// </summary>
-    public interface IQtlSeqPipelineSettingValue : IMappingOptions, IAnalysisChrOptions, IBcftoolsVariantCallOption,
+    public interface IQtlSeqPipelineSettingValue : IMappingSampleSettingValue, IAnalysisChrOptions, IBcftoolsVariantCallOption,
         ISnpEffOption, IQtlAnalysisScenarioOptions
     {
         /// <summary>
