@@ -29,7 +29,7 @@
         /// <summary>
         /// 塩基クオリティのしきい値を設定、または取得する。
         /// </summary>
-        int Quality { get; set; }
+        int BaseQuality { get; set; }
 
         /// <summary>
         /// 3'末端トリム時の平均クオリティしきい値を設定、または取得する。

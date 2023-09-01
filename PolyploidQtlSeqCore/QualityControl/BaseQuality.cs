@@ -10,36 +10,43 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// 塩基クオリティの最小値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int MINIMUM = 1;
 
         /// <summary>
         /// 塩基クオリティの最大値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int MAXIMUM = 50;
 
         /// <summary>
         /// 塩基クオリティの規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 15;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "q";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "quality";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Threshold for base quality. qualified_quality_phred in fastp.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -q option must be an integer greater than or equal to 1 and less than or equal to 50.";
 
         /// <summary>
