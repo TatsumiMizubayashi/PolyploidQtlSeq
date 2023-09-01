@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
 {
     /// <summary>
-    /// スライディングウインドウ解析オプション
+    /// スライディングウインドウ解析設定
     /// </summary>
-    internal class SlidingWindowAnalysisOption
+    internal class SlidingWindowAnalysisSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
         {
@@ -27,16 +27,16 @@
         }
 
         /// <summary>
-        /// スライディングウインドウ解析オプションを作成する。
+        /// スライディングウインドウ解析設定を作成する。
         /// </summary>
-        /// <param name="optionValues">オプションの値</param>
+        /// <param name="settingValue">設定値値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        public SlidingWindowAnalysisOption(ISlidingWindowAnalysisOption optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public SlidingWindowAnalysisSettings(ISlidingWindowAnalysisSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
-            WindowSize = new WindowSize(optionValues.WindowSize, parameterDictionary, userOptionDictionary);
-            StepSize = new StepSize(optionValues.StepSize, parameterDictionary, userOptionDictionary);
+            WindowSize = new WindowSize(settingValue.WindowSize, parameterDictionary, userOptionDictionary);
+            StepSize = new StepSize(settingValue.StepSize, parameterDictionary, userOptionDictionary);
         }
 
         /// <summary>

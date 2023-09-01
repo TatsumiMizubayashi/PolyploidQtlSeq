@@ -9,7 +9,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
     /// </summary>
     internal class SlidingWindowAnalyzer
     {
-        private readonly SlidingWindowAnalysisOption _option;
+        private readonly SlidingWindowAnalysisSettings _option;
         private readonly ThreadNumber _threadNumber;
 
         /// <summary>
@@ -17,7 +17,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
         /// </summary>
         /// <param name="option">オプション</param>
         /// <param name="threadNumber">スレッド数</param>
-        public SlidingWindowAnalyzer(SlidingWindowAnalysisOption option, ThreadNumber threadNumber)
+        public SlidingWindowAnalyzer(SlidingWindowAnalysisSettings option, ThreadNumber threadNumber)
         {
             _option = option;
             _threadNumber = threadNumber;

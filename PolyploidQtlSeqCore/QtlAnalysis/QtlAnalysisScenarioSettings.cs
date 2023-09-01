@@ -33,7 +33,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
 
             QtlSeqTargetPolicySettings.AddLongNameKeyValuePair(toLongNameDictionary);
             NoQtlDistributionSettings.AddLongNameKeyValuePair(toLongNameDictionary);
-            SlidingWindowAnalysisOption.AddLongNameKeyValuePair(toLongNameDictionary);
+            SlidingWindowAnalysisSettings.AddLongNameKeyValuePair(toLongNameDictionary);
             GraphOption.AddLongNameKeyValuePair(toLongNameDictionary);
 
             _toLongNameDictionary = toLongNameDictionary;
@@ -66,7 +66,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
 
             QtlSeqTargetPolicyOption = new QtlSeqTargetPolicySettings(optionValues, parameterDictionary, userOptionDictionary);
             NoQtlDistributionOption = new NoQtlDistributionSettings(optionValues, parameterDictionary, userOptionDictionary);
-            SlidingWindowAnalysisOption = new SlidingWindowAnalysisOption(optionValues, parameterDictionary, userOptionDictionary);
+            SlidingWindowAnalysisOption = new SlidingWindowAnalysisSettings(optionValues, parameterDictionary, userOptionDictionary);
             GraphOption = new GraphOption(optionValues, parameterDictionary, userOptionDictionary);
         }
 
@@ -98,7 +98,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <summary>
         /// SlidingWindow解析オプション
         /// </summary>
-        public SlidingWindowAnalysisOption SlidingWindowAnalysisOption { get; }
+        public SlidingWindowAnalysisSettings SlidingWindowAnalysisOption { get; }
 
         /// <summary>
         /// グラフオプション

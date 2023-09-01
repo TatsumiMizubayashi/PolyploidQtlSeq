@@ -10,13 +10,13 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
     {
         private static readonly GenomePositionComparer _genomePositionComparer = new();
 
-        private readonly SlidingWindowAnalysisOption _option;
+        private readonly SlidingWindowAnalysisSettings _option;
 
         /// <summary>
         /// SlidingWindow位置クリエーターを作成する。
         /// </summary>
         /// <param name="option">オプション</param>
-        public SlidingWindowPositionCreator(SlidingWindowAnalysisOption option)
+        public SlidingWindowPositionCreator(SlidingWindowAnalysisSettings option)
         {
             _option = option;
         }

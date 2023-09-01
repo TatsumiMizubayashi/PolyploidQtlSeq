@@ -1,9 +1,9 @@
 ﻿namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
 {
     /// <summary>
-    /// スライディングウインドウ解析オプションインターフェイス
+    /// スライディングウインドウ解析設定値インターフェイス
     /// </summary>
-    public interface ISlidingWindowAnalysisOption
+    public interface ISlidingWindowAnalysisSettingValue
     {
         /// <summary>
         /// Windowサイズ(kbp)を取得する。
