@@ -50,10 +50,10 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
 
             MappingSettings = new MappingSettings(optionValues);
             MappingSampleSettings = new MappingSampleSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
-            AnalysisChrOption = new AnalysisChrSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
-            BcfToolsVariantCallOption = new BcfToolsVariantCallSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
-            SnpEffOption = new SnpEffSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
-            QtlAnalysisScenarioOptions = new QtlAnalysisScenarioSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
+            AnalysisChrSettings = new AnalysisChrSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
+            BcfToolsVariantCallSettings = new BcfToolsVariantCallSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
+            SnpEffSettings = new SnpEffSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
+            QtlAnalysisScenarioSettings = new QtlAnalysisScenarioSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
         }
 
         /// <summary>
@@ -73,24 +73,24 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         public MappingSampleSettings MappingSampleSettings { get; }
 
         /// <summary>
-        /// 解析染色体オプションを取得する。
+        /// 解析染色体設定を取得する。
         /// </summary>
-        public AnalysisChrSettings AnalysisChrOption { get; }
+        public AnalysisChrSettings AnalysisChrSettings { get; }
 
         /// <summary>
-        /// bcftools変異検出オプションを取得する。
+        /// bcftools変異検出設定を取得する。
         /// </summary>
-        public BcfToolsVariantCallSettings BcfToolsVariantCallOption { get; }
+        public BcfToolsVariantCallSettings BcfToolsVariantCallSettings { get; }
 
         /// <summary>
-        /// SnpEffオプションを取得する。
+        /// SnpEff設定を取得する。
         /// </summary>
-        public SnpEffSettings SnpEffOption { get; }
+        public SnpEffSettings SnpEffSettings { get; }
 
         /// <summary>
-        /// QTL解析シナリオオプションを取得する。
+        /// QTL解析シナリオ設定を取得する。
         /// </summary>
-        public QtlAnalysisScenarioSettings QtlAnalysisScenarioOptions { get; }
+        public QtlAnalysisScenarioSettings QtlAnalysisScenarioSettings { get; }
 
         /// <summary>
         /// パラメータファイルを取得する。
@@ -111,10 +111,10 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             //writer.WriteLine(ReferenceSequence.ToParameterFileLine());
 
             var parameterLineQuery = MappingSampleSettings.ToParameterFileLines()
-                .Concat(AnalysisChrOption.ToParameterFileLines())
-                .Concat(BcfToolsVariantCallOption.ToParameterFileLines())
-                .Concat(SnpEffOption.ToParameterFileLines())
-                .Concat(QtlAnalysisScenarioOptions.ToParameterFileLines());
+                .Concat(AnalysisChrSettings.ToParameterFileLines())
+                .Concat(BcfToolsVariantCallSettings.ToParameterFileLines())
+                .Concat(SnpEffSettings.ToParameterFileLines())
+                .Concat(QtlAnalysisScenarioSettings.ToParameterFileLines());
             foreach (var line in parameterLineQuery)
             {
                 writer.WriteLine(line);

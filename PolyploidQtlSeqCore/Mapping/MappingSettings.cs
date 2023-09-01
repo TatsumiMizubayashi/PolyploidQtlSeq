@@ -1,7 +1,6 @@
-﻿using PolyploidQtlSeqCore.Mapping;
-using PolyploidQtlSeqCore.Share;
+﻿using PolyploidQtlSeqCore.Share;
 
-namespace PolyploidQtlSeqCore.Application.Pipeline
+namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// Mapping設定

@@ -36,7 +36,7 @@
         /// <summary>
         /// QTL-seq解析対象変異ポリシー設定を作成する。
         /// </summary>
-        /// <param name="settingValue">オプションの値</param>
+        /// <param name="settingValue">設定値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
         public QtlSeqTargetPolicySettings(IQtlSeqTargetPolicySettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,

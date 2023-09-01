@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <summary>
         /// Bcftools変異検出オプションを作成する。
         /// </summary>
-        /// <param name="settingValue">bcftools変異検出オプション値</param>
+        /// <param name="settingValue">bcftools変異検出設定値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
         public BcfToolsVariantCallSettings(IBcftoolsVariantCallSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,

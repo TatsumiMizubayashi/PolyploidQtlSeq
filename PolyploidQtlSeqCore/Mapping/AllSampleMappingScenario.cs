@@ -1,5 +1,4 @@
 ﻿using Kurukuru;
-using PolyploidQtlSeqCore.Application.Pipeline;
 using PolyploidQtlSeqCore.IO;
 
 namespace PolyploidQtlSeqCore.Mapping

@@ -1,5 +1,4 @@
-﻿using PolyploidQtlSeqCore.Application.Pipeline;
-using PolyploidQtlSeqCore.Share;
+﻿using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.Mapping
 {

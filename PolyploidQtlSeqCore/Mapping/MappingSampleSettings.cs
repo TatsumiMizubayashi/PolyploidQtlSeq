@@ -36,16 +36,16 @@
         /// <summary>
         /// Mappngオプションを作成する。
         /// </summary>
-        /// <param name="optionValues">Mappingオプションの値</param>
+        /// <param name="settingValue">Mappingサンプル設定値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定オプション辞書</param>
-        public MappingSampleSettings(IMappingSampleSettingValue optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public MappingSampleSettings(IMappingSampleSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
-            Parent1Directory = new Parent1Directory(optionValues.Parent1Dir, parameterDictionary, userOptionDictionary);
-            Parent2Directory = new Parent2Directory(optionValues.Parent2Dir, parameterDictionary, userOptionDictionary);
-            Bulk1Directory = new Bulk1Directory(optionValues.Bulk1Dir, parameterDictionary, userOptionDictionary);
-            Bulk2Directory = new Bulk2Directory(optionValues.Bulk2Dir, parameterDictionary, userOptionDictionary);
+            Parent1Directory = new Parent1Directory(settingValue.Parent1Dir, parameterDictionary, userOptionDictionary);
+            Parent2Directory = new Parent2Directory(settingValue.Parent2Dir, parameterDictionary, userOptionDictionary);
+            Bulk1Directory = new Bulk1Directory(settingValue.Bulk1Dir, parameterDictionary, userOptionDictionary);
+            Bulk2Directory = new Bulk2Directory(settingValue.Bulk2Dir, parameterDictionary, userOptionDictionary);
         }
 
         /// <summary>

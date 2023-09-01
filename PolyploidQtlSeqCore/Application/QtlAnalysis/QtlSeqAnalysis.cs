@@ -26,10 +26,10 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
         /// <returns>終了コード</returns>
         public int Run()
         {
-            var scenario = new QtlAnalysisScenario(_option.QtlAnalysisScenarioOptions);
+            var scenario = new QtlAnalysisScenario(_option.QtlAnalysisScenarioSettings);
             var code = scenario.Run(_option.InputVcf);
 
-            var outputDir = _option.QtlAnalysisScenarioOptions.OutputDir;
+            var outputDir = _option.QtlAnalysisScenarioSettings.OutputDir;
             var paramsFilePath = outputDir.CreateFilePath("qtl.parameter.txt");
             _option.SaveParameterFile(paramsFilePath);
 

@@ -54,20 +54,20 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <summary>
         /// QTL解析シナリオ設定を作成する。
         /// </summary>
-        /// <param name="optionValues">オプションの値</param>
+        /// <param name="settingValue">設定値</param>
         /// <param name="parameterDictionary">パラメータファイルの中身</param>
         /// <param name="userOptionDictionary">ユーザー指定オプション辞書</param>
-        public QtlAnalysisScenarioSettings(IQtlAnalysisScenarioSettingValue optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public QtlAnalysisScenarioSettings(IQtlAnalysisScenarioSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
-            OutputDir = new OutputDirectory(optionValues.OutputDir, parameterDictionary, userOptionDictionary);
-            DisplayAnnotationImpacts = new DisplayAnnotationImpacts(optionValues.DisplayAnnotationImpacts, parameterDictionary, userOptionDictionary);
-            ThreadNumber = new ThreadNumber(optionValues.ThreadNumber, parameterDictionary, userOptionDictionary);
+            OutputDir = new OutputDirectory(settingValue.OutputDir, parameterDictionary, userOptionDictionary);
+            DisplayAnnotationImpacts = new DisplayAnnotationImpacts(settingValue.DisplayAnnotationImpacts, parameterDictionary, userOptionDictionary);
+            ThreadNumber = new ThreadNumber(settingValue.ThreadNumber, parameterDictionary, userOptionDictionary);
 
-            QtlSeqTargetPolicyOption = new QtlSeqTargetPolicySettings(optionValues, parameterDictionary, userOptionDictionary);
-            NoQtlDistributionOption = new NoQtlDistributionSettings(optionValues, parameterDictionary, userOptionDictionary);
-            SlidingWindowAnalysisOption = new SlidingWindowAnalysisSettings(optionValues, parameterDictionary, userOptionDictionary);
-            GraphOption = new GraphSettings(optionValues, parameterDictionary, userOptionDictionary);
+            QtlSeqTargetPolicySettings = new QtlSeqTargetPolicySettings(settingValue, parameterDictionary, userOptionDictionary);
+            NoQtlDistributionSettings = new NoQtlDistributionSettings(settingValue, parameterDictionary, userOptionDictionary);
+            SlidingWindowAnalysisSettings = new SlidingWindowAnalysisSettings(settingValue, parameterDictionary, userOptionDictionary);
+            GraphSettings = new GraphSettings(settingValue, parameterDictionary, userOptionDictionary);
         }
 
         /// <summary>
@@ -86,24 +86,24 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         public ThreadNumber ThreadNumber { get; }
 
         /// <summary>
-        /// QTL-seq対象ポリシーオプション
+        /// QTL-seq対象ポリシー設定
         /// </summary>
-        public QtlSeqTargetPolicySettings QtlSeqTargetPolicyOption { get; }
+        public QtlSeqTargetPolicySettings QtlSeqTargetPolicySettings { get; }
 
         /// <summary>
-        /// QTLなし分布オプション
+        /// QTLなし分布作成設定
         /// </summary>
-        public NoQtlDistributionSettings NoQtlDistributionOption { get; }
+        public NoQtlDistributionSettings NoQtlDistributionSettings { get; }
 
         /// <summary>
-        /// SlidingWindow解析オプション
+        /// SlidingWindow解析設定
         /// </summary>
-        public SlidingWindowAnalysisSettings SlidingWindowAnalysisOption { get; }
+        public SlidingWindowAnalysisSettings SlidingWindowAnalysisSettings { get; }
 
         /// <summary>
-        /// グラフオプション
+        /// グラフ設定
         /// </summary>
-        public GraphSettings GraphOption { get; }
+        public GraphSettings GraphSettings { get; }
 
         /// <summary>
         /// パラメータファイルに記載する行テキストに変換する。
@@ -112,10 +112,10 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         public string[] ToParameterFileLines()
         {
             return new[] { OutputDir.ToParameterFileLine() }
-                .Concat(QtlSeqTargetPolicyOption.ToParameterFileLines())
-                .Concat(NoQtlDistributionOption.ToParameterFileLines())
-                .Concat(SlidingWindowAnalysisOption.ToParameterFileLines())
-                .Concat(GraphOption.ToParameterFileLines())
+                .Concat(QtlSeqTargetPolicySettings.ToParameterFileLines())
+                .Concat(NoQtlDistributionSettings.ToParameterFileLines())
+                .Concat(SlidingWindowAnalysisSettings.ToParameterFileLines())
+                .Concat(GraphSettings.ToParameterFileLines())
                 .Concat(new[]
                 {
                     DisplayAnnotationImpacts.ToParameterFileLine(),

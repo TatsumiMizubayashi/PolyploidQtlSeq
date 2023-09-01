@@ -49,7 +49,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
                     spinner.Text = "Saving ...";
                     SnpIndexFileCreator.Create(_option.OutputDir, swQtlVariants, _option.DisplayAnnotationImpacts);
                     SlidingWindowFileCreator.Create(_option.OutputDir, windows);
-                    var graphCreator = new QtlSeqGraphCreator(_option.GraphOption);
+                    var graphCreator = new QtlSeqGraphCreator(_option.GraphSettings);
                     graphCreator.Create(_option.OutputDir, swQtlVariants, windows);
 
                     spinner.Succeed("QTL-Seq analysis completed");
@@ -74,7 +74,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         private SnpIndexVariant[] GetTargetSnpIndexVariants(InputVcf inputVcf)
         {
             var analyzableVriantPolicy = new AnalyzableVariantPolicy();
-            var qtlSeqTargetVariantPolicy = _option.QtlSeqTargetPolicyOption.CreatePolicy();
+            var qtlSeqTargetVariantPolicy = _option.QtlSeqTargetPolicySettings.CreatePolicy();
 
             var vcfVariants = VcfFileParser.Parse(inputVcf.Path);
             return vcfVariants
@@ -91,7 +91,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <returns>QTL解析済み変異</returns>
         private SnpIndexVariantWithQtl[] AnalyzeVariantQtl(SnpIndexVariant[] variants)
         {
-            var analyzer = new VariantQtlAanlyzer(_option.NoQtlDistributionOption, _option.ThreadNumber);
+            var analyzer = new VariantQtlAanlyzer(_option.NoQtlDistributionSettings, _option.ThreadNumber);
             return analyzer.Analyze(variants);
         }
 
@@ -102,7 +102,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <returns>SlidingWindow</returns>
         private Window[] AnalyzeSlidingWindow(SnpIndexVariantWithQtl[] variants)
         {
-            var slidingWindowAnalyzer = new SlidingWindowAnalyzer(_option.SlidingWindowAnalysisOption, _option.ThreadNumber);
+            var slidingWindowAnalyzer = new SlidingWindowAnalyzer(_option.SlidingWindowAnalysisSettings, _option.ThreadNumber);
             return slidingWindowAnalyzer.Analyze(variants);
         }
 

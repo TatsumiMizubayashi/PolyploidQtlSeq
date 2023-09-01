@@ -24,8 +24,8 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         public QtlSeqPipeline(IQtlSeqPipelineSettingValue optionValues, IReadOnlyCollection<CommandOption> options)
         {
             _option = new QtlSeqPipelineSettings(optionValues, options);
-            _outputDir = _option.QtlAnalysisScenarioOptions.OutputDir;
-            _threadNumber = _option.QtlAnalysisScenarioOptions.ThreadNumber;
+            _outputDir = _option.QtlAnalysisScenarioSettings.OutputDir;
+            _threadNumber = _option.QtlAnalysisScenarioSettings.ThreadNumber;
         }
 
         /// <summary>
@@ -71,11 +71,11 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
 
         private ValueTask<VcfFile> VariantCallAsync(AllSampleBamFiles allSampleBamFiles)
         {
-            var analysisChrs = allSampleBamFiles.GetAnalysisChrs(_option.AnalysisChrOption);
+            var analysisChrs = allSampleBamFiles.GetAnalysisChrs(_option.AnalysisChrSettings);
 
             var variantCallScenario = new VariantCallScenario(
-                _option.BcfToolsVariantCallOption,
-                _option.SnpEffOption,
+                _option.BcfToolsVariantCallSettings,
+                _option.SnpEffSettings,
                 _threadNumber);
 
             return variantCallScenario.CallAsync(allSampleBamFiles, _outputDir, analysisChrs);
@@ -87,7 +87,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
             var dummyUserOptionDictionary = new Dictionary<string, bool>();
             var inputVcf = new InputVcf(vcfFile.Path, dummyParameterDictionary, dummyUserOptionDictionary);
 
-            var qtlAnalysisScenario = new QtlAnalysisScenario(_option.QtlAnalysisScenarioOptions);
+            var qtlAnalysisScenario = new QtlAnalysisScenario(_option.QtlAnalysisScenarioSettings);
             return qtlAnalysisScenario.Run(inputVcf);
         }
     }

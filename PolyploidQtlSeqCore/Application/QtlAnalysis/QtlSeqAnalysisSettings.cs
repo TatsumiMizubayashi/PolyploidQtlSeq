@@ -40,7 +40,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
             var userOptionDictionary = UserSpecifiedLongNameDictionaryCreator.Create(options);
 
             InputVcf = new InputVcf(optionValues.InputVcf, longNameParameterDictionary, userOptionDictionary);
-            QtlAnalysisScenarioOptions = new QtlAnalysisScenarioSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
+            QtlAnalysisScenarioSettings = new QtlAnalysisScenarioSettings(optionValues, longNameParameterDictionary, userOptionDictionary);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
         /// <summary>
         /// QTL解析シナリオオプション
         /// </summary>
-        public QtlAnalysisScenarioSettings QtlAnalysisScenarioOptions { get; }
+        public QtlAnalysisScenarioSettings QtlAnalysisScenarioSettings { get; }
 
         /// <summary>
         /// パラメータファイル
@@ -70,7 +70,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
             writer.WriteLine("#LongName\tValue");
             writer.WriteLine(InputVcf.ToParameterFileLine());
             
-            foreach(var line in QtlAnalysisScenarioOptions.ToParameterFileLines())
+            foreach(var line in QtlAnalysisScenarioSettings.ToParameterFileLines())
             {
                 writer.WriteLine(line);
             }
