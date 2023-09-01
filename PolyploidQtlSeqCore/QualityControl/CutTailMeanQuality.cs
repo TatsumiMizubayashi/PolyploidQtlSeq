@@ -10,14 +10,12 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <summary>
         /// 3'末端トリム時の平均クオリティの最小値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
 
         /// <summary>
         /// 3'末端トリム時の平均クオリティの最大値
         /// </summary>
-        [Obsolete("削除予定")]
-        public const int MAXIMUM = 30;
+        private const int MAXIMUM = 30;
 
         /// <summary>
         /// 3'末端トリム時の平均クオリティの規定値
@@ -61,6 +59,17 @@ namespace PolyploidQtlSeqCore.QualityControl
             Value = OptionValue.GetValue(LONG_NAME, quality, parameterDictionary, userOptionDictionary);
 
             if (quality < MINIMUM || quality > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// 3'末端トリム時の平均クオリティを作成する。
+        /// </summary>
+        /// <param name="quality">平均クオリティ</param>
+        public CutTailMeanQuality(int quality)
+        {
+            if (quality < MINIMUM || quality > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(quality));
+
+            Value = quality;
         }
 
         /// <summary>
