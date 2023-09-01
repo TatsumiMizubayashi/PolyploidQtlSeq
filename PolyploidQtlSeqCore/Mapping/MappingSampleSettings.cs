@@ -1,9 +1,10 @@
 ﻿namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
-    /// Mappingオプション
+    /// Mappingサンプル設定
     /// </summary>
-    internal class MappingSampleSettingValue
+    [Obsolete("オプションスイッチ機能を削除予定")]
+    internal class MappingSampleSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
         {
@@ -38,7 +39,7 @@
         /// <param name="optionValues">Mappingオプションの値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定オプション辞書</param>
-        public MappingSampleSettingValue(IMappingSampleSettingValue optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
+        public MappingSampleSettings(IMappingSampleSettingValue optionValues, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
             Parent1Directory = new Parent1Directory(optionValues.Parent1Dir, parameterDictionary, userOptionDictionary);
