@@ -68,7 +68,7 @@ namespace PolyploidQtlSeq
         public override async Task<int> OnExecuteAsync(CommandLineApplication app)
         {
             var options = FastpQualityControlOptions.Create(this);
-            LoadParameterFile(options, app);
+            LoadParameterFile(ParameterFilePath, _parameterFileTitle, options, app);
             if (Validation(options)) Environment.Exit(1);
 
             int code;
@@ -84,54 +84,11 @@ namespace PolyploidQtlSeq
             }
             finally
             {
-                CreateParameterFile(options);
+                var logParamsFilePath= Path.Combine(OutputDir, "QC.params.txt");
+                CreateParameterFile(logParamsFilePath, _parameterFileTitle, options);
             }
 
             return code;
-        }
-
-        /// <summary>
-        /// パラメーターファイルから設定を読み込む。
-        /// </summary>
-        /// <param name="options">オプション</param>
-        /// <param name="app">app</param>
-        private void LoadParameterFile(FastpQualityControlOptions options, CommandLineApplication app)
-        {
-            if (string.IsNullOrEmpty(ParameterFilePath)) return;
-
-            Console.WriteLine($"Load settings from {ParameterFilePath}.");
-            var parameterFile = new ParameterFile(_parameterFileTitle, options);
-            var paramsDict = parameterFile.Parse(ParameterFilePath);
-            options.SetValues(paramsDict, app.Options);
-        }
-
-        /// <summary>
-        /// データ検証を行う。
-        /// </summary>
-        /// <param name="options">オプション</param>
-        /// <returns>エラーがある場合はtrue</returns>
-        private static bool Validation(FastpQualityControlOptions options)
-        {
-            var errorValidations = options.Validation();
-            if (errorValidations.Length == 0) return false;
-
-            foreach (var error in errorValidations)
-            {
-                error.Print();
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// パラメーターファイルを作成する。
-        /// </summary>
-        /// <param name="options">オプション</param>
-        private void CreateParameterFile(FastpQualityControlOptions options)
-        {
-            var filePath = Path.Combine(OutputDir, "QC.params.txt");
-            var parameterFile = new ParameterFile(_parameterFileTitle, options);
-            parameterFile.Create(filePath);
         }
     }
 }
