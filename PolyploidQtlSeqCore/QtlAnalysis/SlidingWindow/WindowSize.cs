@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
         /// <summary>
         /// window sizeの最小値
         /// </summary>
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
 
         /// <summary>
         /// window sizeの最大値
         /// </summary>
-        public const int MAXIMUM = 100000;
+        private const int MAXIMUM = 100000;
 
         /// <summary>
         /// window sizeの規定値
@@ -60,6 +60,18 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
 
             if (KbpValue < MINIMUM || KbpValue > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
 
+            BpValue = KbpValue * 1000;
+        }
+
+        /// <summary>
+        /// WindowSizeを作成する。
+        /// </summary>
+        /// <param name="kbpSize">サイズ(kbp)</param>
+        public WindowSize(int kbpSize)
+        {
+            if (kbpSize < MINIMUM || kbpSize > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(kbpSize));
+
+            KbpValue = kbpSize;
             BpValue = KbpValue * 1000;
         }
 

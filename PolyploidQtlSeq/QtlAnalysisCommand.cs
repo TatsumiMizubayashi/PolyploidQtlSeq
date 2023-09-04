@@ -91,7 +91,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = sw.WindowSize.SHORT_NAME, LongName = sw.WindowSize.LONG_NAME,
             Description = sw.WindowSize.DESCRIPTION, ValueName = "")]
-        [Range(sw.WindowSize.MINIMUM, sw.WindowSize.MAXIMUM, ErrorMessage = sw.WindowSize.VALIDATION_ERROR_MESSAGE)]
         public int WindowSize { get; set; }
 
         [Option(ShortName = sw.StepSize.SHORT_NAME, LongName = sw.StepSize.LONG_NAME,
