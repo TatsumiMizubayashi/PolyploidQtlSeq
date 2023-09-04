@@ -54,8 +54,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = qsf.Parent1MostAlleleRateThreshold.SHORT_NAME, LongName = qsf.Parent1MostAlleleRateThreshold.LONG_NAME,
             Description = qsf.Parent1MostAlleleRateThreshold.DESCRIPTION, ValueName = "")]
-        [Range(qsf.Parent1MostAlleleRateThreshold.MINIMUM, qsf.Parent1MostAlleleRateThreshold.MAXIMUM, 
-            ErrorMessage = qsf.Parent1MostAlleleRateThreshold.VALIDATION_ERROR_MESSAGE)]
         public double Parent1MostAlleleRateThreshold { get; set; }
 
         [Option(ShortName = qsf.Parent2SnpIndexRange.SHORT_NAME, LongName = qsf.Parent2SnpIndexRange.LONG_NAME,
