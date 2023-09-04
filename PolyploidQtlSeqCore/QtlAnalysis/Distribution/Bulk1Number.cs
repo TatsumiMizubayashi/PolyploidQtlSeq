@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
         /// <summary>
         /// 個体数の最小値
         /// </summary>
-        public const int MINIMUM = 2;
+        private const int MINIMUM = 2;
 
         /// <summary>
         /// 個体数の最大値
         /// </summary>
-        public const int MAXIMUM = 1000;
+        private const int MAXIMUM = 1000;
 
         /// <summary>
         /// 個体数の規定値
@@ -59,6 +59,17 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
             Value = OptionValue.GetValue(LONG_NAME, number, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// Bulk1個体数を作成する。
+        /// </summary>
+        /// <param name="number">個体数</param>
+        public Bulk1Number(int number)
+        {
+            if (number < MINIMUM || number > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(number));
+
+            Value = number;
         }
 
         /// <summary>
