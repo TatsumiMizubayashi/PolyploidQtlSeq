@@ -20,26 +20,31 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
         /// <summary>
         /// 個体数の規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 20;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "n2";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "NBulk2";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Number of Individuals in bulk2.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -n2 option must be an integer greater than or equal to 2 and less than or equal to 1000.";
 
         /// <summary>
