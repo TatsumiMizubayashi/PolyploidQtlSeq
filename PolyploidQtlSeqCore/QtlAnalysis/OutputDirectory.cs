@@ -41,6 +41,17 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         }
 
         /// <summary>
+        /// 出力ディレクトリを作成する。
+        /// </summary>
+        /// <param name="outputDirPath">出力ディレクトリPath</param>
+        public OutputDirectory(string outputDirPath)
+        {
+            if (string.IsNullOrWhiteSpace(outputDirPath)) throw new ArgumentNullException(nameof(outputDirPath));
+
+            Path = System.IO.Path.GetFullPath(outputDirPath);
+        }
+
+        /// <summary>
         /// 出力ディレクトリPATHを取得する。
         /// </summary>
         internal string Path { get; }
