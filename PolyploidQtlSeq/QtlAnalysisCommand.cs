@@ -87,7 +87,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = d.ReplicatesNumber.SHORT_NAME, LongName = d.ReplicatesNumber.LONG_NAME,
             Description = d.ReplicatesNumber.DESCRIPTION, ValueName = "")]
-        [Range(d.ReplicatesNumber.MINIMUM, d.ReplicatesNumber.MAXIMUM, ErrorMessage = d.ReplicatesNumber.VALIDATION_ERROR_MESSAGE)]
         public int ReplicatesNumber { get; set; }
 
         [Option(ShortName = sw.WindowSize.SHORT_NAME, LongName = sw.WindowSize.LONG_NAME,
