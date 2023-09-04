@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
         /// <summary>
         /// 最低Depthしきい値の最小値
         /// </summary>
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
 
         /// <summary>
         /// 最低Depthしきい値の最大値
         /// </summary>
-        public const int MAXIMUM = 10000;
+        private const int MAXIMUM = 10000;
 
         /// <summary>
         /// 最低Depthしきい値の規定値
@@ -60,6 +60,18 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
         }
+
+        /// <summary>
+        /// 最低Depthしきい値を作成する。
+        /// </summary>
+        /// <param name="threshold">しきい値</param>
+        public MinimumDepthThreshold(int threshold)
+        {
+            if (threshold < MINIMUM || threshold > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(threshold));
+
+            Value = threshold;
+        }
+
 
         /// <summary>
         /// 最低Depthしきい値を取得する。

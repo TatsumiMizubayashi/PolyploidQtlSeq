@@ -62,8 +62,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = qsf.MinimumDepthThreshold.SHORT_NAME, LongName = qsf.MinimumDepthThreshold.LONG_NAME,
             Description = qsf.MinimumDepthThreshold.DESCRIPTION, ValueName = "")]
-        [Range(qsf.MinimumDepthThreshold.MINIMUM, qsf.MinimumDepthThreshold.MAXIMUM,
-            ErrorMessage = qsf.MinimumDepthThreshold.VALIDATION_ERROR_MESSAGE)]
         public int MinimumDepthThreshold { get; set; }
 
         [Option(ShortName = qsf.MaxBulkSnpIndexThreshold.SHORT_NAME, LongName = qsf.MaxBulkSnpIndexThreshold.LONG_NAME,
