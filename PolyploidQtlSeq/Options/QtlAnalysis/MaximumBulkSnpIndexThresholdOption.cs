@@ -5,7 +5,7 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
     /// <summary>
     /// 最大Bulk SNP-indexしきい値オプション
     /// </summary>
-    internal class MaxBulkSnpIndexThresholdOption : Option
+    internal class MaximumBulkSnpIndexThresholdOption : Option
     {
         /// <summary>
         /// オプションスイッチのShortName
@@ -43,7 +43,7 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         /// 最大Bulk SNP-indexしきい値オプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public MaxBulkSnpIndexThresholdOption(IQtlSeqAnalysisOptionValue settingValue)
+        public MaximumBulkSnpIndexThresholdOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }
