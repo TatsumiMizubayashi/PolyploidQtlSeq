@@ -99,7 +99,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = og.FigureWidth.SHORT_NAME, LongName = og.FigureWidth.LONG_NAME,
             Description = og.FigureWidth.DESCRIPTION, ValueName = "")]
-        [Range(og.FigureWidth.MINIMUM, og.FigureWidth.MAXIMUM, ErrorMessage = og.FigureWidth.VALIDATION_ERROR_MESSAGE)]
         public int FigureWidth { get; set; }
 
         [Option(ShortName = og.FigureHeight.SHORT_NAME, LongName = og.FigureHeight.LONG_NAME,

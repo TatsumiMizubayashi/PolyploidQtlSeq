@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <summary>
         /// グラフ幅の最小値
         /// </summary>
-        public const int MINIMUM = 300;
+        private const int MINIMUM = 300;
 
         /// <summary>
         /// グラフ幅の最大値
         /// </summary>
-        public const int MAXIMUM = 5000;
+        private const int MAXIMUM = 5000;
 
         /// <summary>
         /// グラフ幅の規定値
@@ -59,6 +59,17 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
             Value = OptionValue.GetValue(LONG_NAME, width, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// グラフ画像の幅を作成する。
+        /// </summary>
+        /// <param name="width">幅(pixel)</param>
+        public FigureWidth(int width)
+        {
+            if (width < MINIMUM || width > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(width));
+
+            Value = width;
         }
 
         /// <summary>
