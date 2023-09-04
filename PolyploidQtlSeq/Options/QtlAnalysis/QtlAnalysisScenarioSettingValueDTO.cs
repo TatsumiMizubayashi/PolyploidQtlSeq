@@ -1,4 +1,6 @@
-﻿namespace PolyploidQtlSeqCore.QtlAnalysis
+﻿using PolyploidQtlSeqCore.QtlAnalysis;
+
+namespace PolyploidQtlSeq.Options.QtlAnalysis
 {
     /// <summary>
     /// QTL解析シナリオ設定値DTO

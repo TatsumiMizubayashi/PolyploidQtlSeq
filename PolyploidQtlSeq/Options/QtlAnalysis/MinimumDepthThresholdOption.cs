@@ -38,13 +38,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         /// </summary>
         private const int MAXIMUM = 10000;
 
-        private readonly IQtlSeqAnalysisSettingValue _settingValue;
+        private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
         /// <summary>
         /// 最小Depthしきい値オプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public MinimumDepthThresholdOption(IQtlSeqAnalysisSettingValue settingValue)
+        public MinimumDepthThresholdOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }

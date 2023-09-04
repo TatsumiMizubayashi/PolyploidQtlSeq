@@ -40,13 +40,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         private const int MAXIMUM = 100;
 
 
-        private readonly IQtlSeqAnalysisSettingValue _settingValue;
+        private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
         /// <summary>
         /// P2 Plex数オプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public Parent2PlexNumberOption(IQtlSeqAnalysisSettingValue settingValue)
+        public Parent2PlexNumberOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }

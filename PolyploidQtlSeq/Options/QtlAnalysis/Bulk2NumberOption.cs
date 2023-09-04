@@ -38,13 +38,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         /// </summary>
         private const int MAXIMUM = 1000;
 
-        private readonly IQtlSeqAnalysisSettingValue _settingValue;
+        private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
         /// <summary>
         /// Bulk2個体数オプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public Bulk2NumberOption(IQtlSeqAnalysisSettingValue settingValue)
+        public Bulk2NumberOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }

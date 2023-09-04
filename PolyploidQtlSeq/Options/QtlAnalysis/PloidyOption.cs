@@ -39,13 +39,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         private const int MAXIMUM = 20;
 
 
-        private readonly IQtlSeqAnalysisSettingValue _settingValue;
+        private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
         /// <summary>
         /// 倍数性オプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public PloidyOption(IQtlSeqAnalysisSettingValue settingValue)
+        public PloidyOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }

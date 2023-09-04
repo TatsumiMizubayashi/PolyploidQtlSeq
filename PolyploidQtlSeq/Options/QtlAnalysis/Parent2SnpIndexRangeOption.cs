@@ -40,13 +40,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
 
         private static readonly char _delimiter = '-';
 
-        private readonly IQtlSeqAnalysisSettingValue _settingValue;
+        private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
         /// <summary>
         /// P2 SNP-index範囲オプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public Parent2SnpIndexRangeOption(IQtlSeqAnalysisSettingValue settingValue)
+        public Parent2SnpIndexRangeOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }   

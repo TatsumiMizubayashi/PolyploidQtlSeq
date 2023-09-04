@@ -1,11 +1,9 @@
-﻿using PolyploidQtlSeqCore.QtlAnalysis;
-
-namespace PolyploidQtlSeqCore.Application.QtlAnalysis
+﻿namespace PolyploidQtlSeq.Options.QtlAnalysis
 {
     /// <summary>
     /// QTL-seq解析設定値インターフェース
     /// </summary>
-    public interface IQtlSeqAnalysisSettingValue
+    public interface IQtlSeqAnalysisOptionValue
     {
         /// <summary>
         /// InputVCFファイルPathを取得、又は設定する。

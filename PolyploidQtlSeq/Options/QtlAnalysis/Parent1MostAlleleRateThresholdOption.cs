@@ -38,13 +38,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         /// </summary>
         private const double MAXIMUM = 1.0;
 
-        private readonly IQtlSeqAnalysisSettingValue _settingValue;
+        private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
         /// <summary>
         /// P1最多アレル割合しきい値オプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public Parent1MostAlleleRateThresholdOption(IQtlSeqAnalysisSettingValue settingValue)
+        public Parent1MostAlleleRateThresholdOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }

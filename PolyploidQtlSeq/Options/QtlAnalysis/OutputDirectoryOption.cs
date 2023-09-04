@@ -24,13 +24,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         /// </summary>
         public const string DESCRIPTION = "Output Directory.";
 
-        private readonly IQtlSeqAnalysisSettingValue _settingValue;
+        private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
         /// <summary>
         /// 出力ディレクトリオプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public OutputDirectoryOption(IQtlSeqAnalysisSettingValue settingValue)
+        public OutputDirectoryOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }

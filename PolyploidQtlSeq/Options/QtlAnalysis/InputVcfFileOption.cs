@@ -23,13 +23,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         /// </summary>
         public const string DESCRIPTION = "Input VCF file.";
 
-        private readonly IQtlSeqAnalysisSettingValue _settingValue;
+        private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
         /// <summary>
         /// 入力VCFファイルオプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public InputVcfFileOption(IQtlSeqAnalysisSettingValue settingValue)
+        public InputVcfFileOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }

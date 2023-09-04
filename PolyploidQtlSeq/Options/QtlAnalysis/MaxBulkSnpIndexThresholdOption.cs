@@ -38,13 +38,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         /// </summary>
         private const double MAXIMUM = 1.0;
 
-        private readonly IQtlSeqAnalysisSettingValue _settingValue;
+        private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
         /// <summary>
         /// 最大Bulk SNP-indexしきい値オプションインスタンスを作成する。
         /// </summary>
         /// <param name="settingValue">QTL-Seq解析設定値</param>
-        public MaxBulkSnpIndexThresholdOption(IQtlSeqAnalysisSettingValue settingValue)
+        public MaxBulkSnpIndexThresholdOption(IQtlSeqAnalysisOptionValue settingValue)
         {
             _settingValue = settingValue;
         }
