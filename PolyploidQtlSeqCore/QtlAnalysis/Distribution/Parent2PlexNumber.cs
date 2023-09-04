@@ -10,18 +10,19 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
         /// <summary>
         /// plex数の最小値
         /// </summary>
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
+
+
+        /// <summary>
+        /// plex数の仮の最大値
+        /// </summary>
+        private const int MAXIMUM = 100;
 
         /// <summary>
         /// plex数の規定値
         /// </summary>
         public const int DEFAULT = 1;
 
-        /// <summary>
-        /// plex数の仮の最大値
-        /// </summary>
-        [Obsolete("削除予定")]
-        public const int MAXIMUM = 100;
 
         /// <summary>
         /// オプションスイッチのShortName
@@ -60,6 +61,17 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
 
             // 最大値はploidyによって変わるのでここでは判断できない
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// 親2のPlex数を作成する。
+        /// </summary>
+        /// <param name="plex">plex数</param>
+        public Parent2PlexNumber(int plex)
+        {
+            if (plex < MINIMUM || plex > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(plex));
+
+            Value = plex;
         }
 
         /// <summary>

@@ -148,8 +148,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = d.Parent2PlexNumber.SHORT_NAME, LongName = d.Parent2PlexNumber.LONG_NAME,
             Description = d.Parent2PlexNumber.DESCRIPTION, ValueName = "")]
-        [Range(d.Parent2PlexNumber.MINIMUM, d.Parent2PlexNumber.MAXIMUM,
-            ErrorMessage = d.Parent2PlexNumber.VALIDATION_ERROR_MESSAGE)]
         public int Parent2PlexNumber { get; set; }
 
         [Option(ShortName = d.Bulk1Number.SHORT_NAME, LongName = d.Bulk1Number.LONG_NAME,
