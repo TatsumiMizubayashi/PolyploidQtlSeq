@@ -5,6 +5,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
     /// <summary>
     /// QTL-Seq解析オプション値 インターフェイス
     /// </summary>
+    [Obsolete("削除予定")]
     public interface IQtlSeqAnalysisSettingValueOld : IQtlAnalysisScenarioSettingValue
     {
         /// <summary>
