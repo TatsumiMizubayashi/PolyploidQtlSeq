@@ -20,26 +20,31 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
         /// <summary>
         /// 最低Depthしきい値の規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 40;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "md";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "minDepth";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Minimum Depth threshold. The variants with even one sample below this threshold are excluded for QTL analysis.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -md option must be an integer greater than or equal to 1 and less than or equal to 10000.";
 
         /// <summary>
