@@ -1,5 +1,4 @@
-﻿using PolyploidQtlSeqCore.Application.QualityControl;
-using PolyploidQtlSeqCore.Options;
+﻿using PolyploidQtlSeqCore.Options;
 
 namespace PolyploidQtlSeq.Options.QualityControl
 {
@@ -21,7 +20,7 @@ namespace PolyploidQtlSeq.Options.QualityControl
         /// </summary>
         /// <param name="optionValue">Fastp QCオプション値</param>
         /// <returns>Fastp QCオプション</returns>
-        public static FastpQualityControlOptions Create(IFastpQualityControlSettingValue optionValue)
+        public static FastpQualityControlOptions Create(IFastpQualityControlOptionValue optionValue)
         {
             var options = new Option[]
             {

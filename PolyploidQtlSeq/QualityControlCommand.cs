@@ -9,7 +9,7 @@ namespace PolyploidQtlSeq
     /// QualityControlコマンド
     /// </summary>
     [Command("qc", Description = "Quality Control by fastp.")]
-    internal sealed class QualityControlCommand : CommandBase, IFastpQualityControlSettingValue
+    internal sealed class QualityControlCommand : CommandBase, IFastpQualityControlOptionValue
     {
         private static readonly string _parameterFileTitle = "Quality Control Parameter file";
 
@@ -74,7 +74,7 @@ namespace PolyploidQtlSeq
             int code;
             try
             {
-                var fastpQC = new FastpQualityControl(this);
+                var fastpQC = CreateFastpQualityControl(this);
                 code = await fastpQC.RunAsync();
             }
             catch (Exception ex)
@@ -89,6 +89,12 @@ namespace PolyploidQtlSeq
             }
 
             return code;
+        }
+
+        private static FastpQualityControl CreateFastpQualityControl(IFastpQualityControlOptionValue optionValue)
+        {
+            var setting = optionValue.CreateFastpQualityControlSettingValue();
+            return new FastpQualityControl(setting);
         }
     }
 }

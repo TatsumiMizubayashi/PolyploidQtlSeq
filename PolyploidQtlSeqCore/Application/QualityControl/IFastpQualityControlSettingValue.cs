@@ -6,44 +6,44 @@
     public interface IFastpQualityControlSettingValue
     {
         /// <summary>
-        /// 入力Fastqファイル置き場のPathを設定、または取得する。
+        /// 入力Fastqファイル置き場のPathを取得する。
         /// </summary>
-        string InputDir { get; set; }
+        string InputDir { get; }
 
         /// <summary>
-        /// 出力ディレクトリのPathを設定、または取得する。
+        /// 出力ディレクトリのPathを取得する。
         /// </summary>
-        string OutputDir { get; set; }
+        string OutputDir { get; }
 
 
         /// <summary>
-        /// トリミング後リード長最低値を設定、または取得する。
+        /// トリミング後リード長最低値を取得する。
         /// </summary>
-        int ReadLengthRequired { get; set; }
+        int ReadLengthRequired { get; }
 
         /// <summary>
-        /// N塩基数の上限を設定、または取得する。
+        /// N塩基数の上限を取得する。
         /// </summary>
-        int NBaseLimit { get; set; }
+        int NBaseLimit { get; }
 
         /// <summary>
-        /// 塩基クオリティのしきい値を設定、または取得する。
+        /// 塩基クオリティのしきい値を取得する。
         /// </summary>
-        int BaseQuality { get; set; }
+        int BaseQuality { get; }
 
         /// <summary>
-        /// 3'末端トリム時の平均クオリティしきい値を設定、または取得する。
+        /// 3'末端トリム時の平均クオリティしきい値を取得する。
         /// </summary>
-        int CutTailMeanQuality { get; set; }
+        int CutTailMeanQuality { get; }
 
         /// <summary>
-        /// 3'末端トリム時のウインドウサイズを設定、または取得する。
+        /// 3'末端トリム時のウインドウサイズを取得する。
         /// </summary>
-        int CutTailWindowSize { get; set; }
+        int CutTailWindowSize { get; }
 
         /// <summary>
-        /// 使用するスレッド数を設定、または取得する。
+        /// 使用するスレッド数を取得する。
         /// </summary>
-        int ThreadNumber { get; set; }
+        int ThreadNumber { get; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using PolyploidQtlSeqCore.Application.QualityControl;
-using PolyploidQtlSeqCore.Options;
+﻿using PolyploidQtlSeqCore.Options;
 
 namespace PolyploidQtlSeq.Options.QualityControl
 {
@@ -38,13 +37,13 @@ namespace PolyploidQtlSeq.Options.QualityControl
         /// </summary>
         private const int MAXIMUM = 30;
 
-        private readonly IFastpQualityControlSettingValue _optionValue;
+        private readonly IFastpQualityControlOptionValue _optionValue;
 
         /// <summary>
         /// 3'末端トリム 平均クオリティオプション インスタンスを作成する。
         /// </summary>
         /// <param name="optionValue">Fastq QCオプション値</param>
-        public CutTailMeanQualityOption(IFastpQualityControlSettingValue optionValue)
+        public CutTailMeanQualityOption(IFastpQualityControlOptionValue optionValue)
         {
             _optionValue = optionValue;
         }

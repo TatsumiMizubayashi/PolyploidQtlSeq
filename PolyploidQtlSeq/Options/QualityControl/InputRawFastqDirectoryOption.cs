@@ -1,5 +1,4 @@
-﻿using PolyploidQtlSeqCore.Application.QualityControl;
-using PolyploidQtlSeqCore.Options;
+﻿using PolyploidQtlSeqCore.Options;
 
 namespace PolyploidQtlSeq.Options.QualityControl
 {
@@ -23,13 +22,13 @@ namespace PolyploidQtlSeq.Options.QualityControl
         /// </summary>
         public const string DESCRIPTION = "Raw fastq directory.";
 
-        private readonly IFastpQualityControlSettingValue _optionValue;
+        private readonly IFastpQualityControlOptionValue _optionValue;
 
         /// <summary>
         /// 入力RawFastqディレクトリオプションインスタンスを作成する。
         /// </summary>
         /// <param name="optionValue">Fastq QCオプション値</param>
-        public InputRawFastqDirectoryOption(IFastpQualityControlSettingValue optionValue)
+        public InputRawFastqDirectoryOption(IFastpQualityControlOptionValue optionValue)
         {
             _optionValue = optionValue;
         }
