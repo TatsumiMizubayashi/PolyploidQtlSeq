@@ -15,7 +15,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
         /// </summary>
         /// <param name="optionValue">オプションの値</param>
         /// <param name="options">CommandOptions</param>
-        public QtlSeqAnalysis(IQtlSeqAnalysisSettingValue optionValue, IReadOnlyCollection<CommandOption> options)
+        public QtlSeqAnalysis(IQtlSeqAnalysisSettingValueOld optionValue, IReadOnlyCollection<CommandOption> options)
         {
             _option = new QtlSeqAnalysisSettings(optionValue, options);
         }

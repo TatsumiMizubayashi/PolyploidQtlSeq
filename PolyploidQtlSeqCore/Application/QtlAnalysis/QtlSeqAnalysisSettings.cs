@@ -33,7 +33,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
         /// </summary>
         /// <param name="optionValues">オプションの値</param>
         /// <param name="options">CommandOptions</param>
-        public QtlSeqAnalysisSettings(IQtlSeqAnalysisSettingValue optionValues, IReadOnlyCollection<CommandOption> options)
+        public QtlSeqAnalysisSettings(IQtlSeqAnalysisSettingValueOld optionValues, IReadOnlyCollection<CommandOption> options)
         {
             ParameterFile = new ParameterFileParser(optionValues.ParameterFile);
             var longNameParameterDictionary = ParameterFile.ToParameterDictionary(_toLongNameDictionary);

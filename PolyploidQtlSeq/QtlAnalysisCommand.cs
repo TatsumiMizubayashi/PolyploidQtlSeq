@@ -16,7 +16,7 @@ namespace PolyploidQtlSeq
     /// QTL-Seq解析を行うコマンド
     /// </summary>
     [Command("qtl", Description = "QTL-Seq analysis.")]
-    internal sealed class QtlAnalysisCommand : CommandBase, IQtlSeqAnalysisSettingValue
+    internal sealed class QtlAnalysisCommand : CommandBase, IQtlSeqAnalysisSettingValueOld
     {
         /// <summary>
         /// QTL解析コマンドを作成する。
