@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.Share
         /// <summary>
         /// 使用するスレッド数の最小値
         /// </summary>
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
 
         /// <summary>
         /// 使用するスレッド数の最大値
         /// </summary>
-        public const int MAXIMUM = 50;
+        private const int MAXIMUM = 50;
 
         /// <summary>
         /// 使用するスレッド数の規定値

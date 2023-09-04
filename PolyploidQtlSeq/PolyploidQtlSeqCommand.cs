@@ -187,7 +187,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = PolyploidQtlSeqCore.Share.ThreadNumber.SHORT_NAME, LongName = PolyploidQtlSeqCore.Share.ThreadNumber.LONG_NAME,
             Description = PolyploidQtlSeqCore.Share.ThreadNumber.DESCRIPTION, ValueName = "")]
-        [Range(PolyploidQtlSeqCore.Share.ThreadNumber.MINIMUM, PolyploidQtlSeqCore.Share.ThreadNumber.MAXIMUM, ErrorMessage = PolyploidQtlSeqCore.Share.ThreadNumber.VALIDATION_ERROR_MESSAGE)]
         public int ThreadNumber { get; set; }
 
         [Option(ShortName = op.ParameterFileParser.SHORT_NAME, LongName = op.ParameterFileParser.LONG_NAME,
