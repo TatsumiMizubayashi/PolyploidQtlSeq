@@ -12,26 +12,31 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.IO
         /// <summary>
         /// DisplayImpactsの規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DEFAULT = "HIGH,MODERATE";
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "di";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "displayImpacts";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Annotation Impact to be included in the SNP-index file. Separate multiple items with commas.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -di option must be one of HIGH, MODERATE, LOW, or MODIFIER, separated by commas.";
 
         /// <summary>
