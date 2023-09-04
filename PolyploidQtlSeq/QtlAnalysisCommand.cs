@@ -1,14 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using McMaster.Extensions.CommandLineUtils;
+﻿using McMaster.Extensions.CommandLineUtils;
+using PolyploidQtlSeq.Options.QtlAnalysis;
 using PolyploidQtlSeqCore.Application.QtlAnalysis;
-using PolyploidQtlSeqCore.QtlAnalysis.OxyGraph;
-using d = PolyploidQtlSeqCore.QtlAnalysis.Distribution;
-using io = PolyploidQtlSeqCore.QtlAnalysis.IO;
-using og = PolyploidQtlSeqCore.QtlAnalysis.OxyGraph;
-using op = PolyploidQtlSeqCore.Options;
-using qa = PolyploidQtlSeqCore.QtlAnalysis;
-using qsf = PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter;
-using sw = PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow;
+using PolyploidQtlSeqCore.Options;
 
 namespace PolyploidQtlSeq
 {
@@ -16,8 +9,10 @@ namespace PolyploidQtlSeq
     /// QTL-Seq解析を行うコマンド
     /// </summary>
     [Command("qtl", Description = "QTL-Seq analysis.")]
-    internal sealed class QtlAnalysisCommand : CommandBase, IQtlSeqAnalysisSettingValueOld
+    internal sealed class QtlAnalysisCommand : CommandBase, IQtlSeqAnalysisOptionValue
     {
+        private static readonly string _parameterFileTitle = "QTL-Seq analysis Parameter file";
+
         /// <summary>
         /// QTL解析コマンドを作成する。
         /// </summary>
@@ -25,127 +20,149 @@ namespace PolyploidQtlSeq
         {
             InputVcf = "";
             OutputDir = "";
-            Parent1MostAlleleRateThreshold = qsf.Parent1MostAlleleRateThreshold.DEFAULT;
-            Parent2SnpIndexRange = qsf.Parent2SnpIndexRange.DEFAULT;
-            MinimumDepthThreshold = qsf.MinimumDepthThreshold.DEFAULT;
-            MaxBulkSnpIndexThreshold = qsf.MaxBulkSnpIndexThreshold.DEFAULT;
-            Ploidy = d.Ploidy.DEFAULT;
-            Parent2PlexNumber = d.Parent2PlexNumber.DEFAULT;
-            Bulk1Number = d.Bulk1Number.DEFAULT;
-            Bulk2Number = d.Bulk2Number.DEFAULT;
-            ReplicatesNumber = d.ReplicatesNumber.DEFAULT;
-            WindowSize = sw.WindowSize.DEFAULT;
-            StepSize = sw.StepSize.DEFAULT;
-            FigureWidth = og.FigureWidth.DEFAULT;
-            FigureHeight = og.FigureHeight.DEFAULT;
-            XAxisMajorStep = og.XAxisMajorStep.DEFAULT;
-            DisplayAnnotationImpacts = io.DisplayAnnotationImpacts.DEFAULT;
-            ThreadNumber = PolyploidQtlSeqCore.Share.ThreadNumber.DEFAULT;
-            ParameterFile = "";
+            Parent1MostAlleleRateThreshold = Parent1MostAlleleRateThresholdOption.DEFAULT;
+            Parent2SnpIndexRange = Parent2SnpIndexRangeOption.DEFAULT;
+            MinimumDepthThreshold = MinimumDepthThresholdOption.DEFAULT;
+            MaxBulkSnpIndexThreshold = MaximumBulkSnpIndexThresholdOption.DEFAULT;
+            Ploidy = PloidyOption.DEFAULT;
+            Parent2PlexNumber = Parent2PlexNumberOption.DEFAULT;
+            Bulk1Number = Bulk1NumberOption.DEFAULT;
+            Bulk2Number = Bulk2NumberOption.DEFAULT;
+            ReplicatesNumber = ReplicatesNumberOption.DEFAULT;
+            WindowSize = WindowSizeOption.DEFAULT;
+            StepSize = StepSizeOption.DEFAULT;
+            FigureWidth = FigureWidthOption.DEFAULT;
+            FigureHeight = FigureHeightOption.DEFAULT;
+            XAxisMajorStep = XAxisMajorStepOption.DEFAULT;
+            DisplayAnnotationImpacts = DisplayAnnotationImpactsOption.DEFAULT;
+            ThreadNumber = ThreadNumberOption.DEFAULT;
+            ParameterFilePath = "";
         }
 
-        [Option(ShortName = qa.InputVcf.SHORT_NAME, LongName = qa.InputVcf.LONG_NAME,
-            Description = qa.InputVcf.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = InputVcfFileOption.SHORT_NAME, LongName = InputVcfFileOption.LONG_NAME,
+            Description = InputVcfFileOption.DESCRIPTION, ValueName = "")]
         public string InputVcf { get; set; }
 
-        [Option(ShortName = qa.OutputDirectory.SHORT_NAME, LongName = qa.OutputDirectory.LONG_NAME,
-            Description = qa.OutputDirectory.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = OutputDirectoryOption.SHORT_NAME, LongName = OutputDirectoryOption.LONG_NAME,
+            Description = OutputDirectoryOption.DESCRIPTION, ValueName = "")]
         public string OutputDir { get; set; }
 
-        [Option(ShortName = qsf.Parent1MostAlleleRateThreshold.SHORT_NAME, LongName = qsf.Parent1MostAlleleRateThreshold.LONG_NAME,
-            Description = qsf.Parent1MostAlleleRateThreshold.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = Parent1MostAlleleRateThresholdOption.SHORT_NAME, LongName = Parent1MostAlleleRateThresholdOption.LONG_NAME,
+            Description = Parent1MostAlleleRateThresholdOption.DESCRIPTION, ValueName = "")]
         public double Parent1MostAlleleRateThreshold { get; set; }
 
-        [Option(ShortName = qsf.Parent2SnpIndexRange.SHORT_NAME, LongName = qsf.Parent2SnpIndexRange.LONG_NAME,
-            Description = qsf.Parent2SnpIndexRange.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = Parent2SnpIndexRangeOption.SHORT_NAME, LongName = Parent2SnpIndexRangeOption.LONG_NAME,
+            Description = Parent2SnpIndexRangeOption.DESCRIPTION, ValueName = "")]
         public string Parent2SnpIndexRange { get; set; }
 
-        [Option(ShortName = qsf.MinimumDepthThreshold.SHORT_NAME, LongName = qsf.MinimumDepthThreshold.LONG_NAME,
-            Description = qsf.MinimumDepthThreshold.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = MinimumDepthThresholdOption.SHORT_NAME, LongName = MinimumDepthThresholdOption.LONG_NAME,
+            Description = MinimumDepthThresholdOption.DESCRIPTION, ValueName = "")]
         public int MinimumDepthThreshold { get; set; }
 
-        [Option(ShortName = qsf.MaxBulkSnpIndexThreshold.SHORT_NAME, LongName = qsf.MaxBulkSnpIndexThreshold.LONG_NAME,
-            Description = qsf.MaxBulkSnpIndexThreshold.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = MaximumBulkSnpIndexThresholdOption.SHORT_NAME, LongName = MaximumBulkSnpIndexThresholdOption.LONG_NAME,
+            Description = MaximumBulkSnpIndexThresholdOption.DESCRIPTION, ValueName = "")]
         public double MaxBulkSnpIndexThreshold { get; set; }
 
 
-        [Option(ShortName = d.Ploidy.SHORT_NAME, LongName = d.Ploidy.LONG_NAME,
-            Description = d.Ploidy.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = PloidyOption.SHORT_NAME, LongName = PloidyOption.LONG_NAME,
+            Description = PloidyOption.DESCRIPTION, ValueName = "")]
         public int Ploidy { get; set; }
 
-        [Option(ShortName = d.Parent2PlexNumber.SHORT_NAME, LongName = d.Parent2PlexNumber.LONG_NAME,
-            Description = d.Parent2PlexNumber.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = Parent2PlexNumberOption.SHORT_NAME, LongName = Parent2PlexNumberOption.LONG_NAME,
+            Description = Parent2PlexNumberOption.DESCRIPTION, ValueName = "")]
         public int Parent2PlexNumber { get; set; }
 
-        [Option(ShortName = d.Bulk1Number.SHORT_NAME, LongName = d.Bulk1Number.LONG_NAME,
-            Description = d.Bulk1Number.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = Bulk1NumberOption.SHORT_NAME, LongName = Bulk1NumberOption.LONG_NAME,
+            Description = Bulk1NumberOption.DESCRIPTION, ValueName = "")]
         public int Bulk1Number { get; set; }
 
-        [Option(ShortName = d.Bulk2Number.SHORT_NAME, LongName = d.Bulk2Number.LONG_NAME,
-            Description = d.Bulk2Number.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = Bulk2NumberOption.SHORT_NAME, LongName = Bulk2NumberOption.LONG_NAME,
+            Description = Bulk2NumberOption.DESCRIPTION, ValueName = "")]
         public int Bulk2Number { get; set; }
 
-        [Option(ShortName = d.ReplicatesNumber.SHORT_NAME, LongName = d.ReplicatesNumber.LONG_NAME,
-            Description = d.ReplicatesNumber.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = ReplicatesNumberOption.SHORT_NAME, LongName = ReplicatesNumberOption.LONG_NAME,
+            Description = ReplicatesNumberOption.DESCRIPTION, ValueName = "")]
         public int ReplicatesNumber { get; set; }
 
-        [Option(ShortName = sw.WindowSize.SHORT_NAME, LongName = sw.WindowSize.LONG_NAME,
-            Description = sw.WindowSize.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = WindowSizeOption.SHORT_NAME, LongName = WindowSizeOption.LONG_NAME,
+            Description = WindowSizeOption.DESCRIPTION, ValueName = "")]
         public int WindowSize { get; set; }
 
-        [Option(ShortName = sw.StepSize.SHORT_NAME, LongName = sw.StepSize.LONG_NAME,
-            Description = sw.StepSize.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = StepSizeOption.SHORT_NAME, LongName = StepSizeOption.LONG_NAME,
+            Description = StepSizeOption.DESCRIPTION, ValueName = "")]
         public int StepSize { get; set; }
 
-        [Option(ShortName = og.FigureWidth.SHORT_NAME, LongName = og.FigureWidth.LONG_NAME,
-            Description = og.FigureWidth.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = FigureWidthOption.SHORT_NAME, LongName = FigureWidthOption.LONG_NAME,
+            Description = FigureWidthOption.DESCRIPTION, ValueName = "")]
         public int FigureWidth { get; set; }
 
-        [Option(ShortName = og.FigureHeight.SHORT_NAME, LongName = og.FigureHeight.LONG_NAME,
-            Description = og.FigureHeight.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = FigureHeightOption.SHORT_NAME, LongName = FigureHeightOption.LONG_NAME,
+            Description = FigureHeightOption.DESCRIPTION, ValueName = "")]
         public int FigureHeight { get; set; }
 
-        [Option(ShortName = og.XAxisMajorStep.SHORT_NAME, LongName = og.XAxisMajorStep.LONG_NAME, Description = og.XAxisMajorStep.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = XAxisMajorStepOption.SHORT_NAME, LongName = XAxisMajorStepOption.LONG_NAME, 
+            Description = XAxisMajorStepOption.DESCRIPTION, ValueName = "")]
         public int XAxisMajorStep { get; set; }
 
 
-        [Option(ShortName = io.DisplayAnnotationImpacts.SHORT_NAME, LongName = io.DisplayAnnotationImpacts.LONG_NAME,
-            Description = io.DisplayAnnotationImpacts.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = DisplayAnnotationImpactsOption.SHORT_NAME, LongName = DisplayAnnotationImpactsOption.LONG_NAME,
+            Description = DisplayAnnotationImpactsOption.DESCRIPTION, ValueName = "")]
         public string DisplayAnnotationImpacts { get; set; }
 
-        [Option(ShortName = PolyploidQtlSeqCore.Share.ThreadNumber.SHORT_NAME, LongName = PolyploidQtlSeqCore.Share.ThreadNumber.LONG_NAME,
-            Description = PolyploidQtlSeqCore.Share.ThreadNumber.DESCRIPTION, ValueName = "")]
+        [Option(ShortName = ThreadNumberOption.SHORT_NAME, LongName = ThreadNumberOption.LONG_NAME,
+            Description = ThreadNumberOption.DESCRIPTION, ValueName = "")]
         public int ThreadNumber { get; set; }
 
-        [Option(ShortName = op.ParameterFileParser.SHORT_NAME, LongName = op.ParameterFileParser.LONG_NAME,
-            Description = op.ParameterFileParser.DESCRIPTION, ValueName = "")]
-        public string ParameterFile { get; set; }
+        [Option(ShortName = ParameterFile.SHORT_NAME, LongName = ParameterFile.LONG_NAME,
+            Description = ParameterFile.DESCRIPTION, ValueName = "")]
+        public string ParameterFilePath { get; set; }
 
 
         public override async Task<int> OnExecuteAsync(CommandLineApplication app)
         {
+            var options = QtlSeqAnalysisOptions.Create(this);
+            LoadParameterFile(ParameterFilePath, _parameterFileTitle, options, app);
+            if (Validation(options)) Environment.Exit(1);
+
             int code;
             try
             {
-                code = await RunAsync(app.Options);
+                code = await RunAsync();
             }
             catch(Exception ex)
             {
                 Console.Error.WriteLine(ex.Message);
                 code = 1;
             }
+            finally
+            {
+                var logParamsFilePath = Path.Combine(OutputDir, "qtl.params.txt");
+                CreateParameterFile(logParamsFilePath, _parameterFileTitle, options);
+            }
 
             return code;
         }
 
         // OnExecuteが非同期なのでTaskを使用して処理する
-        private async ValueTask<int> RunAsync(IReadOnlyCollection<CommandOption> options)
+        private async ValueTask<int> RunAsync()
         {
             return await Task.Run(() =>
             {
-                var analyzer = new QtlSeqAnalysis(this, options);
-                return analyzer.Run();
+                var analyzer = CreateQtlSeqAnalysis(this);
+                return analyzer.Run(InputVcf);
             });
         }
+
+        /// <summary>
+        /// QtlSeq解析インスタンスを作成する。
+        /// </summary>
+        /// <param name="optioValue">設定値</param>
+        /// <returns>QtlSeq解析インスタンス</returns>
+        private static QtlSeqAnalysis CreateQtlSeqAnalysis(IQtlSeqAnalysisOptionValue optioValue)
+        {
+            var setting = optioValue.CreateQtlAnalysisScenarioSettingValue();
+            return new QtlSeqAnalysis(setting);
+        }
+
     }
 }
