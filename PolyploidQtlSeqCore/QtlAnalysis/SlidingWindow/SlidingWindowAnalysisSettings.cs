@@ -32,11 +32,23 @@
         /// <param name="settingValue">設定値値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        [Obsolete("削除予定")]
         public SlidingWindowAnalysisSettings(ISlidingWindowAnalysisSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
             WindowSize = new WindowSize(settingValue.WindowSize, parameterDictionary, userOptionDictionary);
             StepSize = new StepSize(settingValue.StepSize, parameterDictionary, userOptionDictionary);
+        }
+
+
+        /// <summary>
+        /// スライディングウインドウ解析設定を作成する。
+        /// </summary>
+        /// <param name="settingValue">設定値値</param>
+        public SlidingWindowAnalysisSettings(ISlidingWindowAnalysisSettingValue settingValue)
+        {
+            WindowSize = new WindowSize(settingValue.WindowSize);
+            StepSize = new StepSize(settingValue.StepSize);
         }
 
         /// <summary>

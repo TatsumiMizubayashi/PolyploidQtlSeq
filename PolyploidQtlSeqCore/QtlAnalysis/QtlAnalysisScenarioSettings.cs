@@ -57,6 +57,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <param name="settingValue">設定値</param>
         /// <param name="parameterDictionary">パラメータファイルの中身</param>
         /// <param name="userOptionDictionary">ユーザー指定オプション辞書</param>
+        [Obsolete("削除予定")]
         public QtlAnalysisScenarioSettings(IQtlAnalysisScenarioSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
@@ -68,6 +69,22 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
             NoQtlDistributionSettings = new NoQtlDistributionSettings(settingValue, parameterDictionary, userOptionDictionary);
             SlidingWindowAnalysisSettings = new SlidingWindowAnalysisSettings(settingValue, parameterDictionary, userOptionDictionary);
             GraphSettings = new GraphSettings(settingValue, parameterDictionary, userOptionDictionary);
+        }
+
+        /// <summary>
+        /// QTL解析しなりを設定を作成する。
+        /// </summary>
+        /// <param name="settingValue">設定値</param>
+        public QtlAnalysisScenarioSettings(IQtlAnalysisScenarioSettingValue settingValue)
+        {
+            OutputDir = new OutputDirectory(settingValue.OutputDir);
+            DisplayAnnotationImpacts = new DisplayAnnotationImpacts(settingValue.DisplayAnnotationImpacts);
+            ThreadNumber = new ThreadNumber(settingValue.ThreadNumber);
+
+            QtlSeqTargetPolicySettings = new QtlSeqTargetPolicySettings(settingValue);
+            NoQtlDistributionSettings = new NoQtlDistributionSettings(settingValue);
+            SlidingWindowAnalysisSettings = new SlidingWindowAnalysisSettings(settingValue);
+            GraphSettings = new GraphSettings(settingValue);
         }
 
         /// <summary>

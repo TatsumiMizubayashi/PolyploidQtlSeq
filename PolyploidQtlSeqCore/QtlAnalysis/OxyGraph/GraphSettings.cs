@@ -36,12 +36,26 @@
         /// <param name="settingValue">設定値値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        [Obsolete("削除予定")]
         public GraphSettings(IGraphSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
             FigureWidth = new FigureWidth(settingValue.FigureWidth, parameterDictionary, userOptionDictionary);
             FigureHeight = new FigureHeight(settingValue.FigureHeight, parameterDictionary, userOptionDictionary);
             XAxisMajorStep = new XAxisMajorStep(settingValue.XAxisMajorStep, parameterDictionary, userOptionDictionary);
+        }
+
+        /// <summary>
+        /// グラフ設定を作成する。
+        /// </summary>
+        /// <param name="settingValue">設定値値</param>
+        /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
+        /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        public GraphSettings(IGraphSettingValue settingValue)
+        {
+            FigureWidth = new FigureWidth(settingValue.FigureWidth);
+            FigureHeight = new FigureHeight(settingValue.FigureHeight);
+            XAxisMajorStep = new XAxisMajorStep(settingValue.XAxisMajorStep);
         }
 
         /// <summary>

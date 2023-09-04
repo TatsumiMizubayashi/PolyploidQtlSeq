@@ -41,6 +41,7 @@
         /// <param name="settingValue">設定値値</param>
         /// <param name="parameterDictionary">パラメータファイルの中身</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        [Obsolete("削除予定")]
         public NoQtlDistributionSettings(INoQtlDistributionSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
@@ -49,6 +50,21 @@
             Bulk1Number = new Bulk1Number(settingValue.Bulk1Number, parameterDictionary, userOptionDictionary);
             Bulk2Number = new Bulk2Number(settingValue.Bulk2Number, parameterDictionary, userOptionDictionary);
             ReplicatesNumber = new ReplicatesNumber(settingValue.ReplicatesNumber, parameterDictionary, userOptionDictionary);
+        }
+
+        /// <summary>
+        /// QTLなし分布作成設定を作成する。
+        /// </summary>
+        /// <param name="settingValue">設定値値</param>
+        /// <param name="parameterDictionary">パラメータファイルの中身</param>
+        /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        public NoQtlDistributionSettings(INoQtlDistributionSettingValue settingValue)
+        {
+            Ploidy = new Ploidy(settingValue.Ploidy);
+            Parent2PlexNumber = new Parent2PlexNumber(settingValue.Parent2PlexNumber);
+            Bulk1Number = new Bulk1Number(settingValue.Bulk1Number);
+            Bulk2Number = new Bulk2Number(settingValue.Bulk2Number);
+            ReplicatesNumber = new ReplicatesNumber(settingValue.ReplicatesNumber);
         }
 
         /// <summary>

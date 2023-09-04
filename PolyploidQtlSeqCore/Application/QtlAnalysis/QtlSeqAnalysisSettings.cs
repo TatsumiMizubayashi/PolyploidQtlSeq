@@ -7,7 +7,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
     /// <summary>
     /// QtlSeq解析設定
     /// </summary>
-    [Obsolete("オプションスイッチ周りの機能を削除する予定")]
+    [Obsolete("削除予定")]
     internal class QtlSeqAnalysisSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary;
@@ -26,7 +26,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
             QtlAnalysisScenarioSettings.AddLongNameKeyValuePair(toLongNameDictionary);
             _toLongNameDictionary = toLongNameDictionary;
         }
-                
+
 
         /// <summary>
         /// QTL解析コマンドオプションを作成する。

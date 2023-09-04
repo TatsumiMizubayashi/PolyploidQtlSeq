@@ -39,6 +39,7 @@
         /// <param name="settingValue">設定値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        [Obsolete("削除予定")]
         public QtlSeqTargetPolicySettings(IQtlSeqTargetPolicySettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
@@ -46,6 +47,18 @@
             Parent2SnpIndexRange = new Parent2SnpIndexRange(settingValue.Parent2SnpIndexRange, parameterDictionary, userOptionDictionary);
             MinimumDepthThreshold = new MinimumDepthThreshold(settingValue.MinimumDepthThreshold, parameterDictionary, userOptionDictionary);
             MaxBulkSnpIndexThreshold = new MaxBulkSnpIndexThreshold(settingValue.MaxBulkSnpIndexThreshold, parameterDictionary, userOptionDictionary);
+        }
+
+        /// <summary>
+        /// QTL-seq解析対象変異ポリシー設定を作成する。
+        /// </summary>
+        /// <param name="settingValue">設定値</param>
+        public QtlSeqTargetPolicySettings(IQtlSeqTargetPolicySettingValue settingValue)
+        {
+            Parent1MostAlleleRateThreshold = new Parent1MostAlleleRateThreshold(settingValue.Parent1MostAlleleRateThreshold);
+            Parent2SnpIndexRange = new Parent2SnpIndexRange(settingValue.Parent2SnpIndexRange);
+            MinimumDepthThreshold = new MinimumDepthThreshold(settingValue.MinimumDepthThreshold);
+            MaxBulkSnpIndexThreshold = new MaxBulkSnpIndexThreshold(settingValue.MaxBulkSnpIndexThreshold);
         }
 
         /// <summary>

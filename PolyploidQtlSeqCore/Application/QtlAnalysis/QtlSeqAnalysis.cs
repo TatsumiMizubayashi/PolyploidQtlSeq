@@ -24,6 +24,7 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
         /// QTL-seq解析を実行する。
         /// </summary>
         /// <returns>終了コード</returns>
+        [Obsolete("削除予定")]
         public int Run()
         {
             var scenario = new QtlAnalysisScenario(_option.QtlAnalysisScenarioSettings);
@@ -34,6 +35,17 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
             _option.SaveParameterFile(paramsFilePath);
 
             return code;
+        }
+
+        private readonly QtlAnalysisScenarioSettings _settings;
+
+        /// <summary>
+        /// QTL-Seq解析インスタンスを作成する。
+        /// </summary>
+        /// <param name="settingValue">QTL解析シナリオ設定値</param>
+        public QtlSeqAnalysis(IQtlAnalysisScenarioSettingValue settingValue)
+        {
+            _settings = new QtlAnalysisScenarioSettings(settingValue);
         }
     }
 }
