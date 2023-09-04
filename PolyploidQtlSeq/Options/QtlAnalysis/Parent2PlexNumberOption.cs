@@ -36,7 +36,7 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         /// <summary>
         /// plex数の仮の最大値
         /// </summary>
-        private const int MAXIMUM = 100;
+        private const int MAXIMUM = 20;
 
 
         private readonly IQtlSeqAnalysisOptionValue _settingValue;
@@ -52,11 +52,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
 
         public override DataValidationResult Validation()
         {
-            if (MINIMUM <= _settingValue.Parent2PlexNumber && _settingValue.Parent2PlexNumber <= MAXIMUM)
-                return new DataValidationResult();
+            if(_settingValue.Parent2PlexNumber < MINIMUM || _settingValue.Parent2PlexNumber > MAXIMUM)
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"Plexity of parent2 should be an integer between {MINIMUM} and {MAXIMUM}.");
+            
+            if(_settingValue.Parent2PlexNumber > _settingValue.Ploidy)
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"Plexity of parent2 should be less than or equal to ploidy.");
 
-            return new DataValidationResult(SHORT_NAME, LONG_NAME,
-                $"Plexity of parent2 should be an integer between {MINIMUM} and {MAXIMUM}.");
+            return new DataValidationResult();
         }
 
         protected override string GetLongName() => LONG_NAME;

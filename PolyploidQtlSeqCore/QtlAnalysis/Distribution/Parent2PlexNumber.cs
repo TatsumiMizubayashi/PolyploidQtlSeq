@@ -16,7 +16,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
         /// <summary>
         /// plex数の仮の最大値
         /// </summary>
-        private const int MAXIMUM = 100;
+        private const int MAXIMUM = 20;
 
         /// <summary>
         /// plex数の規定値
