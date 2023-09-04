@@ -20,26 +20,31 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
         /// <summary>
         /// setp sizeの規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 20;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "s";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "step";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Step size (kbp) of the sliding window analysis.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -s option must be an integer greater than 1 and less than or equal to 100,000.";
 
         /// <summary>
