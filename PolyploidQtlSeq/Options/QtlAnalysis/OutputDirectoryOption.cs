@@ -1,5 +1,4 @@
-﻿using PolyploidQtlSeqCore.Application.QtlAnalysis;
-using PolyploidQtlSeqCore.Options;
+﻿using PolyploidQtlSeqCore.Options;
 
 
 namespace PolyploidQtlSeq.Options.QtlAnalysis
