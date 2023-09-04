@@ -10,36 +10,43 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
         /// <summary>
         /// Parent1 MaxAllelRateしきい値の最小値
         /// </summary>
+        [Obsolete("削除予定")]
         public const double MINIMUM = 0;
 
         /// <summary>
         /// Parent1 MaxAllelRateしきい値の最大値
         /// </summary>
+        [Obsolete("削除予定")]
         public const double MAXIMUM = 1.0;
 
         /// <summary>
         /// Parent1 MaxAllelRateしきい値の規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const double DEFAULT = 0.99;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "p1r";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "p1MostAlleleRate";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Most allele frequency for Parent1. Variants exceeding this threshold is considered homozygous.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -p1r option must be a number greater than or equal to 0.0 and less than or equal to 1.0.";
 
         /// <summary>
