@@ -1,4 +1,6 @@
-﻿namespace PolyploidQtlSeqCore.Application.QtlAnalysis
+﻿using PolyploidQtlSeqCore.QtlAnalysis;
+
+namespace PolyploidQtlSeqCore.Application.QtlAnalysis
 {
     /// <summary>
     /// QTL-seq解析設定値インターフェース
@@ -94,5 +96,33 @@
         /// X軸の目盛り間隔(MB)を取得、又は設定する。
         /// </summary>
         int XAxisMajorStep { get; set; }
+
+        /// <summary>
+        /// QTL解析シナリオ設定値を作成する。
+        /// </summary>
+        /// <returns>QTL解析シナリオ設定値</returns>
+        internal QtlAnalysisScenarioSettingValueDTO CreateQtlAnalysisScenarioSettingValue()
+        {
+            return new QtlAnalysisScenarioSettingValueDTO()
+            {
+                OutputDir = OutputDir,
+                DisplayAnnotationImpacts = DisplayAnnotationImpacts,
+                ThreadNumber = ThreadNumber,
+                Parent1MostAlleleRateThreshold = Parent1MostAlleleRateThreshold,
+                Parent2SnpIndexRange = Parent2SnpIndexRange,
+                MinimumDepthThreshold = MinimumDepthThreshold,
+                MaxBulkSnpIndexThreshold = MaxBulkSnpIndexThreshold,
+                Ploidy = Ploidy,
+                Parent2PlexNumber = Parent2PlexNumber,
+                Bulk1Number = Bulk1Number,
+                Bulk2Number = Bulk2Number,
+                ReplicatesNumber = ReplicatesNumber,
+                WindowSize = WindowSize,
+                StepSize = StepSize,
+                FigureWidth = FigureWidth,
+                FigureHeight = FigureHeight,
+                XAxisMajorStep = XAxisMajorStep,
+            };
+        }
     }
 }
