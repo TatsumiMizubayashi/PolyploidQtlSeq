@@ -20,26 +20,31 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <summary>
         /// グラフ高さの規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 300;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "fh";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "figHeight";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Height (pixel) of the graph images.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -fh option must be an integer greater than 100 and less than or equal to 2000.";
 
         /// <summary>
