@@ -144,7 +144,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = d.Ploidy.SHORT_NAME, LongName = d.Ploidy.LONG_NAME,
             Description = d.Ploidy.DESCRIPTION, ValueName = "")]
-        [Range(d.Ploidy.MINIMUM, d.Ploidy.MAXIMUM, ErrorMessage = d.Ploidy.VALIDATION_ERROR_MESSAGE)]
         public int Ploidy { get; set; }
 
         [Option(ShortName = d.Parent2PlexNumber.SHORT_NAME, LongName = d.Parent2PlexNumber.LONG_NAME,

@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
         /// <summary>
         /// ploidyの最小値
         /// </summary>
-        public const int MINIMUM = 2;
+        private const int MINIMUM = 2;
 
         /// <summary>
         /// ploidyの最大値
         /// </summary>
-        public const int MAXIMUM = 20;
+        private const int MAXIMUM = 20;
 
         /// <summary>
         /// ploidyの規定値
@@ -60,6 +60,18 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Distribution
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
             if (Value % 2 != 0) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// 倍数性を作成する。
+        /// </summary>
+        /// <param name="ploidy">倍数性</param>
+        public Ploidy(int ploidy)
+        {
+            if (ploidy < MINIMUM || ploidy > MAXIMUM) throw new ArgumentException(null, nameof(ploidy));
+            if (ploidy % 2 != 0) throw new ArgumentException(null, nameof(ploidy));
+
+            Value = ploidy;
         }
 
         /// <summary>

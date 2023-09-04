@@ -51,11 +51,13 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
 
         public override DataValidationResult Validation()
         {
-            if (MINIMUM <= _settingValue.Ploidy && _settingValue.Ploidy <= MAXIMUM)
-                return new DataValidationResult();
+            if(_settingValue.Ploidy < MINIMUM || _settingValue.Ploidy > MAXIMUM)
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"Ploidy should be an integer between {MINIMUM} and {MAXIMUM}.");
 
-            return new DataValidationResult(SHORT_NAME, LONG_NAME,
-                $"Ploidy should be an integer between {MINIMUM} and {MAXIMUM}.");
+            if (_settingValue.Ploidy % 2 != 0)
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, "Specify an even number for Ploidy.");
+
+            return new DataValidationResult();
         }
 
         protected override string GetLongName() => LONG_NAME;
