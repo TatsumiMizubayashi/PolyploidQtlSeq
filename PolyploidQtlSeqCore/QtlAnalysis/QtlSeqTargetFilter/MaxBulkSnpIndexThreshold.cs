@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
         /// <summary>
         /// 最大Bulk SNP-indexのしきい値の最小値
         /// </summary>
-        public const double MINIMUM = 0;
+        private const double MINIMUM = 0;
 
         /// <summary>
         /// 最大Bulk SNP-indexのしきい値の最大値
         /// </summary>
-        public const double MAXIMUM = 1.0;
+        private const double MAXIMUM = 1.0;
 
         /// <summary>
         /// 最大Bulk SNP-indexのしきい値の規定値
@@ -59,6 +59,17 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
             Value = OptionValue.GetValue(LONG_NAME, threshold, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// 最大Bulk SNP-indexのしきい値を作成する。
+        /// </summary>
+        /// <param name="threshold">しきい値</param>
+        public MaxBulkSnpIndexThreshold(double threshold)
+        {
+            if (threshold < MINIMUM || threshold > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(threshold));
+
+            Value = threshold;
         }
 
         /// <summary>

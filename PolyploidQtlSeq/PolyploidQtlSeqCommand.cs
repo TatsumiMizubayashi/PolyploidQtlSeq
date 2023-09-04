@@ -139,8 +139,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = qsf.MaxBulkSnpIndexThreshold.SHORT_NAME, LongName = qsf.MaxBulkSnpIndexThreshold.LONG_NAME,
             Description = qsf.MaxBulkSnpIndexThreshold.DESCRIPTION, ValueName = "")]
-        [Range(qsf.MaxBulkSnpIndexThreshold.MINIMUM, qsf.MaxBulkSnpIndexThreshold.MAXIMUM,
-            ErrorMessage = qsf.MaxBulkSnpIndexThreshold.VALIDATION_ERROR_MESSAGE)]
         public double MaxBulkSnpIndexThreshold { get; set; }
 
 
