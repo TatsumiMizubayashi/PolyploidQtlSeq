@@ -10,16 +10,20 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "o";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
+
         public const string LONG_NAME = "outputDir";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Output Directory.";
 
         /// <summary>
