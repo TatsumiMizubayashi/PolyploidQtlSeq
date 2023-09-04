@@ -18,12 +18,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         string OutputDir { get; }
 
         /// <summary>
-        /// 表示するAnnotation Imapctを指定する。
+        /// 表示するAnnotation Imapctを取得する。
         /// </summary>
         string DisplayAnnotationImpacts { get; }
 
         /// <summary>
-        /// スレッド数を指定する。
+        /// スレッド数を取得する。
         /// </summary>
         int ThreadNumber { get; }
     }
