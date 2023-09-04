@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <summary>
         /// 目盛り間隔の最小値
         /// </summary>
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
 
         /// <summary>
         /// 目盛り間隔の最大値
         /// </summary>
-        public const int MAXIMUM = 50;
+        private const int MAXIMUM = 50;
 
         /// <summary>
         /// 目盛り間隔の規定値
@@ -59,6 +59,17 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
             Value = OptionValue.GetValue(LONG_NAME, value, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// X軸の目盛り間隔(MB)を作成する。
+        /// </summary>
+        /// <param name="value">ステップ数(MB)</param>
+        public XAxisMajorStep(int value)
+        {
+            if (value < MINIMUM || value > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(value));
+
+            Value = value;
         }
 
         /// <summary>

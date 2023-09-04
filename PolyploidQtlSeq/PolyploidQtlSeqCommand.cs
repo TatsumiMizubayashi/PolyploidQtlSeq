@@ -178,7 +178,6 @@ namespace PolyploidQtlSeq
         public int FigureHeight { get; set; }
 
         [Option(ShortName = og.XAxisMajorStep.SHORT_NAME, LongName = og.XAxisMajorStep.LONG_NAME, Description = og.XAxisMajorStep.DESCRIPTION, ValueName = "")]
-        [Range(og.XAxisMajorStep.MINIMUM, og.XAxisMajorStep.MAXIMUM, ErrorMessage = og.XAxisMajorStep.VALIDATION_ERROR_MESSAGE)]
         public int XAxisMajorStep { get; set; }
 
 
