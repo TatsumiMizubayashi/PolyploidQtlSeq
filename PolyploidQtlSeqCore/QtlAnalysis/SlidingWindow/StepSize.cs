@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
         /// <summary>
         /// step sizeの最小値
         /// </summary>
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
 
         /// <summary>
         /// step sizeの最大値
         /// </summary>
-        public const int MAXIMUM = 100000;
+        private const int MAXIMUM = 100000;
 
         /// <summary>
         /// setp sizeの規定値
@@ -60,6 +60,20 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
 
             if (KbpValue < MINIMUM || KbpValue > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
 
+            BpValue = KbpValue * 1000;
+        }
+
+        /// <summary>
+        /// Stepサイズを作成する。
+        /// </summary>
+        /// <param name="kbpSize">step size(kbp)</param>
+        /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
+        /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        public StepSize(int kbpSize)
+        {
+            if (kbpSize < MINIMUM || kbpSize > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(kbpSize));
+
+            KbpValue = kbpSize;
             BpValue = KbpValue * 1000;
         }
 

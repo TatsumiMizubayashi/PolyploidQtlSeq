@@ -168,7 +168,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = sw.StepSize.SHORT_NAME, LongName = sw.StepSize.LONG_NAME,
             Description = sw.StepSize.DESCRIPTION, ValueName = "")]
-        [Range(sw.StepSize.MINIMUM, sw.StepSize.MAXIMUM, ErrorMessage = sw.StepSize.VALIDATION_ERROR_MESSAGE)]
         public int StepSize { get; set; }
 
         [Option(ShortName = og.FigureWidth.SHORT_NAME, LongName = og.FigureWidth.LONG_NAME,
