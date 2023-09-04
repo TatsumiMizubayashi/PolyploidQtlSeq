@@ -20,26 +20,31 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <summary>
         /// 目盛り間隔の規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 5;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "xs";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "xStep";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "X-axis scale interval (Mbp) of the graphs.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -xs option must be an integer greater than 1 and less than or equal to 50.";
 
         /// <summary>
