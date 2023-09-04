@@ -47,5 +47,19 @@ namespace PolyploidQtlSeqCore.Application.QtlAnalysis
         {
             _settings = new QtlAnalysisScenarioSettings(settingValue);
         }
+
+        /// <summary>
+        /// QTL-Seq解析を実行する。
+        /// </summary>
+        /// <param name="inputVcfPath">入力VCFファイルPath</param>
+        /// <returns></returns>
+        public int Run(string inputVcfPath)
+        {
+            var inputVcf = new InputVcf(inputVcfPath);
+            var scenario = new QtlAnalysisScenario(_settings);
+            var code = scenario.Run(inputVcf);
+
+            return code;
+        }
     }
 }
