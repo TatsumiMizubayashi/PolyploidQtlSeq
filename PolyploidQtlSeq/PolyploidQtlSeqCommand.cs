@@ -156,7 +156,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = d.Bulk2Number.SHORT_NAME, LongName = d.Bulk2Number.LONG_NAME,
             Description = d.Bulk2Number.DESCRIPTION, ValueName = "")]
-        [Range(d.Bulk2Number.MINIMUM, d.Bulk2Number.MAXIMUM, ErrorMessage = d.Bulk2Number.VALIDATION_ERROR_MESSAGE)]
         public int Bulk2Number { get; set; }
 
         [Option(ShortName = d.ReplicatesNumber.SHORT_NAME, LongName = d.ReplicatesNumber.LONG_NAME,
