@@ -20,26 +20,31 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.QtlSeqTargetFilter
         /// <summary>
         /// 最大Bulk SNP-indexのしきい値の規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const double DEFAULT = 1.0;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "mb";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "maxBulkSnpIndex";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
-        public const string DESCRIPTION = "Maximum threshold for SNP-index value for the Bulk samples. Variants with a SNP-index exceeding this value are excluded.";
+        [Obsolete("削除予定")]
+        public const string DESCRIPTION = "Maximum threshold for SNP-index for the Bulk samples. Variants with a SNP-index exceeding this value are excluded.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -mb option must be a number greater than or equal to 0.0 and less than or equal to 1.0.";
 
         /// <summary>
