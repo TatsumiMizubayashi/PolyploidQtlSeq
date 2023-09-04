@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// <summary>
         /// グラフ高さの最小値
         /// </summary>
-        public const int MINIMUM = 100;
+        private const int MINIMUM = 100;
 
         /// <summary>
         /// グラフ高さの最大値
         /// </summary>
-        public const int MAXIMUM = 2000;
+        private const int MAXIMUM = 2000;
 
         /// <summary>
         /// グラフ高さの規定値
@@ -59,6 +59,17 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
             Value = OptionValue.GetValue(LONG_NAME, height, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// グラフ画像の高さ(pixel)を作成する。
+        /// </summary>
+        /// <param name="height">高さ(pixel)</param>
+        public FigureHeight(int height)
+        {
+            if (height   < MINIMUM || height > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(height));
+
+            Value = height;
         }
 
         /// <summary>

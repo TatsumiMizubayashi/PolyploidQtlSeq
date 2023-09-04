@@ -103,7 +103,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = og.FigureHeight.SHORT_NAME, LongName = og.FigureHeight.LONG_NAME,
             Description = og.FigureHeight.DESCRIPTION, ValueName = "")]
-        [Range(og.FigureHeight.MINIMUM, og.FigureHeight.MAXIMUM, ErrorMessage = og.FigureHeight.VALIDATION_ERROR_MESSAGE)]
         public int FigureHeight { get; set; }
 
         [Option(ShortName = og.XAxisMajorStep.SHORT_NAME, LongName = og.XAxisMajorStep.LONG_NAME, Description = og.XAxisMajorStep.DESCRIPTION, ValueName = "")]
