@@ -10,21 +10,25 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <summary>
         /// SnpEffデータベースの規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DEFAULT = "";
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "sd";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "snpEffDatabase";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "SnpEff database name.";
 
         /// <summary>
@@ -37,6 +41,15 @@ namespace PolyploidQtlSeqCore.VariantCall
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
             Value = OptionValue.GetValue(LONG_NAME, databaseName, parameterDictionary, userOptionDictionary);
+        }
+
+        /// <summary>
+        /// SnpEffデータベースを作成する。
+        /// </summary>
+        /// <param name="databaseName">データベース名</param>
+        public SnpEffDatabase(string databaseName)
+        {
+            Value = databaseName;
         }
 
         /// <summary>
