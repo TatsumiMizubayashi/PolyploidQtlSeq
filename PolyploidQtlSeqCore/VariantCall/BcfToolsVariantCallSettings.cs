@@ -48,6 +48,18 @@ namespace PolyploidQtlSeqCore.VariantCall
         }
 
         /// <summary>
+        /// Bcftools変異検出オプションを作成する。
+        /// </summary>
+        /// <param name="settingValue">bcftools変異検出設定値</param>
+        public BcfToolsVariantCallSettings(IBcftoolsVariantCallSettingValue settingValue)
+        {
+            ReferenceSequence = new ReferenceSequence(settingValue.ReferenceSequence);
+            MinmumBaseQuality = new MinmumBaseQuality(settingValue.MinBq);
+            MinmumMappingQuality = new MinmumMappingQuality(settingValue.MinMq);
+            AdjustMappingQuality = new AdjustMappingQuality(settingValue.AdjustMq);
+        }
+
+        /// <summary>
         /// リファレンスシークエンス
         /// </summary>
         public ReferenceSequence ReferenceSequence { get; }
