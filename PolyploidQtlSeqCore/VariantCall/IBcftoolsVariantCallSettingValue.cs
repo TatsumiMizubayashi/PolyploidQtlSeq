@@ -24,5 +24,15 @@
         /// Adjust MQを取得する。
         /// </summary>
         int AdjustMq { get; }
+
+        /// <summary>
+        /// 出力ディレクトリを取得する。
+        /// </summary>
+        string OutputDir { get; }
+
+        /// <summary>
+        /// スレッド数を取得する。
+        /// </summary>
+        int ThreadNumber { get; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PolyploidQtlSeqCore.Share;
+﻿using PolyploidQtlSeqCore.QtlAnalysis;
+using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.VariantCall
 {
@@ -57,6 +58,8 @@ namespace PolyploidQtlSeqCore.VariantCall
             MinmumBaseQuality = new MinmumBaseQuality(settingValue.MinBq);
             MinmumMappingQuality = new MinmumMappingQuality(settingValue.MinMq);
             AdjustMappingQuality = new AdjustMappingQuality(settingValue.AdjustMq);
+            OutputDirectory = new OutputDirectory(settingValue.OutputDir);
+            ThreadNumber = new ThreadNumber(settingValue.ThreadNumber);
         }
 
         /// <summary>
@@ -78,6 +81,16 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// Adjust Mapping Quality
         /// </summary>
         public AdjustMappingQuality AdjustMappingQuality { get; }
+
+        /// <summary>
+        /// 出力ディレクトリ
+        /// </summary>
+        public OutputDirectory OutputDirectory { get; }
+
+        /// <summary>
+        /// スレッド数
+        /// </summary>
+        public ThreadNumber ThreadNumber { get; }
 
         /// <summary>
         /// パラメータファイルに記載する行テキストに変換する。
