@@ -10,16 +10,19 @@ namespace PolyploidQtlSeqCore.Mapping
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "b1";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "bulk1";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Bulk1 Directory.";
 
         /// <summary>
@@ -34,6 +37,18 @@ namespace PolyploidQtlSeqCore.Mapping
             Path = OptionValue.GetValue(LONG_NAME, dirPath, parameterDictionary, userOptionDictionary);
             if (string.IsNullOrWhiteSpace(Path)) throw new ArgumentException(null, nameof(dirPath));
 
+            SampleName = System.IO.Path.GetFileName(Path);
+        }
+
+        /// <summary>
+        /// Bulk1ディレクトリを作成する。
+        /// </summary>
+        /// <param name="dirPath">Bulk1ディレクトリのPath</param>
+        public Bulk1Directory(string dirPath)
+        {
+            if (string.IsNullOrWhiteSpace(dirPath)) throw new ArgumentException(null, nameof(dirPath));
+
+            Path = System.IO.Path.GetFullPath(dirPath);
             SampleName = System.IO.Path.GetFileName(Path);
         }
 
