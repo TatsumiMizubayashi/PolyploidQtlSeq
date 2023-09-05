@@ -1,19 +1,17 @@
-﻿using PolyploidQtlSeqCore.Mapping;
+﻿using PolyploidQtlSeqCore.MappingAndVariantCall;
 using PolyploidQtlSeqCore.QtlAnalysis;
-using PolyploidQtlSeqCore.QtlAnalysis.Chr;
-using PolyploidQtlSeqCore.VariantCall;
 
 namespace PolyploidQtlSeqCore.Application.Pipeline
 {
     /// <summary>
     /// QTL-seq解析パイプライン設定値 インターフェース
     /// </summary>
-    public interface IQtlSeqPipelineSettingValue : IMappingSettingValue, IMappingSampleSettingValue, IAnalysisChrSettingValue, 
-        IBcftoolsVariantCallSettingValue, ISnpEffSettingValue, IQtlAnalysisScenarioSettingValue
+    public interface IQtlSeqPipelineSettingValue : IVariantCallPipelineSettingValue, IQtlAnalysisScenarioSettingValue
     {
         /// <summary>
         /// パラメータファイルを取得する。
         /// </summary>
+        [Obsolete("削除予定")]
         string ParameterFile { get; }
     }
 }

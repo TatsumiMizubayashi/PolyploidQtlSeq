@@ -211,7 +211,7 @@ namespace PolyploidQtlSeq
             int code;
             try
             {
-                var pipeline = new QtlSeqPipeline(this, app.Options);
+                var pipeline = new QtlSeqPipeline(this);
                 code = await pipeline.RunAsync();
             }
             catch (Exception ex)

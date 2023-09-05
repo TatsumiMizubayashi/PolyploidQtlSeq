@@ -11,6 +11,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
     /// <summary>
     /// QtlSeqパイプライン設定
     /// </summary>
+    [Obsolete("削除予定")]
     internal class QtlSeqPipelineSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary;

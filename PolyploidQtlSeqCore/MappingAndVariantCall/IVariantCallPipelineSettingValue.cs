@@ -6,7 +6,7 @@ namespace PolyploidQtlSeqCore.MappingAndVariantCall
     /// <summary>
     /// 変異検出パイプライン設定値インターフェース
     /// </summary>
-    interface IVariantCallPipelineSettingValue : IMappingSettingValue, IMappingSampleSettingValue, IVariantCallScenarioSettingValue
+    public interface IVariantCallPipelineSettingValue : IMappingSettingValue, IMappingSampleSettingValue, IVariantCallScenarioSettingValue
     {
     }
 }
