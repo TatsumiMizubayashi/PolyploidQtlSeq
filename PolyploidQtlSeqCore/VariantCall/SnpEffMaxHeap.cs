@@ -10,18 +10,18 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <summary>
         /// max heapの最小値
         /// </summary>
-        public const int MINIMUM = 2;
+        private const int MINIMUM = 2;
 
         /// <summary>
         /// max heapの最大値
         /// </summary>
-        public const int MAXIMUM = 100;
+        private const int MAXIMUM = 100;
 
         /// <summary>
         /// max heapの規定値
         /// </summary>
         [Obsolete("削除予定")]
-        public const int DEFAULT = 4;
+        public const int DEFAULT = 6;
 
         /// <summary>
         /// オプションスイッチのShortName

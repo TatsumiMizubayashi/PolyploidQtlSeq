@@ -107,11 +107,6 @@ namespace PolyploidQtlSeq
             Description = AdjustMappingQuality.DESCRIPTION, ValueName = "")]
         public int AdjustMq { get; set; }
 
-        [Option(ShortName = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.SHORT_NAME, LongName = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.LONG_NAME,
-            Description = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.DESCRIPTION, ValueName = "")]
-        [Range(PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.MINIMUM, PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.MAXIMUM, ErrorMessage = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.VALIDATION_ERROR_MESSAGE)]
-        public int SnpEffMaxHeap { get; set; }
-
         [Option(ShortName = PolyploidQtlSeqCore.VariantCall.SnpEffConfigFile.SHORT_NAME, LongName = PolyploidQtlSeqCore.VariantCall.SnpEffConfigFile.LONG_NAME,
             Description = PolyploidQtlSeqCore.VariantCall.SnpEffConfigFile.DESCRIPTION, ValueName = "")]
         public string SnpEffConfigFile { get; set; }
@@ -119,6 +114,10 @@ namespace PolyploidQtlSeq
         [Option(ShortName = SnpEffDatabase.SHORT_NAME, LongName = SnpEffDatabase.LONG_NAME,
             Description = SnpEffDatabase.DESCRIPTION, ValueName = "")]
         public string SnpEffDatabaseName { get; set; }
+
+        [Option(ShortName = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.SHORT_NAME, LongName = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.LONG_NAME,
+            Description = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.DESCRIPTION, ValueName = "")]
+        public int SnpEffMaxHeap { get; set; }
 
 
         [Option(ShortName = qsf.Parent1MostAlleleRateThreshold.SHORT_NAME, LongName = qsf.Parent1MostAlleleRateThreshold.LONG_NAME,
