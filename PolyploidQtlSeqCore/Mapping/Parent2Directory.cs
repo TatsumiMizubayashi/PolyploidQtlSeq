@@ -10,16 +10,19 @@ namespace PolyploidQtlSeqCore.Mapping
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "p2";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "parent2";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Parent2 Directory.";
 
         /// <summary>
@@ -36,6 +39,19 @@ namespace PolyploidQtlSeqCore.Mapping
 
             SampleName = System.IO.Path.GetFileName(Path);
         }
+
+        /// <summary>
+        /// Parent2ディレクトリを作成する。
+        /// </summary>
+        /// <param name="dirPath">Parent2ディレクトリのPath</param>
+        public Parent2Directory(string dirPath)
+        {
+            if (string.IsNullOrWhiteSpace(dirPath)) throw new ArgumentException(null, nameof(dirPath));
+
+            Path = System.IO.Path.GetFullPath(dirPath);
+            SampleName = System.IO.Path.GetFileName(Path);
+        }
+
 
         public string Path { get; }
 
