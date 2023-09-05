@@ -20,26 +20,31 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <summary>
         /// min-MQの規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 40;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "q";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "minMQ";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Minimum mapping quality at variant detection in bcftools mpileup.";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -q option must be an integer greater than or equal to 0 and less than or equal to 60.";
 
         /// <summary>
@@ -54,6 +59,17 @@ namespace PolyploidQtlSeqCore.VariantCall
             Value = OptionValue.GetValue(LONG_NAME, minMq, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+        /// <summary>
+        /// Mapping Qualityの最小値を作成する。
+        /// </summary>
+        /// <param name="minMq">MQ最小値</param>
+        public MinmumMappingQuality(int minMq)
+        {
+            if (minMq < MINIMUM || minMq > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(minMq));
+
+            Value = minMq;
         }
 
         /// <summary>
