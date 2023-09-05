@@ -18,6 +18,7 @@
         /// LongName変換項目を辞書に追加する。
         /// </summary>
         /// <param name="dictionary">LongName変換辞書</param>
+        [Obsolete("削除予定")]
         public static void AddLongNameKeyValuePair(Dictionary<string, string> dictionary)
         {
             foreach (var keyValuePair in _toLongNameDictionary)
@@ -32,11 +33,22 @@
         /// <param name="settingValue">設定値</param>
         /// <param name="parameterDictionary">パラメータファイルの中身</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        [Obsolete("削除予定")]
         public AnalysisChrSettings(IAnalysisChrSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
             ChrSizeThreshold = new ChrSizeThreshold(settingValue.ChrSizeThreshold, parameterDictionary, userOptionDictionary);
             AnalysisChrNames = new AnalysisChrNames(settingValue.AnalysisChrNames, parameterDictionary, userOptionDictionary);
+        }
+
+        /// <summary>
+        /// 解析対象染色体設定を作成する。
+        /// </summary>
+        /// <param name="settingValue">設定値</param>
+        public AnalysisChrSettings(IAnalysisChrSettingValue settingValue)
+        {
+            ChrSizeThreshold = new ChrSizeThreshold(settingValue.ChrSizeThreshold);
+            AnalysisChrNames = new AnalysisChrNames(settingValue.AnalysisChrNames);
         }
 
         /// <summary>
@@ -53,6 +65,7 @@
         /// パラメータファイルに記載する行テキストに変換する。
         /// </summary>
         /// <returns>パラメータ行テキスト</returns>
+        [Obsolete("削除予定")]
         public string[] ToParameterFileLines()
         {
             return new[]
