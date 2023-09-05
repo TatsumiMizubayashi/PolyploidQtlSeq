@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <summary>
         /// min-BQの最小値
         /// </summary>
-        public const int MINIMUM = 0;
+        private const int MINIMUM = 0;
 
         /// <summary>
         /// min-BQの最大値
         /// </summary>
-        public const int MAXIMUM = 60;
+        private const int MAXIMUM = 60;
 
         /// <summary>
         /// min-BQの規定値

@@ -101,7 +101,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = MinmumBaseQuality.SHORT_NAME, LongName = MinmumBaseQuality.LONG_NAME,
             Description = MinmumBaseQuality.DESCRIPTION, ValueName = "")]
-        [Range(MinmumBaseQuality.MINIMUM, MinmumBaseQuality.MAXIMUM, ErrorMessage = MinmumBaseQuality.VALIDATION_ERROR_MESSAGE)]
         public int MinBq { get; set; }
 
         [Option(ShortName = AdjustMappingQuality.SHORT_NAME, LongName = AdjustMappingQuality.LONG_NAME,
