@@ -105,7 +105,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = AdjustMappingQuality.SHORT_NAME, LongName = AdjustMappingQuality.LONG_NAME,
             Description = AdjustMappingQuality.DESCRIPTION, ValueName = "")]
-        [Range(AdjustMappingQuality.MINIMUM, AdjustMappingQuality.MAXIMUM, ErrorMessage = AdjustMappingQuality.VALIDATION_ERROR_MESSAGE)]
         public int AdjustMq { get; set; }
 
         [Option(ShortName = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.SHORT_NAME, LongName = PolyploidQtlSeqCore.VariantCall.SnpEffMaxHeap.LONG_NAME,
