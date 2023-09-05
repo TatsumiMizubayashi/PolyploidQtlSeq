@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Chr
         /// <summary>
         /// しきい値の最小値
         /// </summary>
-        public const int MINIMUM = 1;
+        private const int MINIMUM = 1;
 
         /// <summary>
         /// しきい値の最大値
         /// </summary>
-        public const int MAXIMUM = 100_000_000;
+        private const int MAXIMUM = 100_000_000;
 
         /// <summary>
         /// しきい値の規定値

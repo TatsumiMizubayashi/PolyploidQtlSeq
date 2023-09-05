@@ -89,7 +89,6 @@ namespace PolyploidQtlSeq
 
         [Option(ShortName = chr.ChrSizeThreshold.SHORT_NAME, LongName = chr.ChrSizeThreshold.LONG_NAME,
             Description = chr.ChrSizeThreshold.DESCRIPTION, ValueName = "")]
-        [Range(chr.ChrSizeThreshold.MINIMUM, chr.ChrSizeThreshold.MAXIMUM, ErrorMessage = chr.ChrSizeThreshold.VALIDATION_ERROR_MESSAGE)]
         public int ChrSizeThreshold { get; set; }
 
         [Option(ShortName = chr.AnalysisChrNames.SHORT_NAME, LongName = chr.AnalysisChrNames.LONG_NAME,
