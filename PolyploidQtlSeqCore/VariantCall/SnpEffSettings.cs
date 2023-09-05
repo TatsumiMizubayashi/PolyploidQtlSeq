@@ -21,6 +21,7 @@
         /// LongName変換項目を辞書に追加する。
         /// </summary>
         /// <param name="dictionary">LongName変換辞書</param>
+        [Obsolete("削除予定")]
         public static void AddLongNameKeyValuePair(Dictionary<string, string> dictionary)
         {
             foreach (var keyValuePair in _toLongNameDictionary)
@@ -36,6 +37,7 @@
         /// <param name="settingValue">オプションの値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
+        [Obsolete("削除予定")]
         public SnpEffSettings(ISnpEffSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
@@ -43,6 +45,18 @@
             ConfigFile = new SnpEffConfigFile(settingValue.SnpEffConfigFile, parameterDictionary, userOptionDictionary);
             Database = new SnpEffDatabase(settingValue.SnpEffDatabaseName, parameterDictionary, userOptionDictionary);
         }
+
+        /// <summary>
+        /// SnpEff設定を作成する。
+        /// </summary>
+        /// <param name="settingValue">オプションの値</param>
+        public SnpEffSettings(ISnpEffSettingValue settingValue)
+        {
+            MaxHeap = new SnpEffMaxHeap(settingValue.SnpEffMaxHeap);
+            ConfigFile = new SnpEffConfigFile(settingValue.SnpEffConfigFile);
+            Database = new SnpEffDatabase(settingValue.SnpEffDatabaseName);
+        }
+
 
         /// <summary>
         /// MaxHeapサイズを取得する。
@@ -68,6 +82,7 @@
         /// パラメータファイルに記載する行テキストに変換する。
         /// </summary>
         /// <returns>パラメータ行テキスト</returns>
+        [Obsolete("削除予定")]
         public string[] ToParameterFileLines()
         {
             return new[]
