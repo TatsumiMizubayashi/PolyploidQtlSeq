@@ -3,7 +3,6 @@
     /// <summary>
     /// Mappingサンプル設定
     /// </summary>
-    [Obsolete("オプションスイッチ機能を削除予定")]
     internal class MappingSampleSettings
     {
         private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
@@ -25,6 +24,7 @@
         /// LongName変換項目を辞書に追加する。
         /// </summary>
         /// <param name="dictionary">LongName変換辞書</param>
+        [Obsolete("削除予定")]
         public static void AddLongNameKeyValuePair(Dictionary<string, string> dictionary)
         {
             foreach (var keyValuePair in _toLongNameDictionary)
@@ -39,6 +39,7 @@
         /// <param name="settingValue">Mappingサンプル設定値</param>
         /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
         /// <param name="userOptionDictionary">ユーザー指定オプション辞書</param>
+        [Obsolete("削除予定")]
         public MappingSampleSettings(IMappingSampleSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
             IReadOnlyDictionary<string, bool> userOptionDictionary)
         {
@@ -47,6 +48,19 @@
             Bulk1Directory = new Bulk1Directory(settingValue.Bulk1Dir, parameterDictionary, userOptionDictionary);
             Bulk2Directory = new Bulk2Directory(settingValue.Bulk2Dir, parameterDictionary, userOptionDictionary);
         }
+
+        /// <summary>
+        /// Mappngオプションを作成する。
+        /// </summary>
+        /// <param name="settingValue">Mappingサンプル設定値</param>
+        public MappingSampleSettings(IMappingSampleSettingValue settingValue)
+        {
+            Parent1Directory = new Parent1Directory(settingValue.Parent1Dir);
+            Parent2Directory = new Parent2Directory(settingValue.Parent2Dir);
+            Bulk1Directory = new Bulk1Directory(settingValue.Bulk1Dir);
+            Bulk2Directory = new Bulk2Directory(settingValue.Bulk2Dir);
+        }
+
 
         /// <summary>
         /// Parent1ディレクトリ
@@ -72,6 +86,7 @@
         /// パラメータファイルに記載する行テキストに変換する。
         /// </summary>
         /// <returns>パラメータ行テキスト</returns>
+        [Obsolete("削除予定")]
         public string[] ToParameterFileLines()
         {
             return new[]
