@@ -20,26 +20,31 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <summary>
         /// adjust MQの規定値
         /// </summary>
+        [Obsolete("削除予定")]
         public const int DEFAULT = 60;
 
         /// <summary>
         /// オプションスイッチのShortName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string SHORT_NAME = "C";
 
         /// <summary>
         /// オプションスイッチのLongName
         /// </summary>
+        [Obsolete("削除予定")]
         public const string LONG_NAME = "adjustMQ";
 
         /// <summary>
         /// オプションスイッチの説明
         /// </summary>
+        [Obsolete("削除予定")]
         public const string DESCRIPTION = "Value for adjust mapping quality at variant detection in bcftools mpileup. \r\nSpecify 0, to disable this function.\r\n";
 
         /// <summary>
         /// データ検証エラーメッセージ
         /// </summary>
+        [Obsolete("削除予定")]
         public const string VALIDATION_ERROR_MESSAGE = "The -C option must be an integer greater than or equal to 0 and less than or equal to 100.";
 
         /// <summary>
@@ -54,6 +59,18 @@ namespace PolyploidQtlSeqCore.VariantCall
             Value = OptionValue.GetValue(LONG_NAME, adjustMq, parameterDictionary, userOptionDictionary);
 
             if (Value < MINIMUM || Value > MAXIMUM) throw new ArgumentException(VALIDATION_ERROR_MESSAGE);
+        }
+
+
+        /// <summary>
+        /// Adjust Mapping Qualityを作成する。
+        /// </summary>
+        /// <param name="adjustMq">adjustMq</param>
+        public AdjustMappingQuality(int adjustMq)
+        {
+            if (adjustMq < MINIMUM || adjustMq > MAXIMUM) throw new ArgumentOutOfRangeException(nameof(adjustMq));
+
+            Value = adjustMq;
         }
 
         /// <summary>
