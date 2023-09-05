@@ -12,8 +12,4 @@
     <ProjectReference Include="..\PolyploidQtlSeqCore\PolyploidQtlSeqCore.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Options\Pipeline\" />
-  </ItemGroup>
-
 </Project>
