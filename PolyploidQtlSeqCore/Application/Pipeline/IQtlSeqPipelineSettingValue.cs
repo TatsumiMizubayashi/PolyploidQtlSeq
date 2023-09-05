@@ -6,6 +6,7 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
     /// <summary>
     /// QTL-seq解析パイプライン設定値 インターフェース
     /// </summary>
+    [Obsolete("削除予定")]
     public interface IQtlSeqPipelineSettingValue : IVariantCallPipelineSettingValue, IQtlAnalysisScenarioSettingValue
     {
         /// <summary>
