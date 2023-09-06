@@ -12,15 +12,15 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
     /// </summary>
     internal class QtlAnalysisScenario
     {
-        private readonly QtlAnalysisScenarioSettings _option;
+        private readonly QtlAnalysisScenarioSettings _settings;
 
         /// <summary>
         /// QTL解析シナリオを作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
-        public QtlAnalysisScenario(QtlAnalysisScenarioSettings option)
+        /// <param name="settings">設定</param>
+        public QtlAnalysisScenario(QtlAnalysisScenarioSettings settings)
         {
-            _option = option;
+            _settings = settings;
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
             {
                 try
                 {
-                    _option.OutputDir.Create();
+                    _settings.OutputDir.Create();
 
                     var snpIndexVariants = GetTargetSnpIndexVariants(inputVcf);
 
@@ -47,10 +47,10 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
                     var swQtlVariants = LinkSlidingWindowQtl(qtlVariants, windows);
 
                     spinner.Text = "Saving ...";
-                    SnpIndexFileCreator.Create(_option.OutputDir, swQtlVariants, _option.DisplayAnnotationImpacts);
-                    SlidingWindowFileCreator.Create(_option.OutputDir, windows);
-                    var graphCreator = new QtlSeqGraphCreator(_option.GraphSettings);
-                    graphCreator.Create(_option.OutputDir, swQtlVariants, windows);
+                    SnpIndexFileCreator.Create(_settings.OutputDir, swQtlVariants, _settings.DisplayAnnotationImpacts);
+                    SlidingWindowFileCreator.Create(_settings.OutputDir, windows);
+                    var graphCreator = new QtlSeqGraphCreator(_settings.GraphSettings);
+                    graphCreator.Create(_settings.OutputDir, swQtlVariants, windows);
 
                     spinner.Succeed("QTL-Seq analysis completed");
                 }
@@ -74,7 +74,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         private SnpIndexVariant[] GetTargetSnpIndexVariants(InputVcf inputVcf)
         {
             var analyzableVriantPolicy = new AnalyzableVariantPolicy();
-            var qtlSeqTargetVariantPolicy = _option.QtlSeqTargetPolicySettings.CreatePolicy();
+            var qtlSeqTargetVariantPolicy = _settings.QtlSeqTargetPolicySettings.CreatePolicy();
 
             var vcfVariants = VcfFileParser.Parse(inputVcf.Path);
             return vcfVariants
@@ -91,7 +91,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <returns>QTL解析済み変異</returns>
         private SnpIndexVariantWithQtl[] AnalyzeVariantQtl(SnpIndexVariant[] variants)
         {
-            var analyzer = new VariantQtlAanlyzer(_option.NoQtlDistributionSettings, _option.ThreadNumber);
+            var analyzer = new VariantQtlAanlyzer(_settings.NoQtlDistributionSettings, _settings.ThreadNumber);
             return analyzer.Analyze(variants);
         }
 
@@ -102,7 +102,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <returns>SlidingWindow</returns>
         private Window[] AnalyzeSlidingWindow(SnpIndexVariantWithQtl[] variants)
         {
-            var slidingWindowAnalyzer = new SlidingWindowAnalyzer(_option.SlidingWindowAnalysisSettings, _option.ThreadNumber);
+            var slidingWindowAnalyzer = new SlidingWindowAnalyzer(_settings.SlidingWindowAnalysisSettings, _settings.ThreadNumber);
             return slidingWindowAnalyzer.Analyze(variants);
         }
 
@@ -114,7 +114,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <returns>SlidingWindow結果紐づけ済み変異情報</returns>
         private SnpIndexVariantWithSlidingWindowQtl[] LinkSlidingWindowQtl(SnpIndexVariantWithQtl[] variants, Window[] windows)
         {
-            var creator = new SnpIndexVariantWithSlidingWindowQtlCreator(windows, _option.ThreadNumber);
+            var creator = new SnpIndexVariantWithSlidingWindowQtlCreator(windows, _settings.ThreadNumber);
             return creator.Create(variants);
         }
 

@@ -12,65 +12,6 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
     /// </summary>
     internal class QtlAnalysisScenarioSettings
     {
-        private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary;
-
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        static QtlAnalysisScenarioSettings()
-        {
-            var toLongNameDictionary = new Dictionary<string, string>()
-            {
-                [OutputDirectory.SHORT_NAME] = OutputDirectory.LONG_NAME,
-                [OutputDirectory.LONG_NAME] = OutputDirectory.LONG_NAME,
-
-                [DisplayAnnotationImpacts.SHORT_NAME] = DisplayAnnotationImpacts.LONG_NAME,
-                [DisplayAnnotationImpacts.LONG_NAME] = DisplayAnnotationImpacts.LONG_NAME,
-
-                [ThreadNumber.SHORT_NAME] = ThreadNumber.LONG_NAME,
-                [ThreadNumber.LONG_NAME] = ThreadNumber.LONG_NAME
-            };
-
-            QtlSeqTargetPolicySettings.AddLongNameKeyValuePair(toLongNameDictionary);
-            NoQtlDistributionSettings.AddLongNameKeyValuePair(toLongNameDictionary);
-            SlidingWindowAnalysisSettings.AddLongNameKeyValuePair(toLongNameDictionary);
-            GraphSettings.AddLongNameKeyValuePair(toLongNameDictionary);
-
-            _toLongNameDictionary = toLongNameDictionary;
-        }
-
-        /// <summary>
-        /// LongName変換項目を辞書に追加する。
-        /// </summary>
-        /// <param name="dictionary">LongName変換辞書</param>
-        public static void AddLongNameKeyValuePair(Dictionary<string, string> dictionary)
-        {
-            foreach (var keyValuePair in _toLongNameDictionary)
-            {
-                dictionary.Add(keyValuePair.Key, keyValuePair.Value);
-            }
-        }
-
-        /// <summary>
-        /// QTL解析シナリオ設定を作成する。
-        /// </summary>
-        /// <param name="settingValue">設定値</param>
-        /// <param name="parameterDictionary">パラメータファイルの中身</param>
-        /// <param name="userOptionDictionary">ユーザー指定オプション辞書</param>
-        [Obsolete("削除予定")]
-        public QtlAnalysisScenarioSettings(IQtlAnalysisScenarioSettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
-            IReadOnlyDictionary<string, bool> userOptionDictionary)
-        {
-            OutputDir = new OutputDirectory(settingValue.OutputDir, parameterDictionary, userOptionDictionary);
-            DisplayAnnotationImpacts = new DisplayAnnotationImpacts(settingValue.DisplayAnnotationImpacts, parameterDictionary, userOptionDictionary);
-            ThreadNumber = new ThreadNumber(settingValue.ThreadNumber, parameterDictionary, userOptionDictionary);
-
-            QtlSeqTargetPolicySettings = new QtlSeqTargetPolicySettings(settingValue, parameterDictionary, userOptionDictionary);
-            NoQtlDistributionSettings = new NoQtlDistributionSettings(settingValue, parameterDictionary, userOptionDictionary);
-            SlidingWindowAnalysisSettings = new SlidingWindowAnalysisSettings(settingValue, parameterDictionary, userOptionDictionary);
-            GraphSettings = new GraphSettings(settingValue, parameterDictionary, userOptionDictionary);
-        }
-
         /// <summary>
         /// QTL解析しなりを設定を作成する。
         /// </summary>
@@ -121,24 +62,5 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// グラフ設定
         /// </summary>
         public GraphSettings GraphSettings { get; }
-
-        /// <summary>
-        /// パラメータファイルに記載する行テキストに変換する。
-        /// </summary>
-        /// <returns>パラメータ行テキスト</returns>
-        public string[] ToParameterFileLines()
-        {
-            return new[] { OutputDir.ToParameterFileLine() }
-                .Concat(QtlSeqTargetPolicySettings.ToParameterFileLines())
-                .Concat(NoQtlDistributionSettings.ToParameterFileLines())
-                .Concat(SlidingWindowAnalysisSettings.ToParameterFileLines())
-                .Concat(GraphSettings.ToParameterFileLines())
-                .Concat(new[]
-                {
-                    DisplayAnnotationImpacts.ToParameterFileLine(),
-                    ThreadNumber.ToParameterFileLine()
-                })
-                .ToArray();
-        }
     }
 }

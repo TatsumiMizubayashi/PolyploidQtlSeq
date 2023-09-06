@@ -1,4 +1,11 @@
-﻿namespace PolyploidQtlSeqCore.Options
+﻿#if DEBUG
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("PolyploidQtlSeqTests")]
+[assembly: InternalsVisibleTo("PolyploidQtlSeqWslTests")]
+#endif
+
+namespace PolyploidQtlSeqCore.Options
 {
     /// <summary>
     /// パラメーターファイル
@@ -49,9 +56,9 @@
             "########################################################################################################",
             "##",
             "## Lines beginning with # are comments.",
-            "## Specify the ShortName or LongName of the option switch in Key and the setting value in Value.",
-            "## If Value is left blank, it will be ignored.",
-            "## Key and Value must be tab-separated.",
+            "## Specify the short name or long name of the option switch in key and the setting value in value.",
+            "## If value is left blank, it will be ignored.",
+            "## Key and value must be tab-separated.",
             "##",
             "########################################################################################################",
             "",

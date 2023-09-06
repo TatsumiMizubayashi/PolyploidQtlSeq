@@ -5,50 +5,6 @@
     /// </summary>
     internal class QtlSeqTargetPolicySettings
     {
-        private static readonly IReadOnlyDictionary<string, string> _toLongNameDictionary = new Dictionary<string, string>()
-        {
-            [Parent1MostAlleleRateThreshold.SHORT_NAME] = Parent1MostAlleleRateThreshold.LONG_NAME,
-            [Parent1MostAlleleRateThreshold.LONG_NAME] = Parent1MostAlleleRateThreshold.LONG_NAME,
-
-            [Parent2SnpIndexRange.SHORT_NAME] = Parent2SnpIndexRange.LONG_NAME,
-            [Parent2SnpIndexRange.LONG_NAME] = Parent2SnpIndexRange.LONG_NAME,
-
-            [MinimumDepthThreshold.SHORT_NAME] = MinimumDepthThreshold.LONG_NAME,
-            [MinimumDepthThreshold.LONG_NAME] = MinimumDepthThreshold.LONG_NAME,
-
-            [MaxBulkSnpIndexThreshold.SHORT_NAME] = MaxBulkSnpIndexThreshold.LONG_NAME,
-            [MaxBulkSnpIndexThreshold.LONG_NAME] = MaxBulkSnpIndexThreshold.LONG_NAME
-        };
-
-        /// <summary>
-        /// LongName変換項目を辞書に追加する。
-        /// </summary>
-        /// <param name="dictionary">LongName変換辞書</param>
-        public static void AddLongNameKeyValuePair(Dictionary<string, string> dictionary)
-        {
-            foreach (var keyValuePair in _toLongNameDictionary)
-            {
-                dictionary.Add(keyValuePair.Key, keyValuePair.Value);
-            }
-        }
-
-
-        /// <summary>
-        /// QTL-seq解析対象変異ポリシー設定を作成する。
-        /// </summary>
-        /// <param name="settingValue">設定値</param>
-        /// <param name="parameterDictionary">LongNameパラメーター辞書</param>
-        /// <param name="userOptionDictionary">ユーザー指定LongName辞書</param>
-        [Obsolete("削除予定")]
-        public QtlSeqTargetPolicySettings(IQtlSeqTargetPolicySettingValue settingValue, IReadOnlyDictionary<string, string> parameterDictionary,
-            IReadOnlyDictionary<string, bool> userOptionDictionary)
-        {
-            Parent1MostAlleleRateThreshold = new Parent1MostAlleleRateThreshold(settingValue.Parent1MostAlleleRateThreshold, parameterDictionary, userOptionDictionary);
-            Parent2SnpIndexRange = new Parent2SnpIndexRange(settingValue.Parent2SnpIndexRange, parameterDictionary, userOptionDictionary);
-            MinimumDepthThreshold = new MinimumDepthThreshold(settingValue.MinimumDepthThreshold, parameterDictionary, userOptionDictionary);
-            MaxBulkSnpIndexThreshold = new MaxBulkSnpIndexThreshold(settingValue.MaxBulkSnpIndexThreshold, parameterDictionary, userOptionDictionary);
-        }
-
         /// <summary>
         /// QTL-seq解析対象変異ポリシー設定を作成する。
         /// </summary>
@@ -102,19 +58,5 @@
             return new QtlSeqTargetVariantPolicy(rules);
         }
 
-        /// <summary>
-        /// パラメータファイルに記載する行テキストに変換する。
-        /// </summary>
-        /// <returns>パラメータ行テキスト</returns>
-        public string[] ToParameterFileLines()
-        {
-            return new[]
-            {
-                Parent1MostAlleleRateThreshold.ToParameterFileLine(),
-                Parent2SnpIndexRange.ToParameterFileLine(),
-                MinimumDepthThreshold.ToParameterFileLine(),
-                MaxBulkSnpIndexThreshold.ToParameterFileLine()
-            };
-        }
     }
 }

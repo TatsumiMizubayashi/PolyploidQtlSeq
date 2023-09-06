@@ -16,11 +16,11 @@ namespace PolyploidQtlSeqCore.VariantCall
         /// <summary>
         /// 並列変異検出を作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
+        /// <param name="settings">設定</param>
         /// <param name="thread">スレッド数</param>
-        public ParallelVariantCall(BcfToolsVariantCallSettings option)
+        public ParallelVariantCall(BcfToolsVariantCallSettings settings)
         {
-            _settings = option;
+            _settings = settings;
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace PolyploidQtlSeqCore.VariantCall
             await Parallel.ForEachAsync(chromosomes, pOption, async (chr, cancelToken) =>
             {
                 var variantCallPipeline = new BcftoolsVariantCallPipeline(_settings);
-                var chrVcfFile = await variantCallPipeline.CallAsync(bamFiles, _settings.OutputDirectory, chr);
+                var chrVcfFile = await variantCallPipeline.CallAsync(bamFiles, chr);
                 lock (_syncObj) chrVcfList.Add(chrVcfFile);
             });
 

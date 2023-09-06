@@ -17,11 +17,11 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <summary>
         /// 変異QTLアナライザーを作成する。
         /// </summary>
-        /// <param name="distributionOption">分布オプション</param>
+        /// <param name="distributionSettings">設定</param>
         /// <param name="threadNumber">スレッド数</param>
-        public VariantQtlAanlyzer(NoQtlDistributionSettings distributionOption, ThreadNumber threadNumber)
+        public VariantQtlAanlyzer(NoQtlDistributionSettings distributionSettings, ThreadNumber threadNumber)
         {
-            _distributionGenerator = new F1NoQtlDeltaSnpIndexDistributionGenerator(distributionOption);
+            _distributionGenerator = new F1NoQtlDeltaSnpIndexDistributionGenerator(distributionSettings);
             _threadNumber = threadNumber;
         }
 

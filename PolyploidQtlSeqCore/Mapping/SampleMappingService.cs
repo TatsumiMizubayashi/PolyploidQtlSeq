@@ -1,6 +1,4 @@
-﻿using PolyploidQtlSeqCore.Share;
-
-namespace PolyploidQtlSeqCore.Mapping
+﻿namespace PolyploidQtlSeqCore.Mapping
 {
     /// <summary>
     /// 1サンプル分のMappingを行うサービス

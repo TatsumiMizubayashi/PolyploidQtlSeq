@@ -6,15 +6,15 @@
     internal class SnpEffPipeline
     {
         private const string GzExtension = ".gz";
-        private readonly SnpEffSettings _option;
+        private readonly SnpEffSettings _settings;
 
         /// <summary>
         /// SnpEffパイプラインを作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
-        public SnpEffPipeline(SnpEffSettings option)
+        /// <param name="settings">設定</param>
+        public SnpEffPipeline(SnpEffSettings settings)
         {
-            _option = option;
+            _settings = settings;
         }
 
         /// <summary>
@@ -25,7 +25,7 @@
         /// <returns>SnpEff済みVCFファイル</returns>
         public async ValueTask<VcfFile> RunAsync(VcfFile inputVcf, string outputVcfPath)
         {
-            var snpEff = new SnpEff(_option);
+            var snpEff = new SnpEff(_settings);
             var snpEffOutputVcfPath = GetSnpEffVcfPath(outputVcfPath);
             var snpEffVcf = await snpEff.RunAsync(inputVcf, snpEffOutputVcfPath);
             var snpEffCompressedVcf = await snpEffVcf.CompressionAsync();

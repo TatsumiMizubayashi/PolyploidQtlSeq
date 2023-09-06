@@ -1,5 +1,4 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
-using PolyploidQtlSeq.Options.QualityControl;
 using PolyploidQtlSeqCore.Options;
 
 namespace PolyploidQtlSeq

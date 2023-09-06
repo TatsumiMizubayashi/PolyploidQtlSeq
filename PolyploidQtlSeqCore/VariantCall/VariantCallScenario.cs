@@ -3,7 +3,6 @@ using PolyploidQtlSeqCore.IO;
 using PolyploidQtlSeqCore.Mapping;
 using PolyploidQtlSeqCore.QtlAnalysis;
 using PolyploidQtlSeqCore.QtlAnalysis.Chr;
-using PolyploidQtlSeqCore.Share;
 
 namespace PolyploidQtlSeqCore.VariantCall
 {
@@ -17,22 +16,7 @@ namespace PolyploidQtlSeqCore.VariantCall
         private readonly AnalysisChrSettings _analysisChrSettings;
         private readonly BcfToolsVariantCallSettings _variantCallSettings;
         private readonly SnpEffSettings _snpEffSettings;
-        private readonly ThreadNumber _thread;
 
-        /// <summary>
-        /// 変異検出シナリオを作成する。
-        /// </summary>
-        /// <param name="bcftoolsOption">bcftoolsオプション</param>
-        /// <param name="snpEffOption">snpEffオプション</param>
-        /// <param name="refSeq">リファレンスシークエンス</param>
-        /// <param name="thread">使用するスレッド数</param>
-        [Obsolete("削除予定")]
-        public VariantCallScenario(BcfToolsVariantCallSettings bcftoolsOption, SnpEffSettings snpEffOption, ThreadNumber thread)
-        {
-            _variantCallSettings = bcftoolsOption;
-            _snpEffSettings = snpEffOption;
-            _thread = thread;
-        }
 
         /// <summary>
         /// 変異検出シナリオインスタンスを作成する。
@@ -77,39 +61,6 @@ namespace PolyploidQtlSeqCore.VariantCall
             }
         }
 
-
-        /// <summary>
-        /// 指定染色体の変異検出+SnpEffを行う。
-        /// </summary>
-        /// <param name="bamFiles">全サンプルのBAMファイル</param>
-        /// <param name="outputDir">出力ディレクトリ</param>
-        /// <param name="chromosomes">解析する染色体</param>
-        /// <returns>VCFファイル</returns>
-        [Obsolete("削除予定")]
-        public async ValueTask<VcfFile> CallAsync(AllSampleBamFiles bamFiles, OutputDirectory outputDir, Chromosome[] chromosomes)
-        {
-            Log.Clear();
-            var logFilePath = outputDir.CreateFilePath("VariantCall.Log.txt");
-
-            try
-            {
-                var qtlseqVcf = await ParallelCallAsync(bamFiles, chromosomes);
-                if (!_snpEffSettings.CanSneEff) return qtlseqVcf;
-
-                var qtlseqSnpEffVcf = await SnpEffAsync(qtlseqVcf, outputDir);
-                qtlseqVcf.Delete();
-
-                return qtlseqSnpEffVcf;
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                Log.Save(logFilePath);
-            }
-        }
 
         private async ValueTask<VcfFile> ParallelCallAsync(AllSampleBamFiles bamFiles, Chromosome[] chromosomes)
         {

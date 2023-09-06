@@ -16,17 +16,6 @@ namespace PolyploidQtlSeqCore.Application.Pipeline
         /// <summary>
         /// QTL-Seqパイプラインインスタンスを作成する。
         /// </summary>
-        /// <param name="optionValues">オプションの値</param>
-        [Obsolete("削除予定")]
-        public QtlSeqPipeline(IQtlSeqPipelineSettingValue optionValues)
-        {
-            _variantCallPipelineSettings = new VariantCallPipelineSettings(optionValues);
-            _qtlAnalysisScenarioSettings = new QtlAnalysisScenarioSettings(optionValues);
-        }
-
-        /// <summary>
-        /// QTL-Seqパイプラインインスタンスを作成する。
-        /// </summary>
         /// <param name="variantCallPipelineSettingValue">変異検出パイプライン設定値</param>
         /// <param name="qtlAnalysisScenarioSettingValue">QTL解析設定値</param>
         public QtlSeqPipeline(IVariantCallPipelineSettingValue variantCallPipelineSettingValue,

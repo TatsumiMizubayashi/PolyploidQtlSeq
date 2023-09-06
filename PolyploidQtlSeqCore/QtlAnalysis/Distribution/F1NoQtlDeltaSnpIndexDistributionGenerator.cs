@@ -5,19 +5,19 @@
     /// </summary>
     internal class F1NoQtlDeltaSnpIndexDistributionGenerator
     {
-        private readonly NoQtlDistributionSettings _option;
+        private readonly NoQtlDistributionSettings _settings;
         private readonly BulkF1SamplesGenerator _bulkF1SamplesGenerator;
 
         /// <summary>
         /// F1 NoQtlΔSNP-index分布ジェネレータを作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
-        public F1NoQtlDeltaSnpIndexDistributionGenerator(NoQtlDistributionSettings option)
+        /// <param name="settings">設定</param>
+        public F1NoQtlDeltaSnpIndexDistributionGenerator(NoQtlDistributionSettings settings)
         {
-            _option = option;
+            _settings = settings;
 
-            var f1AltCountPatterns = F1GroupAltCountPattern.Generate(_option.Ploidy, _option.Parent2PlexNumber);
-            _bulkF1SamplesGenerator = new BulkF1SamplesGenerator(f1AltCountPatterns, _option.Ploidy);
+            var f1AltCountPatterns = F1GroupAltCountPattern.Generate(_settings.Ploidy, _settings.Parent2PlexNumber);
+            _bulkF1SamplesGenerator = new BulkF1SamplesGenerator(f1AltCountPatterns, _settings.Ploidy);
         }
 
 
@@ -31,10 +31,10 @@
         {
             var deltaSnpIndexList = new List<DeltaSnpIndex>();
 
-            while (deltaSnpIndexList.Count <= _option.ReplicatesNumber.Value)
+            while (deltaSnpIndexList.Count <= _settings.ReplicatesNumber.Value)
             {
-                var bulk1Samples = _bulkF1SamplesGenerator.Generate(_option.Bulk1Number, bulk1);
-                var bulk2Samples = _bulkF1SamplesGenerator.Generate(_option.Bulk2Number, bulk2);
+                var bulk1Samples = _bulkF1SamplesGenerator.Generate(_settings.Bulk1Number, bulk1);
+                var bulk2Samples = _bulkF1SamplesGenerator.Generate(_settings.Bulk2Number, bulk2);
 
                 var bulk1SnpIndex = bulk1Samples.SnpIndex;
                 var bulk2SnpIndex = bulk2Samples.SnpIndex;

@@ -9,17 +9,17 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
     /// </summary>
     internal class SlidingWindowAnalyzer
     {
-        private readonly SlidingWindowAnalysisSettings _option;
+        private readonly SlidingWindowAnalysisSettings _settings;
         private readonly ThreadNumber _threadNumber;
 
         /// <summary>
         /// スライディングウインドウアナライザーを作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
+        /// <param name="settings">設定</param>
         /// <param name="threadNumber">スレッド数</param>
-        public SlidingWindowAnalyzer(SlidingWindowAnalysisSettings option, ThreadNumber threadNumber)
+        public SlidingWindowAnalyzer(SlidingWindowAnalysisSettings settings, ThreadNumber threadNumber)
         {
-            _option = option;
+            _settings = settings;
             _threadNumber = threadNumber;
         }
 
@@ -55,7 +55,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
         /// <returns>window位置</returns>
         private GenomePosition[] CreateWindowPositons(SnpIndexVariantWithQtl[] variants)
         {
-            var creator = new SlidingWindowPositionCreator(_option);
+            var creator = new SlidingWindowPositionCreator(_settings);
             return creator.Create(variants);
         }
     }

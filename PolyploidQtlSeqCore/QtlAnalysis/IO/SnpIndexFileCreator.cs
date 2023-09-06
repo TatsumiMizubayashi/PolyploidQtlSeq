@@ -83,7 +83,7 @@
         {
             // SnpEffアノテーションは情報付加した場合は必ず何らかの情報がつけられるのでEmptyにならない
             return variants[0].Annotations.IsEmpty
-                ? new DisplayAnnotationImpacts("None", new Dictionary<string, string>(), new Dictionary<string, bool>())
+                ? new DisplayAnnotationImpacts("None")
                 : displayImpacts;
         }
 

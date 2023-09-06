@@ -10,15 +10,15 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
     {
         private static readonly GenomePositionComparer _genomePositionComparer = new();
 
-        private readonly SlidingWindowAnalysisSettings _option;
+        private readonly SlidingWindowAnalysisSettings _settings;
 
         /// <summary>
         /// SlidingWindow位置クリエーターを作成する。
         /// </summary>
-        /// <param name="option">オプション</param>
-        public SlidingWindowPositionCreator(SlidingWindowAnalysisSettings option)
+        /// <param name="settings">設定</param>
+        public SlidingWindowPositionCreator(SlidingWindowAnalysisSettings settings)
         {
-            _option = option;
+            _settings = settings;
         }
 
         /// <summary>
@@ -56,8 +56,8 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
             var positionList = new List<GenomePosition>();
 
             var chrName = lastVariantPosition.ChrName;
-            var windowSize = _option.WindowSize.BpValue;
-            var stepSize = _option.StepSize.BpValue;
+            var windowSize = _settings.WindowSize.BpValue;
+            var stepSize = _settings.StepSize.BpValue;
             var currentStart = 1;
             var currentEnd = 1;
 
