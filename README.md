@@ -13,7 +13,7 @@ The main modifications are as follows:
 - Appends annotation information by SnpEff.
 
 ## References
-- Yamakawa et al. (2023) 論文情報を載せる予定。
+- Hiromoto Yamakawa, Tatsumi Mizubayashi, Masaru Tanaka (2024) Polyploid QTL-seq revealed multiple QTLs controlling steamed tuber texture and starch gelatinization temperature in sweetpotato. Breed. Sci. in press
 - Yu Sugihara, Lester Young, Hiroki Yaegashi, Satoshi Natsume, Daniel J. Shea, Hiroki Takagi, Helen Booker, Hideki Innan, Ryohei Terauchi, Akira Abe (2022) [High performance pipeline for MutMap and QTL-seq](https://peerj.com/articles/13170/). PeerJ 10: e13170.
 - Hiroki Takagi, Akira Abe, Kentaro Yoshida, Shunichi Kosugi, Satoshi Natsume, Chikako Mitsuoka, Aiko Uemura, Hiroe Utsushi, Muluneh Tamiru, Shohei Takuno, Hideki Innan, Liliana M. Cano, Sophien Kamoun, Ryohei Terauchi (2013) [QTL-seq: rapid mapping of quantitative trait loci in rice by whole genome resequencing of DNA from two bulked populations](https://onlinelibrary.wiley.com/doi/10.1111/tpj.12105). Plant J. 74: 174-183.
 
@@ -25,14 +25,6 @@ The main modifications are as follows:
 - Bcftools (>= 1.16)
 - SAMtools (>= 1.16)
 - SnpEff
-
-## C# libraries
-- Kurukuru
-- McMaster.Extensions.CommandLineUtils
-- NaturalSort.Extension
-- ProcessX
-- OxyPlot
-- SkiaSharp
 
 ## Installation using bioconda
 PolyploidQtlSeq can be installed using bioconda.
@@ -75,7 +67,7 @@ echo dotnet=6 >> pinned
 <br>
 
 Click [Releases](https://github.com/TatsumiMizubayashi/PolyploidQtlSeq/releases) on the GitHub PolyploidQtlSeq page.
-Download and extract the polyQtlseqX.X.X.tar.gz for the latest version.
+Download and extract the polyQtlseq-X.X.X.zip for the latest version.
 
 ```
 tar zxvf polyQtlseqX.X.X.tar.gz
@@ -511,6 +503,14 @@ Sliding window analysis performs QTL determination by using the variants in the 
 
 ## P-value and -log10(P) for sliding windows
 Average P-value of sliding window is the average value of P-values of variants in the window. Average -log10(P) of sliding window is the logarithm of average P-value of sliding window.
+
+# C# libraries used
+- Kurukuru
+- McMaster.Extensions.CommandLineUtils
+- NaturalSort.Extension
+- ProcessX
+- OxyPlot
+- SkiaSharp
 
 # License
 This project is licensed under the MIT License.
