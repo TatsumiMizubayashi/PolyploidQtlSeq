@@ -13,7 +13,7 @@ The main modifications are as follows:
 - Appends annotation information by SnpEff.
 
 ## References
-- Hiromoto Yamakawa, Tatsumi Mizubayashi, Masaru Tanaka (2024) Polyploid QTL-seq revealed multiple QTLs controlling steamed tuber texture and starch gelatinization temperature in sweetpotato. Breed. Sci. in press
+- Hiromoto Yamakawa, Tatsumi Mizubayashi, Masaru Tanaka (2024) [Polyploid QTL-seq revealed multiple QTLs controlling steamed tuber texture and starch gelatinization temperature in sweetpotato.](https://doi.org/10.1270/jsbbs.23060) Breed. Sci. in press
 - Yu Sugihara, Lester Young, Hiroki Yaegashi, Satoshi Natsume, Daniel J. Shea, Hiroki Takagi, Helen Booker, Hideki Innan, Ryohei Terauchi, Akira Abe (2022) [High performance pipeline for MutMap and QTL-seq](https://peerj.com/articles/13170/). PeerJ 10: e13170.
 - Hiroki Takagi, Akira Abe, Kentaro Yoshida, Shunichi Kosugi, Satoshi Natsume, Chikako Mitsuoka, Aiko Uemura, Hiroe Utsushi, Muluneh Tamiru, Shohei Takuno, Hideki Innan, Liliana M. Cano, Sophien Kamoun, Ryohei Terauchi (2013) [QTL-seq: rapid mapping of quantitative trait loci in rice by whole genome resequencing of DNA from two bulked populations](https://onlinelibrary.wiley.com/doi/10.1111/tpj.12105). Plant J. 74: 174-183.
 
@@ -77,6 +77,19 @@ Move the extracted file to the desired location and write the alias command in t
 ```
 alias polyQtlseq='dotnet /FULLPATH/PolyploidQtlSeq.dll'
 ```
+
+# Advance preparation
+## Creation of index file for reference sequence
+An index file for the reference sequence must be created for mapping.
+
+```
+bwa index -a bwtsw REF_SEQ.fa
+samtools faidx REF_SEQ.fa
+```
+
+## SnpEff database preparation
+If you wish to annotate using SnpEff, you must prepare a SnpEff database.
+Please refer to the SnpEff manual for how to prepare the SnpEff database.
 
 # Quality control
 This is a subcommand for controlling the quality of Fastq files. fastp is used for the quality control.
@@ -418,7 +431,7 @@ bcftools concat -O z -o MERGE_VCF INPUT_VCF1 INPUT_VCF2 ...
 Annotations are attached using SnpEff with the following command.
 
 ```
-snpEff -c SNPEFF.CONFIG_FILE DATABASE_NAME VCF_FILE -noStats
+snpEff -c SNPEFF_CONFIG_FILE DATABASE_NAME VCF_FILE -noStats
 ```
 
 ## Extraction of analyzable variants
@@ -432,7 +445,7 @@ Variants that meet all these conditions are extracted and used for QTL-seq analy
 ## Calculation of SNP-index
 SNP-index is calculated by the following formula: 
 ```
-SNP-index = Number of reads of P2-type allele / Depth
+SNP-index = Number_of_reads_of_P2-type_allele / Depth
 ```
 
 <br>
@@ -452,7 +465,7 @@ This filter is used to extract variants where P1 is homozygous. Since the bcftoo
 <br>
 The most allele frequency is calculated by the following formula:
 ```
-Most Allele frequency = max(Ref reads, Alt reads) / Depth
+Most Allele frequency = max(Ref_reads, Alt_reads) / Depth
 ```
 
 ## P2 SNP-index
@@ -474,17 +487,17 @@ The threshold for judging whether a variant is a QTL is determined using a QTL-f
 1. Genotypes of the F1 population are generated based on the specified ploidy and plexity.
 In case of tetraploidy and simplex (1plex), P2 genotype is (0, 0, 0, 1). Since the genotype of F1 population is a combination of taking two from four of P2 allele (0, 0, 0, 1), there are six patterns; (0, 0), (0, 0), (0, 0), (0, 1), (0, 1) and (0, 1).
 2. Random sampling from the F1 population is repeated for the number of Bulk1 individuals, and the Alt proportion is calculated.
-Random sampling is repeated for the number of Bulk1 individuals (20 individuals) from the generated F1 population (6 patterns) according to a uniform distribution, and the Alt proportion of the sampled F1 population is calculated by the following formula: `Alt proportion = Total sampled value for the genotypes / (bulk individual number × ploidy).`
+Random sampling is repeated for the number of Bulk1 individuals (20 individuals) from the generated F1 population (6 patterns) according to a uniform distribution, and the Alt proportion of the sampled F1 population is calculated by the following formula: `Alt_proportion = Total_sampled_value_for_the_genotypes / (bulk_individual_number × ploidy).`
 If the total sampled value for the genotype is 12, the Alt proportion is 12 / (20 × 4) = 0.15.
 3. Considering the Alt proportion, Ref/Alt reads are randomly sampled to calculate the SNP-index of Bulk1.
 The number of Ref and Alt reads is simulated by considering the Alt proportion. Random sampling is repeated for the number of depth from [0, 1] where Ref and Alt reads are set to 0 and 1, respectively. At this time, random sampling is performed by weighing the probability of Ref read to be 1 – (the Alt proportion), and the probability of Alt read to be the Alt proportion.
 In this case, the probability of Ref (0) is 1 - 0.15 = 0.85 and the probability of Alt (1) is 0.15. The SNP-index is calculated based on the sum of the sampled values.
-`SNP-index = sum of sampled values / Depth`
+`SNP-index = sum_of_sampled_values / Depth`
 4. Steps 2 and 3 are repeated for Bulk2 to calculate the SNP-index of Bulk2.
 Similarly, the SNP-index is calculated for Bulk2.
 5. ΔSNP-index is calculated.
 ΔSNP-index is calculated from SNP-indexes of both bulks by the following formula:
-`ΔSNP-index = Bulk2 SNP-index - Bulk1 SNP-index.`
+`ΔSNP-index = Bulk2_SNP-index - Bulk1_SNP-index.`
 The absolute value of ΔSNP-index is recorded.
 6. Repeat for the number of trials to generate a distribution.
 By repeating the trial (5,000 times), 5,000 ΔSNP-index absolute values assuming the absence of QTL are yielded. These are sorted in ascending order to obtain the ΔSNP-index distribution assumed without QTL.
