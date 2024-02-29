@@ -78,7 +78,7 @@ Move the extracted file to the desired location and write the alias command in t
 alias polyQtlseq='dotnet /FULLPATH/PolyploidQtlSeq.dll'
 ```
 
-# Advance preparation
+# Preparation in advance
 ## Creation of index file for reference sequence
 An index file for the reference sequence must be created for mapping.
 
