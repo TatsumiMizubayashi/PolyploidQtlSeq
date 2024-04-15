@@ -141,7 +141,7 @@ If BAM files exist in P1, P2, Bulk1 and Bulk2 directories, the mapping process i
 |-q|--minMQ|40|Minimum mapping quality at variant detection in bcftools mpileup.|
 |-Q|--minBQ|13|Minimum base quality at variant detection in bcftools mpileup.|
 |-C|--adjustMQ|60|Value for adjust mapping quality at variant detection in bcftools mpileup. Specify 0, to disable this function.|
-|-sm|--snpEffMaxHeap|4|SnpEff maximum heap size (GB).|
+|-sm|--snpEffMaxHeap|6|SnpEff maximum heap size (GB).|
 |-sc|--snpEffConfig| |snpEff.config file. Not required if snpEff default config file is used.|
 |-sd|--snpEffDatabase| |SnpEff database name.|
 |-o|--outputDir| |Output directory.|
