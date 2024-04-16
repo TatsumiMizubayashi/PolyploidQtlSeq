@@ -184,7 +184,7 @@ polyQtlseq -r refSeq.fa -p1 P1 -p2 P2 -b1 Bulk1 -b2 Bulk2 -n1 20 -n2 20 -o Resul
 
 The values for the p2r and md arguments should be determined by referring to the N-Plex SNP index simulation (See [N-Plex SNP index Simulation](#n-plex-snp-index-simulation)).
 
-## Bcftools mplileup arguments
+## Bcftools mpileup arguments
 The minMQ(q), minBQ(Q), and adjustMQ(C) are arguments specified for the bcftools mpileup command. 
 MinBQ is the threshold quality value of the base to be counted for depth. Note that setting high values of minBQ will result in a lower depth.
 The adjustMQ(C) argument reduces the MQ in the variant-rich region. 
