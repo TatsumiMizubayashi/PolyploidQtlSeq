@@ -189,11 +189,11 @@ polyQtlseq -r refSeq.fa -p1 P1 -p2 P2 -b1 Bulk1 -b2 Bulk2 -n1 20 -n2 20 -o Resul
 The values for the p2r and md arguments should be determined by referring to the N-Plex SNP index simulation (See [N-Plex SNP index Simulation](#n-plex-snp-index-simulation)).
 
 ## Bcftools mplileup arguments
-The minMQ(q), minBQ(Q), and adjustMQ(C) are arguments specified for the bcftools mpileup command.
+The minMQ(q), minBQ(Q), and adjustMQ(C) are arguments specified for the bcftools mpileup command. 
 MinBQ is the threshold quality value of the base to be counted for depth. Note that setting high values of minBQ will result in a lower depth.
-The adjustMQ(C) argument reduces the MQ in the variant-rich region.
-Setting high values for this argument lowers the MQ and may result that reads are excluded by the minMQ(q) argument, leading to loss of variant detection due to the minDepth(md) argument.
-For samples with many variants (e.g., hexaploid sweet potato), the number of variants used for analysis rises by increasing the value of adjustMQ(C) (e.g., 70) and decreasing the value of minMQ(q) (e.g., 30).
+The adjustMQ(C) argument reduces the MQ in the variant-rich region. 
+A lower value for the adjustMQ(C) argument lowers the MQ and excludes reads below the value of the minMQ(q) argument.
+If 0 is specified for the adjustMQ(C) argument, MQ is not adjusted.For samples with many variants (e.g., hexaploid sweet potato), the number of variants used for analysis rises by increasing the value of adjustMQ(C) (e.g., 70) and decreasing the value of minMQ(q) (e.g., 30).
 
 # PolyploidQtlSeq analysis
 This is a subcommand that performs QTL-seq analysis based on a VCF file.
