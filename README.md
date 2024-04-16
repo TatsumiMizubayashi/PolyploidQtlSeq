@@ -69,10 +69,6 @@ echo dotnet=6 >> pinned
 Click [Releases](https://github.com/TatsumiMizubayashi/PolyploidQtlSeq/releases) on the GitHub PolyploidQtlSeq page.
 Download and extract the polyQtlseq-X.X.X.zip for the latest version.
 
-```
-tar zxvf polyQtlseqX.X.X.tar.gz
-```
-
 Move the extracted file to the desired location and write the alias command in the .bashrc file.
 ```
 alias polyQtlseq='dotnet /FULLPATH/PolyploidQtlSeq.dll'
