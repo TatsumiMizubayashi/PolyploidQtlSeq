@@ -294,7 +294,7 @@ Information of all variants used in QTL-Seq analysis is described. When annotati
 - **P95 Threshold** : 95% confidence interval of ΔSNP-index calculated from the QTL-free null simulated distribution.
 - **Bulk1 SNP-index** : SNP-index of Bulk1.
 - **Bulk2 SNP-index** : SNP-index of Bulk2.
-- **ΔSNP-index** : subtracted SNP-index (Bulk2 – Bulk1).
+- **Delta SNP-index** : subtracted SNP-index (Bulk2 – Bulk1).
 - **P-value** : P-value calculated from the QTL-free null simulated distribution. 
 - **-log10(P)** : logarithm of the P-value multiplied by -1.
 - **Window P-value** : Minimum P-value among sliding windows where the variant resides.
@@ -314,18 +314,18 @@ All Sliding window information is included.
 - **P95** : Indicates whether the window is deduced as QTL under the P95 condition.
 - **Variant count** : Number of variants within the window. 
 - **P99 QTL variant count** : Number of variants deduced as QTL under the P99 condition in the window. 
-- **P99 +ΔSNP-index QTL variant count** : Number of QTL variants with positive ΔSNP-index by the P99 criteria.
-- **P99 -ΔSNP-index QTL variant count** : Number of QTL variants with negative ΔSNP-index by the P99 criteria.
-- **P95 QTL variant count** : Number of variants deduced as QTL under the P95 condition in the window. 
-- **P95 +ΔSNP-index QTL variant count** : Number of QTL variants with positive ΔSNP-index by the P95 criteria.
-- **P95 -ΔSNP-index QTL variant count** : Number of QTL variants with negative ΔSNP-index by the P95 criteria.
+- **P99 +Delta SNP-index QTL variant count** : Number of QTL variants with positive ΔSNP-index by the P99 criteria.
+- **P99 -Delta SNP-index QTL variant count** : Number of QTL variants with negative ΔSNP-index by the P99 criteria.
 - **P99 QTL variant rate** : Ratio of number of P99 QTL variants to that of all variants in the window.
+- **P95 QTL variant count** : Number of variants deduced as QTL under the P95 condition in the window. 
+- **P95 +Delta SNP-index QTL variant count** : Number of QTL variants with positive ΔSNP-index by the P95 criteria.
+- **P95 -Delta SNP-index QTL variant count** : Number of QTL variants with negative ΔSNP-index by the P95 criteria.
 - **P95 QTL variant rate** : Ratio of number of P95 QTL variants to that of all variants in the window.
 - **Mean P99 threshold** : Mean of P99 thresholds of the variants within the window.
 - **Mean P95 threshold** : Mean of P95 thresholds of the variants within the window.
 - **Mean Bulk1 SNP-index** : Mean of bulk1 SNP-index for all variants in the window.
 - **Mean Bulk2 SNP-index** : Mean of bulk2 SNP-index for all variants in the window.
-- **Mean ΔSNP-index** : Mean of ΔSNP-index for all variants in the window.
+- **Mean Delta SNP-index** : Mean of ΔSNP-index for all variants in the window.
 - **Mean P-value** : Mean of P value for all variants in the window.
 - **Mean-log10(P)** : Mean of -log10(P) for all variants in the window.
 - **Bulk1 SNP-index=0 variant count** : Number of variants with Bulk1 SNP-index of 0.
