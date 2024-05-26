@@ -13,7 +13,8 @@ The main modifications are as follows:
 - Appends annotation information by SnpEff.
 
 ## References
-- Hiromoto Yamakawa, Tatsumi Mizubayashi, Masaru Tanaka (2024) [Polyploid QTL-seq revealed multiple QTLs controlling steamed tuber texture and starch gelatinization temperature in sweetpotato.](https://doi.org/10.1270/jsbbs.23060) Breed. Sci. in press
+- Hiromoto Yamakawa, Tatsumi Mizubayashi, Masaru Tanaka (2024) [Polyploid QTL-seq revealed multiple QTLs controlling steamed tuber texture and starch gelatinization temperature in sweetpotato.](https://doi.org/10.1270/jsbbs.23060) Breed. Sci. 74: 103-113.
+- Hiromoto Yamakawa, Emdadul Haque, Masaru Tanaka, Hiroki Takagi, Kenji Asano, Etsuo Shimosaka, Kotaro Akai, Satoshi Okamoto, Kenji Katayama, Seiji Tamiya (2021) [Polyploid QTL-seq towards rapid development of tightly linked DNA markers for potato and sweetpotato breeding through whole-genome resequencing. ](https://doi.org/10.1111/pbi.13633) Plant Biotechnol J 19: 2040-2051. 
 - Yu Sugihara, Lester Young, Hiroki Yaegashi, Satoshi Natsume, Daniel J. Shea, Hiroki Takagi, Helen Booker, Hideki Innan, Ryohei Terauchi, Akira Abe (2022) [High performance pipeline for MutMap and QTL-seq](https://peerj.com/articles/13170/). PeerJ 10: e13170.
 - Hiroki Takagi, Akira Abe, Kentaro Yoshida, Shunichi Kosugi, Satoshi Natsume, Chikako Mitsuoka, Aiko Uemura, Hiroe Utsushi, Muluneh Tamiru, Shohei Takuno, Hideki Innan, Liliana M. Cano, Sophien Kamoun, Ryohei Terauchi (2013) [QTL-seq: rapid mapping of quantitative trait loci in rice by whole genome resequencing of DNA from two bulked populations](https://onlinelibrary.wiley.com/doi/10.1111/tpj.12105). Plant J. 74: 174-183.
 
