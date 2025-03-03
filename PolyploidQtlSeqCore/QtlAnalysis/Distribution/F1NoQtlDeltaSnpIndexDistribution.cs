@@ -18,10 +18,9 @@
         /// <param name="deltaSnpIndice">ΔSNP-indice</param>
         public F1NoQtlDeltaSnpIndexDistribution(IEnumerable<DeltaSnpIndex> deltaSnpIndice)
         {
-            _sortedAbsDeltaSnpIndice = deltaSnpIndice
+            _sortedAbsDeltaSnpIndice = [.. deltaSnpIndice
                 .Select(x => x.Abs())
-                .OrderBy(x => x)
-                .ToArray();
+                .OrderBy(x => x)];
 
             if (_sortedAbsDeltaSnpIndice.Length == 0) throw new ArgumentException("ΔSNP-index is 0.");
         }

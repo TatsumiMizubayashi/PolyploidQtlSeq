@@ -29,7 +29,7 @@
                 indexes[i] = _random.Next(0, values.Length);
             }
 
-            return indexes.Select(i => values[i]).ToArray();
+            return [.. indexes.Select(i => values[i])];
         }
 
         /// <summary>

@@ -11,7 +11,7 @@
         /// <param name="refSeqFilePath">リファレンスシークエンスファイルPath</param>
         public ReferenceSequence(string refSeqFilePath)
         {
-            if (string.IsNullOrEmpty(refSeqFilePath)) throw new ArgumentException(null, nameof(refSeqFilePath));
+            ArgumentException.ThrowIfNullOrEmpty(refSeqFilePath);
             if (!File.Exists(refSeqFilePath)) throw new FileNotFoundException($"{refSeqFilePath} not found.");
 
             Path = refSeqFilePath;

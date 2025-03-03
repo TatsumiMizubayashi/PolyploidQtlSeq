@@ -13,7 +13,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <param name="outputDirPath">出力ディレクトリPath</param>
         public OutputDirectory(string outputDirPath)
         {
-            if (string.IsNullOrEmpty(outputDirPath)) throw new ArgumentException(null, nameof(outputDirPath));
+            ArgumentException.ThrowIfNullOrEmpty(outputDirPath);
 
             Path = System.IO.Path.GetFullPath(outputDirPath);
         }

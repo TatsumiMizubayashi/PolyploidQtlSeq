@@ -1,4 +1,5 @@
 ﻿using PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow;
+using System.Collections.Frozen;
 
 namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
 {
@@ -8,7 +9,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
     internal class AllWindows
     {
         private readonly Window[] _windows;
-        private readonly IReadOnlyDictionary<string, Window[]> _chrWindowsDictionary;
+        private readonly FrozenDictionary<string, Window[]> _chrWindowsDictionary;
 
         /// <summary>
         /// AllWindowを作成する。
@@ -18,7 +19,8 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         {
             _windows = windows;
             _chrWindowsDictionary = _windows.ToLookup(x => x.GenomePosition.ChrName)
-                .ToDictionary(x => x.Key, x => x.ToArray());
+                .ToDictionary(x => x.Key, x => x.ToArray())
+                .ToFrozenDictionary();
         }
 
         /// <summary>
@@ -73,7 +75,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
             var windows = _chrWindowsDictionary[chrName];
             var splitWindowsList = Split0Window(windows);
 
-            return splitWindowsList.Select(x => new ChrWindows(chrName, x)).ToList();
+            return [.. splitWindowsList.Select(x => new ChrWindows(chrName, x))];
         }
 
         /// <summary>
@@ -81,7 +83,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         /// </summary>
         /// <param name="windows">windows</param>
         /// <returns>window配列リスト</returns>
-        private IReadOnlyList<Window[]> Split0Window(Window[] windows)
+        private static List<Window[]> Split0Window(Window[] windows)
         {
             var resultWindowsList = new List<Window[]>();
 

@@ -13,7 +13,7 @@ namespace PolyploidQtlSeqCore.QualityControl
         /// <param name="inputDirPath">入力RawFastqディレクトリPath</param>
         public InputRawFastqDirectory(string inputDirPath)
         {
-            if (string.IsNullOrEmpty(inputDirPath)) throw new ArgumentException(null, nameof(inputDirPath));
+            ArgumentException.ThrowIfNullOrEmpty(inputDirPath);
             if (!Directory.Exists(inputDirPath)) throw new DirectoryNotFoundException($"{inputDirPath} not found.");
 
             Path = System.IO.Path.GetFullPath(inputDirPath);

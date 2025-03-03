@@ -5,11 +5,11 @@
     /// </summary>
     internal static class FastqFilePairEnumerator
     {
-        private static readonly string[] _fastqFilePatterns = new[]
-        {
+        private static readonly string[] _fastqFilePatterns =
+        [
             "*.fq.gz",
             "*.fastq.gz"
-        };
+        ];
 
         /// <summary>
         /// FastqFilePairを列挙する。
@@ -29,7 +29,7 @@
                 fastqPairList.AddRange(fastqFiles.ToFastqFilePairs());
             }
 
-            return fastqPairList.ToArray();
+            return [.. fastqPairList];
         }
     }
 }

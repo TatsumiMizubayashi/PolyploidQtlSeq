@@ -1,6 +1,4 @@
-﻿using PolyploidQtlSeqCore.Options;
-
-namespace PolyploidQtlSeqCore.QualityControl
+﻿namespace PolyploidQtlSeqCore.QualityControl
 {
     /// <summary>
     /// 塩基クオリティ

@@ -11,7 +11,7 @@
         /// <param name="filePath">VCFファイルPath</param>
         public VcfFile(string filePath)
         {
-            if (string.IsNullOrEmpty(filePath)) throw new ArgumentException(null, nameof(filePath));
+            ArgumentException.ThrowIfNullOrEmpty(filePath);
 
             Path = filePath;
         }

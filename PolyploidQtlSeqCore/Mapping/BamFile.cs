@@ -15,8 +15,8 @@ namespace PolyploidQtlSeqCore.Mapping
         /// <param name="bamFilePath">BAMファイルPath</param>
         public BamFile(string sampleName, string bamFilePath)
         {
-            if (string.IsNullOrEmpty(sampleName)) throw new ArgumentException(null, nameof(sampleName));
-            if (string.IsNullOrWhiteSpace(bamFilePath)) throw new ArgumentException(null, nameof(bamFilePath));
+            ArgumentException.ThrowIfNullOrEmpty(sampleName);
+            ArgumentException.ThrowIfNullOrWhiteSpace(bamFilePath);
 
             SampleName = sampleName;
             Path = bamFilePath;

@@ -34,7 +34,7 @@ namespace PolyploidQtlSeqCore.Mapping
         {
             var bamFiles = BamFileEnumerator.Enumerate(Path);
 
-            return bamFiles.Any();
+            return bamFiles.Length != 0;
         }
 
         /// <summary>

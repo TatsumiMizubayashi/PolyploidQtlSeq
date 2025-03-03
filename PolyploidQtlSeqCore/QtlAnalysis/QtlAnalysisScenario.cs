@@ -77,11 +77,10 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
             var qtlSeqTargetVariantPolicy = _settings.QtlSeqTargetPolicySettings.CreatePolicy();
 
             var vcfVariants = VcfFileParser.Parse(inputVcf.Path);
-            return vcfVariants
+            return [.. vcfVariants
                 .Where(x => analyzableVriantPolicy.ComplyWithAll(x))
                 .Select(x => new SnpIndexVariant(x))
-                .Where(x => qtlSeqTargetVariantPolicy.ComplyWithAll(x))
-                .ToArray();
+                .Where(x => qtlSeqTargetVariantPolicy.ComplyWithAll(x))];
         }
 
         /// <summary>

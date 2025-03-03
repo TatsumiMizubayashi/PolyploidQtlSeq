@@ -12,8 +12,8 @@
         /// <param name="length">長さ</param>
         public Chromosome(string name, int length)
         {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentException(null, nameof(name));
-            if (length < 1) throw new ArgumentOutOfRangeException(nameof(length));
+            ArgumentException.ThrowIfNullOrEmpty(name);
+            ArgumentOutOfRangeException.ThrowIfLessThan(length, 1);
 
             Name = name;
             Length = length;

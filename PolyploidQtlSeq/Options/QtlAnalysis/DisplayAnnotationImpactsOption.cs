@@ -1,4 +1,5 @@
 ﻿using PolyploidQtlSeqCore.Options;
+using System.Collections.Frozen;
 
 namespace PolyploidQtlSeq.Options.QtlAnalysis
 {
@@ -29,13 +30,14 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
 
         private static readonly char _delimiter = ',';
 
-        private static readonly IReadOnlyDictionary<string, string> _impactDictionary = new Dictionary<string, string>()
+        private static readonly FrozenDictionary<string, string> _impactDictionary = new Dictionary<string, string>()
         {
             ["HIGH"] = "",
             ["MODERATE"] = "",
             ["LOW"] = "",
             ["MODIFIER"] = ""
-        };
+        }
+        .ToFrozenDictionary();
 
         private readonly IQtlSeqAnalysisOptionValue _settingValue;
 

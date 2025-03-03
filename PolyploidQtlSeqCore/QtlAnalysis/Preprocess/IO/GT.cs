@@ -5,7 +5,7 @@
     /// </summary>
     internal class GT
     {
-        private static readonly char[] _delimiter = new[] { '/', '|' };
+        private static readonly char[] _delimiter = ['/', '|'];
 
         private const string ALLELE_DELIMITER = "/";
         private const string NO_DATA_GT = "./.";
@@ -18,16 +18,15 @@
         /// <param name="gt">GT</param>
         public GT(string gt)
         {
-            if (string.IsNullOrEmpty(gt)) throw new ArgumentException(null, nameof(gt));
+            ArgumentException.ThrowIfNullOrEmpty(gt);
 
             Value = gt;
             IsNoData = gt == NO_DATA_GT;
             Indexes = IsNoData
-                ? Array.Empty<int>()
-                : gt.Split(_delimiter)
+                ? []
+                : [.. gt.Split(_delimiter)
                     .Select(x => int.Parse(x))
-                    .Distinct()
-                    .ToArray();
+                    .Distinct()];
         }
 
         /// <summary>

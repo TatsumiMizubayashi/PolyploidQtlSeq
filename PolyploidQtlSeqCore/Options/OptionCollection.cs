@@ -55,9 +55,11 @@ namespace PolyploidQtlSeqCore.Options
         /// <returns>エラーがあるデータ検証結果</returns>
         public DataValidationResult[] Validation()
         {
-            return _options.Select(x => x.Validation())
+            var varidationResults = _options.Select(x => x.Validation())
                 .Where(x => x.HasError)
                 .ToArray();
+
+            return varidationResults;
         }
 
         /// <summary>
@@ -66,7 +68,7 @@ namespace PolyploidQtlSeqCore.Options
         /// <returns>Key-Value値</returns>
         public string[] GetKeyValues()
         {
-            return _options.Select(x => x.GetKeyValue()).ToArray();
+            return [.. _options.Select(x => x.GetKeyValue())];
         }
     }
 }

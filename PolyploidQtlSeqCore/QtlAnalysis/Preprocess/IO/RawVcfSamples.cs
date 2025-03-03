@@ -5,7 +5,7 @@
     /// </summary>
     internal class RawVcfSamples
     {
-        private static readonly char[] _delimiter = new[] { ':' };
+        private static readonly char[] _delimiter = [':'];
         private static readonly int _parent1Index = 0;
         private static readonly int _parent2Index = 1;
         private static readonly int _bulk1Index = 2;

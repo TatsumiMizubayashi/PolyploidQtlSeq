@@ -1,4 +1,6 @@
-﻿namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
+﻿using System.Collections.Frozen;
+
+namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
 {
     /// <summary>
     /// 全変異
@@ -7,7 +9,7 @@
     {
         private readonly string[] _chrNames;
         private readonly SnpIndexVariantWithSlidingWindowQtl[] _variants;
-        private readonly IReadOnlyDictionary<string, ChrVariants> _chrVariantsDictionary;
+        private readonly FrozenDictionary<string, ChrVariants> _chrVariantsDictionary;
 
         /// <summary>
         /// 全変異コレクションを作成する。
@@ -16,9 +18,10 @@
         public AllVariants(SnpIndexVariantWithSlidingWindowQtl[] variants)
         {
             _variants = variants;
-            _chrNames = _variants.Select(x => x.GenomePosition.ChrName).Distinct().ToArray();
+            _chrNames = [.. _variants.Select(x => x.GenomePosition.ChrName).Distinct()];
             _chrVariantsDictionary = _variants.ToLookup(x => x.GenomePosition.ChrName)
-                .ToDictionary(x => x.Key, x => new ChrVariants(x.Key, x.ToArray()));
+                .ToDictionary(x => x.Key, x => new ChrVariants(x.Key, [.. x]))
+                .ToFrozenDictionary();
         }
 
         /// <summary>

@@ -5,7 +5,7 @@
     /// </summary>
     internal static class CommandLog
     {
-        private static readonly List<string> _commands = new();
+        private static readonly List<string> _commands = [];
         private static readonly object _syncObj = new();
 
         /// <summary>

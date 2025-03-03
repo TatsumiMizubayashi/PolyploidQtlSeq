@@ -5,7 +5,7 @@
     /// </summary>
     internal class VcfSample
     {
-        private static readonly char[] _splitter = new[] { '/', '|' };
+        private static readonly char[] _splitter = ['/', '|'];
         private const string _noData = ".";
         private const string _refValue = "0";
 

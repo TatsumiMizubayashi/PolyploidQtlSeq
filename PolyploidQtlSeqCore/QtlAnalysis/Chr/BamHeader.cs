@@ -8,7 +8,7 @@
         private const string SEQ_TAG = "@SQ";
         private const int NAME_INDEX = 2;
         private const int LENGTH_INDEX = 4;
-        private static readonly char[] _spliter = new[] { '\t', ':' };
+        private static readonly char[] _spliter = ['\t', ':'];
 
         private readonly string[] _lines;
 

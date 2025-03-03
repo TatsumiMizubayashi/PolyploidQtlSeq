@@ -12,15 +12,15 @@
         /// </summary>
         public AnalyzableVariantPolicy()
         {
-            _rules = new IAnalyzableVariantRule[]
-            {
+            _rules =
+            [
                 new Parent1GtHomoRule(),
                 new BiallelicVariantRule(),
                 new Parent1NoGapVariantRule(),
                 new Parent2NoGapVariantRule(),
                 new Bulk1NoGapVariantRule(),
                 new Bulk2NoGapVariantRule()
-            };
+            ];
         }
 
         /// <summary>

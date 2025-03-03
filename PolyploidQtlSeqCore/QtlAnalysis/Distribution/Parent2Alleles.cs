@@ -22,7 +22,7 @@
             var altAlleleQuery = Enumerable.Range(1, p2Plex.Value)
                 .Select(_ => new Allele(isAlt: true));
 
-            return refAlleleQuery.Concat(altAlleleQuery).ToArray();
+            return [.. refAlleleQuery, .. altAlleleQuery];
         }
     }
 }

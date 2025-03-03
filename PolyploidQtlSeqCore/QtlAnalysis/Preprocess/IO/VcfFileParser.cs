@@ -9,10 +9,10 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Preprocess.IO
     internal static class VcfFileParser
     {
         private const string COMMENT = "#";
-        private static readonly char[] _delimiter = new[] { '\t' };
-        private static readonly char[] _altAlleleDelimiter = new[] { ',' };
-        private static readonly char[] _infoDelimiter = new[] { ';' };
-        private static readonly char[] _infoKeyValueDelimiter = new[] { '=' };
+        private static readonly char[] _delimiter = ['\t'];
+        private static readonly char[] _altAlleleDelimiter = [','];
+        private static readonly char[] _infoDelimiter = [';'];
+        private static readonly char[] _infoKeyValueDelimiter = ['='];
 
         private const string _annotationKey = "ANN=";
 

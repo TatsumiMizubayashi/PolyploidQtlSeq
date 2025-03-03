@@ -50,8 +50,8 @@ namespace PolyploidQtlSeqCore.Options
         /// <summary>
         /// ヘッダー行テキストを取得する。
         /// </summary>
-        private static readonly string[] _headerLines = new[]
-        {
+        private static readonly string[] _headerLines =
+        [
             "",
             "########################################################################################################",
             "##",
@@ -62,7 +62,8 @@ namespace PolyploidQtlSeqCore.Options
             "##",
             "########################################################################################################",
             "",
-            "#Key\tValue"        };
+            "#Key\tValue"
+        ];
 
         private readonly string _title;
         private readonly OptionCollection _options;
@@ -134,10 +135,12 @@ namespace PolyploidQtlSeqCore.Options
         /// <returns>パラメータファイルに記載する行排列</returns>
         private string[] GetLines()
         {
-            return new[] { $"{_commentOut} {_title}" }
+            var lines = new[] { $"{_commentOut} {_title}" }
                 .Concat(_headerLines)
                 .Concat(_options.GetKeyValues())
                 .ToArray();
+
+            return lines;
         }
     }
 }

@@ -6,7 +6,7 @@
     internal class FastqFilePair
     {
         private static readonly string _delimiter = ".";
-        private static readonly char[] _splitter = new[] { '.', '_' };
+        private static readonly char[] _splitter = ['.', '_'];
 
         /// <summary>
         /// Fastqファイルペアを作成する。

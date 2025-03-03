@@ -16,7 +16,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// </summary>
         public SnpEffAnnotations()
         {
-            _annotations = Array.Empty<SnpEffAnnotation>();
+            _annotations = [];
             TopImpact = Impact.None;
             IsEmpty = true;
         }
@@ -33,7 +33,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
             TopImpact = _annotations.Length == 0
                 ? Impact.None
                 : _annotations.Select(x => x.Impact).Distinct().OrderBy(x => x).First();
-            IsEmpty = !_annotations.Any();
+            IsEmpty = _annotations.Length == 0;
         }
 
         /// <summary>

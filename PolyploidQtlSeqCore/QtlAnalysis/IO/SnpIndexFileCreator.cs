@@ -8,8 +8,8 @@
         private const string FILE_NAME = "SNP-Index.txt";
         internal const string QTL = "QTL";
 
-        private static readonly string[] _fieldNames = new[]
-        {
+        private static readonly string[] _fieldNames =
+        [
             "Chr",
             "Position",
             "Ref Allele",
@@ -31,15 +31,15 @@
             " -log10(P)",   // Excelで開いた際に数式と認識されないようにするためスペース入れてる
             "Window P-Value",
             "Window -log10(P)",
-        };
+        ];
 
-        private static readonly string[] _snpEffFieldNames = new[]
-        {
+        private static readonly string[] _snpEffFieldNames =
+        [
             "Impact",
             "Annotation",
             "HGVS.c",
             "HGVS.p"
-        };
+        ];
 
         /// <summary>
         /// SNP-indexファイルを作成する。
@@ -97,7 +97,7 @@
         {
             return displayImpacts.DisplayFlag == Impact.None
                 ? _fieldNames
-                : _fieldNames.Concat(_snpEffFieldNames).ToArray();
+                : [.. _fieldNames, .. _snpEffFieldNames];
         }
 
         /// <summary>
@@ -114,8 +114,8 @@
             var maxScoreWindowQtl = variant.MaxScoreSlidingWindowQtl;
             var annValues = GetAnnotationValues(variant, displayImpacts);
 
-            return new[]
-            {
+            return
+            [
                 genomePos.ChrName,
                 genomePos.Start.ToString(),
                 variant.RefAllele,
@@ -136,10 +136,9 @@
                 variant.PValue.Value.ToString(),
                 variant.Score.Value.ToString(),
                 maxScoreWindowQtl.PValue.ToString(),
-                maxScoreWindowQtl.Score.ToString()
-            }
-            .Concat(annValues)
-            .ToArray();
+                maxScoreWindowQtl.Score.ToString(),
+                .. annValues,
+            ];
         }
 
         /// <summary>
@@ -150,18 +149,18 @@
         /// <returns>SnpEffアノテーション値</returns>
         private static string[] GetAnnotationValues(SnpIndexVariantWithSlidingWindowQtl variant, DisplayAnnotationImpacts displayImpacts)
         {
-            if (displayImpacts.DisplayFlag == Impact.None) return Array.Empty<string>();
+            if (displayImpacts.DisplayFlag == Impact.None) return [];
 
             var displayAnnotations = variant.Annotations.ToDisplaySnpEffAnnotations(displayImpacts);
-            if (displayAnnotations.IsEmpty) return Array.Empty<string>();
+            if (displayAnnotations.IsEmpty) return [];
 
-            return new[]
-            {
+            return
+            [
                 displayAnnotations.ToImpactInfo(),
                 displayAnnotations.ToAnnotationInfo(),
                 displayAnnotations.ToHgvsCInfo(),
                 displayAnnotations.ToHgvsPInfo()
-            };
+            ];
         }
     }
 }

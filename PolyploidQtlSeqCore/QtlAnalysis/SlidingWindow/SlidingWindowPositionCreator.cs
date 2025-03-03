@@ -41,9 +41,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
                 windowPositionList.AddRange(positions);
             }
 
-            return windowPositionList
-                .OrderBy(x => x, _genomePositionComparer)
-                .ToArray();
+            return [.. windowPositionList.OrderBy(x => x, _genomePositionComparer)];
         }
 
         /// <summary>
@@ -51,7 +49,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
         /// </summary>
         /// <param name="lastVariantPosition">最終変異の位置情報</param>
         /// <returns>SlidingWindow位置リスト</returns>
-        private IReadOnlyList<GenomePosition> Create(GenomePosition lastVariantPosition)
+        private GenomePosition[] Create(GenomePosition lastVariantPosition)
         {
             var positionList = new List<GenomePosition>();
 
@@ -70,7 +68,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.SlidingWindow
                 currentStart += stepSize;
             }
 
-            return positionList;
+            return [ ..positionList];
         }
     }
 }

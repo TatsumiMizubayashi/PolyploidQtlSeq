@@ -5,7 +5,7 @@
     /// </summary>
     internal class AD
     {
-        private static readonly char[] _delimiter = new[] { ',' };
+        private static readonly char[] _delimiter = [','];
         private const string NO_DATA = ".";
 
         private readonly ReadCounter _readCounter;
@@ -16,11 +16,11 @@
         /// <param name="ad">ADの値</param>
         public AD(string ad)
         {
-            if (string.IsNullOrEmpty(ad)) throw new ArgumentException(null, nameof(ad));
+            ArgumentException.ThrowIfNullOrEmpty(ad);
 
             Value = ad;
             IsNoData = ad.Contains(NO_DATA);
-            ReadCounts = IsNoData ? Array.Empty<int>() : ad.Split(_delimiter).Select(x => int.Parse(x)).ToArray();
+            ReadCounts = IsNoData ? [] : [.. ad.Split(_delimiter).Select(x => int.Parse(x))];
             Depth = ReadCounts.Sum();
             _readCounter = ReadCounter.Create(VariantAlleleType.RefAlt);    // 一番頻度が多いタイプを既定とする
         }

@@ -24,7 +24,7 @@
                 : VariantAlleleType.Multi;
         }
 
-        private static IReadOnlyDictionary<int, int> CreateCountDictionary(AD[] ads)
+        private static Dictionary<int, int> CreateCountDictionary(AD[] ads)
         {
             // アレルは３個限定
             var countDictionary = new Dictionary<int, int>()

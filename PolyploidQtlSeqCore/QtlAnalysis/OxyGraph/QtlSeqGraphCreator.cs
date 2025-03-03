@@ -54,15 +54,15 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
             var scoreConfig = correctAxies.CreateWindowScoreGraphConfig(_settings);
             var qtlCountConfig = correctAxies.CreateQtlCountGraphConfig(_settings);
 
-            return new GraphCreator[]
-            {
+            return
+            [
                 new Bulk1SnpIndexGraphCreator(snpIndexConfig),
                 new Bulk2SnpIndexGraphCreator(snpIndexConfig),
                 new BulkSnpIndexGraphCreator(snpIndexConfig),
                 new DeltaSnpIndexGraphCreator(deltaSnpIndexConfig),
                 new WindowScoreGraphCreator(scoreConfig),
                 new QtlVariantCountGraphCreator(qtlCountConfig)
-            };
+            ];
         }
     }
 }

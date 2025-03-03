@@ -10,12 +10,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Preprocess.IO
         /// <summary>
         /// アノテーションの種類(Allele, Annotationなど）を区切るためのデリミタ
         /// </summary>
-        private static readonly char[] _annTypeDelimiter = new[] { '|' };
+        private static readonly char[] _annTypeDelimiter = ['|'];
 
         /// <summary>
         /// 複数のアノテーション情報を区切るためのデリミタ
         /// </summary>
-        private static readonly char[] _lineDelimiter = new[] { ',' };
+        private static readonly char[] _lineDelimiter = [','];
 
         private const int _annotationIndex = 1;
         private const int _impactIndex = 2;

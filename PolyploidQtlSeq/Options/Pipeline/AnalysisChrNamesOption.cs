@@ -22,7 +22,7 @@ namespace PolyploidQtlSeq.Options.Pipeline
         /// </summary>
         public const string DESCRIPTION = "Specify the chromosome name to be analyzed. If there are more than one, separate them with commas. ";
 
-        private static readonly char[] _delimiter = new[] { ',' };
+        private static readonly char[] _delimiter = [','];
 
         private readonly IQtlSeqPipelineOptionValue _optionValue;
 

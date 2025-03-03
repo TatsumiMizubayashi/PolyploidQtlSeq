@@ -5,7 +5,7 @@
     /// </summary>
     internal class Parent2SnpIndexRange
     {
-        private static readonly char[] _splitter = new[] { '-' };
+        private static readonly char[] _splitter = ['-'];
 
         /// <summary>
         /// SNP-indexの最小値

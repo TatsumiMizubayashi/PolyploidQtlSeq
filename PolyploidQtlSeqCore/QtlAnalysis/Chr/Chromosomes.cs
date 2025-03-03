@@ -45,7 +45,7 @@
                 chrList.Add(chr);
             }
 
-            return chrList.ToArray();
+            return [.. chrList];
         }
 
         /// <summary>
@@ -55,9 +55,11 @@
         /// <returns>染色体配列</returns>
         public Chromosome[] Get(ChrSizeThreshold sizeThreshold)
         {
-            return _chrNameDictionary.Values
+            var chrs = _chrNameDictionary.Values
                 .Where(x => x.Length >= sizeThreshold.Value)
                 .ToArray();
+
+            return chrs;
         }
     }
 }

@@ -18,10 +18,12 @@
 
             var f1AllelePatterns = Combination.Enumerate(p2Alleles, k).ToArray();
 
-            return f1AllelePatterns
+            var altNums = f1AllelePatterns
                 .Select(alleles => alleles.Count(x => x.IsAlt))
                 .OrderBy(x => x)
                 .ToArray();
+
+            return altNums;
         }
     }
 }

@@ -139,9 +139,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         public LineSeries[] CreateBulk1AverageSnpIndexLineSeries(string chrName)
         {
             var chrWindowsList = _allWindows.GetZeroSplitWindowsList(chrName);
-            return chrWindowsList
-                .Select(x => x.CreateBulk1AverageSnpIndexLineSeries())
-                .ToArray();
+            return [.. chrWindowsList.Select(x => x.CreateBulk1AverageSnpIndexLineSeries())];
         }
 
         /// <summary>
@@ -153,9 +151,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         public LineSeries[] CreateBulk2AverageSnpIndexLineSeries(string chrName)
         {
             var chrWindowsList = _allWindows.GetZeroSplitWindowsList(chrName);
-            return chrWindowsList
-                .Select(x => x.CreateBulk2AverageSnpIndexLineSeries())
-                .ToArray();
+            return [.. chrWindowsList.Select(x => x.CreateBulk2AverageSnpIndexLineSeries())];
         }
 
 
@@ -168,9 +164,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         public LineSeries[] CreateAverageDeltaSnpIndexLineSeries(string chrName)
         {
             var chrWindowsList = _allWindows.GetZeroSplitWindowsList(chrName);
-            return chrWindowsList
-                .Select(x => x.CreateAverageDeltaSnpIndexLineSeries())
-                .ToArray();
+            return [.. chrWindowsList.Select(x => x.CreateAverageDeltaSnpIndexLineSeries())];
         }
 
         /// <summary>
@@ -182,13 +176,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         public LineSeries[] CreateP95ThresholdLineSeries(string chrName)
         {
             var chrWindowsList = _allWindows.GetZeroSplitWindowsList(chrName);
-            return chrWindowsList
+            return [.. chrWindowsList
                 .SelectMany(x =>
                 {
                     var (plus, minus) = x.CreateP95ThresholdLineSeries();
                     return new[] { plus, minus };
-                })
-                .ToArray();
+                })];
         }
 
         /// <summary>
@@ -200,13 +193,12 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.OxyGraph
         public LineSeries[] CreateP99ThresholdLineSeries(string chrName)
         {
             var chrWindowsList = _allWindows.GetZeroSplitWindowsList(chrName);
-            return chrWindowsList
+            return [.. chrWindowsList
                 .SelectMany(x =>
                 {
                     var (plus, minus) = x.CreateP99ThresholdLineSeries();
                     return new[] { plus, minus };
-                })
-                .ToArray();
+                })];
         }
 
     }

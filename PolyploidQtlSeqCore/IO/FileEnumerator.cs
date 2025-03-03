@@ -19,9 +19,11 @@ namespace PolyploidQtlSeqCore.IO
         {
             if (string.IsNullOrWhiteSpace(dirPath)) throw new ArgumentException(null, nameof(dirPath));
 
-            return Directory.EnumerateFiles(dirPath, pattern)
+            var sortedFiles = Directory.EnumerateFiles(dirPath, pattern)
                 .OrderBy(x => x, _naturalSortComparer)
                 .ToArray();
+
+            return sortedFiles;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace PolyploidQtlSeqCore.IO
     /// </summary>
     internal static class Log
     {
-        private static readonly List<string> _logs = new();
+        private static readonly List<string> _logs = [];
         private static readonly string _sepalator = new('#', 80);
         private static readonly object _syncObj = new();
 

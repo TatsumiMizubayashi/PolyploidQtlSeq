@@ -25,10 +25,12 @@
         /// <returns>Fastqファイルペア配列</returns>
         public FastqFilePair[] ToFastqFilePairs()
         {
-            return _sortedFastqFilePaths
+            var fastqPairs = _sortedFastqFilePaths
                 .Chunk(2)
                 .Select(x => new FastqFilePair(x[0], x[1]))
                 .ToArray();
+
+            return fastqPairs;
         }
     }
 }

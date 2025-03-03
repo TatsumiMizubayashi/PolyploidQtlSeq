@@ -5,7 +5,7 @@
     /// </summary>
     internal class AnalysisChrNames
     {
-        private static readonly char[] _delimiter = new[] { ',' };
+        private static readonly char[] _delimiter = [','];
 
         /// <summary>
         /// 解析対象染色体名を作成する。
@@ -15,9 +15,9 @@
         {
             Value = value;
             Names = string.IsNullOrEmpty(Value)
-                ? Array.Empty<string>()
+                ? []
                 : Value.Split(_delimiter);
-            HasNames = Names.Any();
+            HasNames = Names.Length != 0;
         }
 
         /// <summary>

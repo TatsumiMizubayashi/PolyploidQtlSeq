@@ -5,7 +5,7 @@
     /// </summary>
     internal class DisplayAnnotationImpacts
     {
-        private static readonly char[] _splitter = new[] { ',' };
+        private static readonly char[] _splitter = [','];
 
         /// <summary>
         /// 表示するアノテーションImpactを作成する。
@@ -13,7 +13,7 @@
         /// <param name="impacts">表示するImpact</param>
         public DisplayAnnotationImpacts(string impacts)
         {
-            if (string.IsNullOrEmpty(impacts)) throw new ArgumentException(null, nameof(impacts));
+            ArgumentException.ThrowIfNullOrEmpty(impacts);
 
             Impacts = impacts;
             

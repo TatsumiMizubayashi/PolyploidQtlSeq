@@ -10,8 +10,8 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.IO
         internal const string QTL = SnpIndexFileCreator.QTL;
         private const string FILE_NAME = "SlidingWindow.txt";
 
-        private static readonly string[] _fieldNames = new[]
-            {
+        private static readonly string[] _fieldNames =
+            [
                 "Chr",
                 "Start",
                 "End",
@@ -36,7 +36,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.IO
                 "Mean -log10(P)",
                 "Bulk1 SNP-index=0 Variant Count",
                 "Bulk2 SNP-index=0 Variant Count"
-            };
+            ];
 
         /// <summary>
         /// SlidingWindowファイルを作成する。
@@ -68,8 +68,8 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.IO
         /// <returns>値</returns>
         private static string[] GetEmptyWindowValues(Window window)
         {
-            return new[]
-            {
+            return
+            [
                 window.GenomePosition.ChrName,
                 window.GenomePosition.Start.ToString(),
                 window.GenomePosition.End.ToString(),
@@ -94,7 +94,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.IO
                 "",     // Mean -log10(P)
                 "",     // Bulk1 SNP-index=0 Variant Count
                 "",     // Bulk2 SNP-index=0 Variant Count
-            };
+            ];
         }
 
         /// <summary>
@@ -109,8 +109,8 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.IO
             var p95 = window.P95Qtl;
             var variantCount = window.VariantCount;
 
-            return new[]
-            {
+            return
+            [
                 genomePos.ChrName,
                 genomePos.Start.ToString(),
                 genomePos.End.ToString(),
@@ -135,7 +135,7 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.IO
                 window.AverageScore.Value.ToString(),
                 variantCount.Bulk1ZeroSnpIndexVariantCount.ToString(),
                 variantCount.Bulk2ZeroSnpIndexVariantCount.ToString()
-            };
+            ];
         }
 
     }
