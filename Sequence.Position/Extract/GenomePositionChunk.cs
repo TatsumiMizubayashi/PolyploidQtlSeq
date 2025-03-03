@@ -16,7 +16,7 @@
         /// <param name="items">コレクション</param>
         public GenomePositionChunk(IEnumerable<T> items)
         {
-            _items = items.ToArray();
+            _items = [.. items];
             if (_items.Length == 0) throw new AggregateException($"{nameof(items)}が空です。");
             if (_items.Select(x => x.GenomePosition.ChrName).Distinct().Count() != 1)
                 throw new ArgumentException($"異なる染色体名が存在します。");
@@ -38,7 +38,7 @@
         /// <returns>位置が完全一致する項目</returns>
         public T[] ExtractMatch(GenomePosition targetPosition)
         {
-            return _items.Where(x => x.GenomePosition.IsMatch(targetPosition)).ToArray();
+            return [.. _items.Where(x => x.GenomePosition.IsMatch(targetPosition))];
         }
 
         /// <summary>
@@ -48,7 +48,7 @@
         /// <returns>位置が重複する項目</returns>
         public T[] ExtractOverlap(GenomePosition targetPosition)
         {
-            return _items.Where(x => x.GenomePosition.IsOverlap(targetPosition)).ToArray();
+            return [.. _items.Where(x => x.GenomePosition.IsOverlap(targetPosition))];
         }
     }
 }

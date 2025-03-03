@@ -19,7 +19,7 @@
         /// <param name="chunkSize">chunkの大きさ(0以下なら自動調整)</param>
         public SameChrGenomePositionItems(IEnumerable<T> values, int chunkSize)
         {
-            _items = values.ToArray();
+            _items = [.. values];
             _chunkSize = chunkSize;
 
             var uniqChrCount = _items.Select(x => x.GenomePosition.ChrName).Distinct().Count();
@@ -34,11 +34,13 @@
         {
             var chunkSize = GetChunkSize();
 
-            return _items
+            var posChunks = _items
                 .OrderBy(x => x.GenomePosition, _genomePositionComparer)
                 .Chunk(chunkSize)
                 .Select(x => new GenomePositionChunk<T>(x))
                 .ToArray();
+
+            return posChunks;
         }
 
         /// <summary>

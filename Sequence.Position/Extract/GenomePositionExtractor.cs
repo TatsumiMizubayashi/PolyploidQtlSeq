@@ -1,4 +1,6 @@
-﻿namespace Sequence.Position.Extract
+﻿using System.Collections.Frozen;
+
+namespace Sequence.Position.Extract
 {
     /// <summary>
     /// ゲノム位置情報による抽出を行う
@@ -7,7 +9,8 @@
     public sealed class GenomePositionExtractor<T>
         where T : IHasGenomePositionItem
     {
-        private readonly IReadOnlyDictionary<string, GenomePositionChunk<T>[]> _chrChunksDictionary;
+        private readonly FrozenDictionary<string, GenomePositionChunk<T>[]> _chrChunksDictionary;
+        
 
         /// <summary>
         /// ゲノム位置抽出器を作成する。
@@ -22,10 +25,10 @@
         /// <summary>
         /// 位置情報項目を染色体毎に分類し、検索しやすいように小分けにしたDictionaryを作成する。
         /// </summary>
-        /// <param name="values"></param>
-        /// <param name="chunkSize"></param>
-        /// <returns></returns>
-        private static IReadOnlyDictionary<string, GenomePositionChunk<T>[]> CreateChrChunksDictionary(IEnumerable<T> values, int chunkSize = 0)
+        /// <param name="values">位置情報項目</param>
+        /// <param name="chunkSize">chunkサイズ</param>
+        /// <returns>染色体毎に分けた辞書</returns>
+        private static FrozenDictionary<string, GenomePositionChunk<T>[]> CreateChrChunksDictionary(IEnumerable<T> values, int chunkSize = 0)
         {
             var chrItemsTable = new Dictionary<string, GenomePositionChunk<T>[]>();
 
@@ -36,7 +39,7 @@
                 chrItemsTable[group.Key] = sameChrItems.Chunk();
             }
 
-            return chrItemsTable;
+            return chrItemsTable.ToFrozenDictionary();
         }
 
        
@@ -47,11 +50,13 @@
         /// <returns>位置が完全一致する項目</returns>
         public T[] ExtractMatch(GenomePosition targetPosition)
         {
-            if (!_chrChunksDictionary.TryGetValue(targetPosition.ChrName, out var items)) return Array.Empty<T>();
+            if (!_chrChunksDictionary.TryGetValue(targetPosition.ChrName, out var items)) return [];
 
-            return GenomePositionExtractor<T>.WhereOverlapGenomePositionChunk(items, targetPosition)
+            var results = GenomePositionExtractor<T>.WhereOverlapGenomePositionChunk(items, targetPosition)
                 .SelectMany(x => x.ExtractMatch(targetPosition))
                 .ToArray();
+
+            return results;
         }
 
         /// <summary>
@@ -61,11 +66,13 @@
         /// <returns>位置が重複する項目</returns>
         public T[] ExtractOverlap(GenomePosition targetPosition)
         {
-            if (!_chrChunksDictionary.TryGetValue(targetPosition.ChrName, out var items)) return Array.Empty<T>();
+            if (!_chrChunksDictionary.TryGetValue(targetPosition.ChrName, out var items)) return [];
 
-            return GenomePositionExtractor<T>.WhereOverlapGenomePositionChunk(items, targetPosition)
+            var results = GenomePositionExtractor<T>.WhereOverlapGenomePositionChunk(items, targetPosition)
                 .SelectMany(x => x.ExtractOverlap(targetPosition))
                 .ToArray();
+
+            return results;
         }
 
         /// <summary>

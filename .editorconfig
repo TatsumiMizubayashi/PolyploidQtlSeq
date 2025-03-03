@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# IDE0290: プライマリ コンストラクターの使用
+csharp_style_prefer_primary_constructors = false
