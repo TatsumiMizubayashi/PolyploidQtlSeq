@@ -3,6 +3,7 @@ using PolyploidQtlSeq.Options.Pipeline;
 using PolyploidQtlSeq.Options.QtlAnalysis;
 using PolyploidQtlSeqCore.Application.Pipeline;
 using PolyploidQtlSeqCore.Options;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace PolyploidQtlSeq
@@ -228,9 +229,10 @@ namespace PolyploidQtlSeq
         /// <returns>Ver情報</returns>
         private static string GetVersion()
         {
-            var version = typeof(PolyploidQtlSeqCommand).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+            //var version = typeof(PolyploidQtlSeqCommand).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+            var verInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
 
-            return "Polyploid QTL-seq Ver " + version;
+            return $"Polyploid QTL-seq Ver {verInfo.FileMajorPart}.{verInfo.ProductMinorPart}.{verInfo.FileBuildPart}";
         }
     }
 }
