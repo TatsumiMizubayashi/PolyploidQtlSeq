@@ -13,7 +13,7 @@ The main modifications are as follows:
 - Appends annotation information by SnpEff.
 
 ## References
-- Hiromoto Yamakawa, Masahiro Misumi, Yoshihiro Kawahara, Tatsumi Mizubayashi (2025) [Polyploid QTL-seq identified QTLs controlling fruit flesh color and flowering day in octoploid strawberry](https://doi.org/10.1270/jsbbr.24J11).
+- Hiromoto Yamakawa, Masahiro Misumi, Yoshihiro Kawahara, Tatsumi Mizubayashi (2025) [Polyploid QTL-seq identified QTLs controlling fruit flesh color and flowering day in octoploid strawberry](https://doi.org/10.1270/jsbbr.24J11). Breeding Research (in Japanese)
 - Hiromoto Yamakawa, Tatsumi Mizubayashi, Noriyuki Kitazawa, Utako Yamanouchi, Tsuyu Ando, Yoshiyuki Mukai, Etsuo Shimosaka, Takahiro Noda, Kenji Asano, Kotaro Akai, and Kenji Katayama (2024) [Polyploid QTL-seq identified QTLs controlling potato flesh color and tuber starch phosphorus content in a plexity-dependent manner. ](https://doi.org/10.1270/jsbbs.24028) Breed Sci:2024 Dec;74(5):403-414
 - Hiromoto Yamakawa, Tatsumi Mizubayashi, Masaru Tanaka (2024) [Polyploid QTL-seq revealed multiple QTLs controlling steamed tuber texture and starch gelatinization temperature in sweetpotato.](https://doi.org/10.1270/jsbbs.23060). Breed. Sci. 74: 103-113.
 - Hiromoto Yamakawa, Emdadul Haque, Masaru Tanaka, Hiroki Takagi, Kenji Asano, Etsuo Shimosaka, Kotaro Akai, Satoshi Okamoto, Kenji Katayama, Seiji Tamiya (2021) [Polyploid QTL-seq towards rapid development of tightly linked DNA markers for potato and sweetpotato breeding through whole-genome resequencing. ](https://doi.org/10.1111/pbi.13633) Plant Biotechnol J 19: 2040-2051. 
