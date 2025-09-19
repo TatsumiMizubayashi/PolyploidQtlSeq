@@ -22,7 +22,7 @@ The main modifications are as follows:
 
 # Installation
 ## Dependencies softwares
-- dotnet (=6)
+- dotnet (=8)
 - fastp (>= 0.23)
 - BWA
 - Bcftools (>= 1.16)
@@ -53,7 +53,7 @@ conda activate polyQtlseq
 Install required softwares.
 
 ```
-conda install dotnet=6
+conda install dotnet=8
 conda install -c bioconda fastp=0.23
 conda install -c bioconda bwa
 conda install -c bioconda samtools=1.16
@@ -61,11 +61,11 @@ conda install -c bioconda bcftools=1.16
 conda install -c bioconda snpeff
 ```
 Dotnet may be installed using apt or other means. In that case, the following pinned file creation is not necessary.
-Create a pinned file in the conda-meta directory to prevent dotnet upgraded to version 7 when the package is updated.
+Create a pinned file in the conda-meta directory to prevent dotnet upgraded to version 9 when the package is updated.
 
 ```
 cd miniforge3/envs/polyQtlseq/conda-meta
-echo dotnet=6 >> pinned
+echo dotnet=8 >> pinned
 ```
 <br>
 
