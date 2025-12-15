@@ -52,23 +52,25 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
 
         public override DataValidationResult Validation()
         {
-            if(string.IsNullOrEmpty(_settingValue.Parent2SnpIndexRange)) 
+            var input = _settingValue.Parent2SnpIndexRange;
+            if (string.IsNullOrEmpty(input)) 
                 return new DataValidationResult(SHORT_NAME, LONG_NAME, "Specify by lower limit - upper limit.");
 
-            var values = _settingValue.Parent2SnpIndexRange.Split(_delimiter);
+            var values = input.Split(_delimiter);
             if(values.Length != 2) return new DataValidationResult(SHORT_NAME, LONG_NAME, "Specify by lower limit - upper limit.");
 
             if (!double.TryParse(values[0], out var lower))
-                return new DataValidationResult(SHORT_NAME, LONG_NAME, "The lower limit connot bo converted to a numerical value.");
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The lower limit ({values[0]}) connot bo converted to a numerical value.");
             if (!double.TryParse(values[1], out var upper))
-                return new DataValidationResult(SHORT_NAME, LONG_NAME, "The upper limit cannot be converted to a numerical value.");
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The upper limit ({values[1]}) cannot be converted to a numerical value.");
 
+            var inputValueLog = $"(Input=[{input}]:Lower=[{lower}], Upper=[{upper}])";
             if (lower < MINIMUM || lower > MAXIMUM) 
-                return new DataValidationResult(SHORT_NAME, LONG_NAME, "The lower limit should be specified in the range of 0.0 to 1.0.");
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The lower limit should be specified in the range of 0.0 to 1.0. {inputValueLog}");
             if (upper < MINIMUM || upper > MAXIMUM)
-                return new DataValidationResult(SHORT_NAME, LONG_NAME, "The upper limit should be specified in the range of 0.0 to 1.0.");
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The upper limit should be specified in the range of 0.0 to 1.0. {inputValueLog}");
 
-            if (lower >= upper) return new DataValidationResult(SHORT_NAME, LONG_NAME, "The upper limit should be greater than the lower limit.");
+            if (lower >= upper) return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The upper limit should be greater than the lower limit. {inputValueLog}");
 
             return new DataValidationResult();
         }
