@@ -23,8 +23,8 @@
             IsNoData = gt.Contains(NO_DATA);
             Indexes = IsNoData
                 ? []
-                : [.. gt.Split(_delimiter)
-                    .Select(x => int.Parse(x))];
+                : [.. gt.Split(_delimiter).Select(x => int.Parse(x))];
+            Type = GetGtType();
         }
 
         /// <summary>
@@ -44,6 +44,11 @@
         public int[] Indexes { get; }
 
         /// <summary>
+        /// GTの種類を取得する。
+        /// </summary>
+        public GtType Type { get; }
+
+        /// <summary>
         /// アレル塩基を取得する。
         /// </summary>
         /// <param name="allAlleles">全アレル塩基配列</param>
@@ -59,6 +64,20 @@
 
             var alleles = Indexes.Select(x => allAlleles[x]);
             return string.Join(ALLELE_DELIMITER, alleles);
+        }
+
+        /// <summary>
+        /// GTの種類を取得する。
+        /// </summary>
+        /// <returns>GTの種類</returns>
+        private GtType GetGtType()
+        {
+            if (IsNoData) return GtType.NoData;
+
+            var uniqueIndexes = Indexes.Distinct().ToArray();
+            if (uniqueIndexes.Length != 1) return GtType.Hetero;
+
+            return uniqueIndexes[0] == 0 ? GtType.RefHomo : GtType.AltHomo;
         }
     }
 }
