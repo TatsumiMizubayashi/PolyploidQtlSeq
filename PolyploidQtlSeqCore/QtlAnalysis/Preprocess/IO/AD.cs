@@ -49,7 +49,7 @@
         /// <returns>(refCount, altCount)</returns>
         public (int refCount, int altCount) GetAlleleCount()
         {
-            if (IsNoData) throw new InvalidOperationException("No data for AD, so allele counts are not available.");
+            if (IsNoData) return (0, 0);
 
             return (ReadCounts[0], ReadCounts[1]);
         }
