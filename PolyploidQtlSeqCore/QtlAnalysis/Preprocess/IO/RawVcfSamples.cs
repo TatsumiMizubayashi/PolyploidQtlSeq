@@ -137,8 +137,13 @@
         private static RawVcfSample CreateRawSample(string value, int adIndex, int gtIndex)
         {
             var valueItems = value.Split(_delimiter);
-            var ad = new AD(valueItems[adIndex]);
+
             var gt = new GT(valueItems[gtIndex]);
+
+            // 時々FORMATを無視してGTの欠損値のみ記載されていることがあるので
+            var ad = gt.IsNoData
+                ? new AD("0,0")
+                : new AD(valueItems[adIndex]);
 
             return new RawVcfSample(ad, gt);
         }
