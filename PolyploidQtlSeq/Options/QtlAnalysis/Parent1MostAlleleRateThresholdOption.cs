@@ -54,7 +54,7 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
                 return new DataValidationResult();
 
             return new DataValidationResult(SHORT_NAME, LONG_NAME,
-                $"Most allele frequency for Parent1 should be an integer between {MINIMUM} and {MAXIMUM}.");
+                $"Most allele frequency for Parent1 should be an integer between {MINIMUM:F1} and {MAXIMUM:F1}.");
         }
 
         protected override string GetLongName() => LONG_NAME;
