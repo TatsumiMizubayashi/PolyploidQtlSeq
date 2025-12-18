@@ -19,9 +19,9 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
         /// <returns>SNP-index</returns>
         public static double Calc(VcfParent1 vcfP1, VcfSample vcfSample)
         {
-            return vcfP1.GT == GtType.RefHomo
+            return vcfP1.GtType == GtType.RefHomo
                 ? CalcParent1RefHomoSnpIndex(vcfSample)
-                : vcfP1.GT == GtType.AltHomo
+                : vcfP1.GtType == GtType.AltHomo
                     ? CalcParent1AltHomoSnpIndex(vcfSample)
                     : throw new InvalidOperationException("P1 is not homotypic.");
         }

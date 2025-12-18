@@ -1,4 +1,6 @@
-﻿namespace PolyploidQtlSeqCore.QtlAnalysis.Preprocess
+﻿using PolyploidQtlSeqCore.QtlAnalysis.Preprocess.IO;
+
+namespace PolyploidQtlSeqCore.QtlAnalysis.Preprocess
 {
     /// <summary>
     /// VCFに記載されているサンプル情報
@@ -16,9 +18,10 @@
         /// <param name="allele">アレル</param>
         /// <param name="refCount">Refリード数</param>
         /// <param name="altCount">Altリード数</param>
+        [Obsolete]
         public VcfSample(string gt, string allele, int refCount, int altCount)
         {
-            GT = ToGtType(gt);
+            GtType = ToGtType(gt);
             Allele = allele;
             Depth = refCount + altCount;
             RefCount = refCount;
@@ -26,9 +29,24 @@
         }
 
         /// <summary>
+        /// VCFに記載されているサンプル情報を作成する。
+        /// </summary>
+        /// <param name="gt">GT</param>
+        /// <param name="ad">AD</param>
+        /// <param name="allele">アレル</param>
+        public VcfSample(GT gt, AD ad, string allele)
+        {
+            GtType = gt.Type;
+            Allele = allele;
+            RefCount = ad.RefCount;
+            AltCount = ad.AltCount;
+            Depth = ad.Depth;
+        }
+
+        /// <summary>
         /// GTの種類を取得する。
         /// </summary>
-        public GtType GT { get; }
+        public GtType GtType { get; }
 
         /// <summary>
         /// アレルを取得する。

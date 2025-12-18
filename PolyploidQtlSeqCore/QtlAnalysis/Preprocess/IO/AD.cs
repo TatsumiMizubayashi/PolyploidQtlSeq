@@ -19,8 +19,10 @@
 
             Value = ad;
             IsNoData = ad.Contains(NO_DATA);
-            ReadCounts = IsNoData ? [] : [.. ad.Split(_delimiter).Select(x => int.Parse(x))];
-            Depth = ReadCounts.Sum();
+            var readCounts = IsNoData ? new[] {0, 0} : [.. ad.Split(_delimiter).Select(x => int.Parse(x))];
+            RefCount = readCounts[0];
+            AltCount = readCounts[1];
+            Depth = readCounts.Sum();
         }
 
         /// <summary>
@@ -34,24 +36,18 @@
         public bool IsNoData { get; }
 
         /// <summary>
-        /// 各アレルのリード数を取得する。
+        /// Ref型アレルリード数を取得する。
         /// </summary>
-        public int[] ReadCounts { get; }
+        public int RefCount { get; }
+
+        /// <summary>
+        /// Alt型アレルリード数を取得する。
+        /// </summary>
+        public int AltCount { get; }
 
         /// <summary>
         /// Depthを取得する。
         /// </summary>
         public int Depth { get; }
-
-        /// <summary>
-        /// Alleleカウントを取得する。
-        /// </summary>
-        /// <returns>(refCount, altCount)</returns>
-        public (int refCount, int altCount) GetAlleleCount()
-        {
-            if (IsNoData) return (0, 0);
-
-            return (ReadCounts[0], ReadCounts[1]);
-        }
     }
 }

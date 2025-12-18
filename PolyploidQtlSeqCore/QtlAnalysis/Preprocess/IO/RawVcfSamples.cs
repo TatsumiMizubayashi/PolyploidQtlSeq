@@ -69,9 +69,8 @@
         public VcfParent1 GetVcfParent1(string[] allAlleles)
         {
             var allele = Parent1.GT.ToAllele(allAlleles);
-            var (refCount, altCount) = Parent1.AD.GetAlleleCount();
 
-            return new VcfParent1(Parent1.GT.Value, allele, refCount, altCount);
+            return new VcfParent1(Parent1.GT.Value, allele, Parent1.AD.RefCount, Parent1.AD.AltCount);
         }
 
         /// <summary>
@@ -82,9 +81,8 @@
         public VcfParent2 GetVcfParent2(string[] allAlleles)
         {
             var allele = Parent2.GT.ToAllele(allAlleles);
-            var (refCount, altCount) = Parent2.AD.GetAlleleCount();
 
-            return new VcfParent2(Parent2.GT.Value, allele, refCount, altCount);
+            return new VcfParent2(Parent2.GT.Value, allele, Parent2.AD.RefCount, Parent2.AD.AltCount);
         }
 
         /// <summary>
@@ -95,9 +93,8 @@
         public VcfBulk1 GetVcfBulk1(string[] allAlleles)
         {
             var allele = Bulk1.GT.ToAllele(allAlleles);
-            var (refCount, altCount) = Bulk1.AD.GetAlleleCount();
 
-            return new VcfBulk1(Bulk1.GT.Value, allele, refCount, altCount);
+            return new VcfBulk1(Bulk1.GT.Value, allele, Bulk1.AD.RefCount, Bulk1.AD.AltCount);
         }
 
         /// <summary>
@@ -108,9 +105,8 @@
         public VcfBulk2 GetVcfBulk2(string[] allAlleles)
         {
             var allele = Bulk2.GT.ToAllele(allAlleles);
-            var (refCount, altCount) = Bulk2.AD.GetAlleleCount();
 
-            return new VcfBulk2(Bulk2.GT.Value, allele, refCount, altCount);
+            return new VcfBulk2(Bulk2.GT.Value, allele, Bulk2.AD.RefCount, Bulk2.AD.AltCount);
         }
 
         /// <summary>

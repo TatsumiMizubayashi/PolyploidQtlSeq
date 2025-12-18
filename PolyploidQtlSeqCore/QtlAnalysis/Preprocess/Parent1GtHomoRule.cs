@@ -7,8 +7,8 @@
     {
         public bool Ok(VcfVariant variant)
         {
-            return variant.Parent1.GT == GtType.RefHomo
-                || variant.Parent1.GT == GtType.AltHomo;
+            return variant.Parent1.GtType == GtType.RefHomo
+                || variant.Parent1.GtType == GtType.AltHomo;
         }
     }
 }
