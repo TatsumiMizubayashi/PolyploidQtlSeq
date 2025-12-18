@@ -8,7 +8,6 @@
         private static readonly char[] _delimiter = ['/', '|'];
 
         private const string ALLELE_DELIMITER = "/";
-        private const string NO_DATA_GT = "./.";
         private const string NO_DATA = ".";
 
 
@@ -21,12 +20,11 @@
             ArgumentException.ThrowIfNullOrEmpty(gt);
 
             Value = gt;
-            IsNoData = gt == NO_DATA_GT;
+            IsNoData = gt.Contains(NO_DATA);
             Indexes = IsNoData
                 ? []
                 : [.. gt.Split(_delimiter)
-                    .Select(x => int.Parse(x))
-                    .Distinct()];
+                    .Select(x => int.Parse(x))];
         }
 
         /// <summary>
@@ -55,6 +53,9 @@
             if (allAlleles.Length == 0) throw new ArgumentException(null, nameof(allAlleles));
 
             if (IsNoData) return NO_DATA;
+
+            var uniqueIndexes = Indexes.Distinct().ToArray();
+            if (uniqueIndexes.Length == 1) return allAlleles[uniqueIndexes[0]];
 
             var alleles = Indexes.Select(x => allAlleles[x]);
             return string.Join(ALLELE_DELIMITER, alleles);
