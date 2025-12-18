@@ -15,7 +15,6 @@
             return type switch
             {
                 VariantAlleleType.RefAlt => new RefAltReadCounter(),
-                VariantAlleleType.Alt1Alt2 => new AltAltReadCounter(),
                 VariantAlleleType.Multi => new MultiAlleleReadCounter(),
                 _ => throw new InvalidOperationException()
             };

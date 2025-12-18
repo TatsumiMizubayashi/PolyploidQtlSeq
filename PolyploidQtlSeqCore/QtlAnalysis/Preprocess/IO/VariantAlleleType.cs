@@ -11,12 +11,6 @@
         RefAlt = 0,
 
         /// <summary>
-        /// Alt1アレルとAlt2アレルの組み合わせ
-        /// </summary>
-        [Obsolete]
-        Alt1Alt2,
-
-        /// <summary>
         /// ３種類以上の組み合わせ
         /// </summary>
         Multi
