@@ -29,19 +29,11 @@
 
             var (adIndex, gtIndex) = GetIndex(format);
 
-            var preP1 = CreateRawSample(sampleValues[_parent1Index], adIndex, gtIndex);
-            var preP2 = CreateRawSample(sampleValues[_parent2Index], adIndex, gtIndex);
-            var preBulk1 = CreateRawSample(sampleValues[_bulk1Index], adIndex, gtIndex);
-            var preBulk2 = CreateRawSample(sampleValues[_bulk2Index], adIndex, gtIndex);
-
-            var alleleType = altAlleles.Length == 1 ? VariantAlleleType.RefAlt : VariantAlleleType.Multi;
-            IsMultiAllele = alleleType == VariantAlleleType.Multi;
-
-            var readCounter = ReadCounter.Create(alleleType);
-            Parent1 = preP1.Update(readCounter);
-            Parent2 = preP2.Update(readCounter);
-            Bulk1 = preBulk1.Update(readCounter);
-            Bulk2 = preBulk2.Update(readCounter);
+            Parent1 = CreateRawSample(sampleValues[_parent1Index], adIndex, gtIndex);
+            Parent2 = CreateRawSample(sampleValues[_parent2Index], adIndex, gtIndex);
+            Bulk1 = CreateRawSample(sampleValues[_bulk1Index], adIndex, gtIndex);
+            Bulk2 = CreateRawSample(sampleValues[_bulk2Index], adIndex, gtIndex);
+            IsMultiAllele = altAlleles.Length > 1;
         }
 
         /// <summary>

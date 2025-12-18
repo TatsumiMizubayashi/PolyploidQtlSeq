@@ -25,17 +25,5 @@
         /// GTを取得する。
         /// </summary>
         public GT GT { get; }
-
-        /// <summary>
-        /// ADを更新したVcfSampleを作成する。
-        /// </summary>
-        /// <param name="readCounter">ReadCounter</param>
-        /// <returns>更新したVcfSample</returns>
-        public RawVcfSample Update(ReadCounter readCounter)
-        {
-            var updateAd = new AD(AD, readCounter);
-
-            return new RawVcfSample(updateAd, GT);
-        }
     }
 }

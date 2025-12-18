@@ -8,7 +8,6 @@
         private static readonly char[] _delimiter = [','];
         private const string NO_DATA = ".";
 
-        private readonly ReadCounter _readCounter;
 
         /// <summary>
         /// ADインスタンスを作成する。
@@ -22,21 +21,6 @@
             IsNoData = ad.Contains(NO_DATA);
             ReadCounts = IsNoData ? [] : [.. ad.Split(_delimiter).Select(x => int.Parse(x))];
             Depth = ReadCounts.Sum();
-            _readCounter = ReadCounter.Create(VariantAlleleType.RefAlt);    // 一番頻度が多いタイプを既定とする
-        }
-
-        /// <summary>
-        /// ADインスタンスを作成する。
-        /// </summary>
-        /// <param name="ad">AD</param>
-        /// <param name="counter">リードカウンター</param>
-        public AD(AD ad, ReadCounter counter)
-        {
-            Value = ad.Value;
-            IsNoData = ad.IsNoData;
-            ReadCounts = ad.ReadCounts;
-            Depth = ad.Depth;
-            _readCounter = counter;
         }
 
         /// <summary>
@@ -65,7 +49,9 @@
         /// <returns>(refCount, altCount)</returns>
         public (int refCount, int altCount) GetAlleleCount()
         {
-            return _readCounter.Count(this);
+            if (IsNoData) throw new InvalidOperationException("No data for AD, so allele counts are not available.");
+
+            return (ReadCounts[0], ReadCounts[1]);
         }
     }
 }
