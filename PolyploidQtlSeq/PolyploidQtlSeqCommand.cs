@@ -40,7 +40,7 @@ namespace PolyploidQtlSeq
             SnpEffDatabaseName = "";
             OutputDir = "";
             Parent1MostAlleleRateThreshold = Parent1MostAlleleRateThresholdOption.DEFAULT;
-            Parent2SnpIndexRange = Parent2SnpIndexRangeOption.DEFAULT;
+            Parent2SnpIndexRange = Parent2SnpIndexRangeOption.GetDefault();
             MinimumDepthThreshold = MinimumDepthThresholdOption.DEFAULT;
             MaxBulkSnpIndexThreshold = MaximumBulkSnpIndexThresholdOption.DEFAULT;
             Ploidy = PloidyOption.DEFAULT;

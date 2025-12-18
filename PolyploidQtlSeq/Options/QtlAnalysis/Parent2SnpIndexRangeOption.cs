@@ -23,14 +23,19 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         public const string DESCRIPTION = "SNP-index range for parent2.";
 
         /// <summary>
-        /// Parent2 SNP-index範囲の規定値
+        /// 規定のLower
         /// </summary>
-        public const string DEFAULT = "0.15-0.375";
+        private const double DEFAULT_LOWER = 0.15;
+
+        /// <summary>
+        /// 規定のUpper
+        /// </summary>
+        private const double DEFAULT_UPPER = 0.375;
 
         /// <summary>
         /// SNP-indexの最小値
         /// </summary>
-        private const double MINIMUM = 0;
+        private const double MINIMUM = 0.0;
 
         /// <summary>
         /// SNP-indexの最大値
@@ -38,6 +43,17 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
         private const double MAXIMUM = 1.0;
 
         private static readonly char _delimiter = '-';
+
+        /// <summary>
+        /// 規定値を取得する。
+        /// </summary>
+        /// <returns>規定値</returns>
+        public static string GetDefault()
+        {
+            return $"{DEFAULT_LOWER}{_delimiter}{DEFAULT_UPPER}";
+        }
+
+        // ----------------------------------------------------------------------------------
 
         private readonly IQtlSeqAnalysisOptionValue _settingValue;
 
@@ -66,9 +82,9 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
 
             var inputValueLog = $"(Input=[{input}]:Lower=[{lower}], Upper=[{upper}])";
             if (lower < MINIMUM || lower > MAXIMUM) 
-                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The lower limit should be specified in the range of 0.0 to 1.0. {inputValueLog}");
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The lower limit should be specified in the range of {MINIMUM:F1} to {MAXIMUM:F1}. {inputValueLog}");
             if (upper < MINIMUM || upper > MAXIMUM)
-                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The upper limit should be specified in the range of 0.0 to 1.0. {inputValueLog}");
+                return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The upper limit should be specified in the range of {MINIMUM:F1} to {MAXIMUM:F1}. {inputValueLog}");
 
             if (lower >= upper) return new DataValidationResult(SHORT_NAME, LONG_NAME, $"The upper limit should be greater than the lower limit. {inputValueLog}");
 
