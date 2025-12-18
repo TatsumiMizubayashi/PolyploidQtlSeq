@@ -7,27 +7,6 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Preprocess
     /// </summary>
     internal class VcfSample
     {
-        private static readonly char[] _splitter = ['/', '|'];
-        private const string _noData = ".";
-        private const string _refValue = "0";
-
-        /// <summary>
-        /// VCFに記載されているサンプル情報を作成する。
-        /// </summary>
-        /// <param name="gt">GT値</param>
-        /// <param name="allele">アレル</param>
-        /// <param name="refCount">Refリード数</param>
-        /// <param name="altCount">Altリード数</param>
-        [Obsolete]
-        public VcfSample(string gt, string allele, int refCount, int altCount)
-        {
-            GtType = ToGtType(gt);
-            Allele = allele;
-            Depth = refCount + altCount;
-            RefCount = refCount;
-            AltCount = altCount;
-        }
-
         /// <summary>
         /// VCFに記載されているサンプル情報を作成する。
         /// </summary>
@@ -67,17 +46,5 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Preprocess
         /// ALT型リード数を取得する。
         /// </summary>
         public int AltCount { get; }
-
-        private static GtType ToGtType(string value)
-        {
-            var items = value.Split(_splitter).Distinct().ToArray();
-            if (items.Length == 2) return GtType.Hetero;
-
-            var gtValue = items[0];
-            if (gtValue == _noData) return GtType.NoData;
-            if (gtValue == _refValue) return GtType.RefHomo;
-
-            return GtType.AltHomo;
-        }
     }
 }

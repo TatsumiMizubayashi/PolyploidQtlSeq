@@ -70,7 +70,7 @@
         {
             var allele = Parent1.GT.ToAllele(allAlleles);
 
-            return new VcfParent1(Parent1.GT.Value, allele, Parent1.AD.RefCount, Parent1.AD.AltCount);
+            return new VcfParent1(Parent1.GT, Parent1.AD, allele);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@
         {
             var allele = Parent2.GT.ToAllele(allAlleles);
 
-            return new VcfParent2(Parent2.GT.Value, allele, Parent2.AD.RefCount, Parent2.AD.AltCount);
+            return new VcfParent2(Parent2.GT, Parent2.AD, allele);
         }
 
         /// <summary>
@@ -94,7 +94,7 @@
         {
             var allele = Bulk1.GT.ToAllele(allAlleles);
 
-            return new VcfBulk1(Bulk1.GT.Value, allele, Bulk1.AD.RefCount, Bulk1.AD.AltCount);
+            return new VcfBulk1(Bulk1.GT, Bulk1.AD, allele);
         }
 
         /// <summary>
@@ -106,7 +106,7 @@
         {
             var allele = Bulk2.GT.ToAllele(allAlleles);
 
-            return new VcfBulk2(Bulk2.GT.Value, allele, Bulk2.AD.RefCount, Bulk2.AD.AltCount);
+            return new VcfBulk2(Bulk2.GT, Bulk2.AD, allele);
         }
 
         /// <summary>
