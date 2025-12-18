@@ -34,7 +34,7 @@
             var preBulk1 = CreateRawSample(sampleValues[_bulk1Index], adIndex, gtIndex);
             var preBulk2 = CreateRawSample(sampleValues[_bulk2Index], adIndex, gtIndex);
 
-            var alleleType = VariantAlleleTypeDiscriminator.Discern(altAlleles, preP1.AD, preP2.AD, preBulk1.AD, preBulk2.AD);
+            var alleleType = altAlleles.Length == 1 ? VariantAlleleType.RefAlt : VariantAlleleType.Multi;
             IsMultiAllele = alleleType == VariantAlleleType.Multi;
 
             var readCounter = ReadCounter.Create(alleleType);

@@ -13,6 +13,7 @@
         /// <summary>
         /// Alt1アレルとAlt2アレルの組み合わせ
         /// </summary>
+        [Obsolete]
         Alt1Alt2,
 
         /// <summary>
