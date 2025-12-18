@@ -54,7 +54,7 @@ namespace PolyploidQtlSeq.Options.QtlAnalysis
                 return new DataValidationResult();
 
             return new DataValidationResult(SHORT_NAME, LONG_NAME,
-                $"Maximum threshold for SNP-index for the Bulk samples should be an integer between {MINIMUM} and {MAXIMUM}.");
+                $"Maximum threshold for SNP-index for the Bulk samples should be an integer between {MINIMUM:F1} and {MAXIMUM:F1}.");
         }
 
         protected override string GetLongName() => LONG_NAME;
