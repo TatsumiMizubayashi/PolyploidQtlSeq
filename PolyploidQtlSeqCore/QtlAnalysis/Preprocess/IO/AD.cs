@@ -8,6 +8,14 @@
         private static readonly char[] _delimiter = [','];
         private const string NO_DATA = ".";
 
+        /// <summary>
+        /// NoData ADインスタンスを作成する。
+        /// </summary>
+        public AD() 
+            : this(NO_DATA)
+        {
+        }
+
 
         /// <summary>
         /// ADインスタンスを作成する。
@@ -18,8 +26,8 @@
             ArgumentException.ThrowIfNullOrEmpty(ad);
 
             Value = ad;
-            IsNoData = ad.Contains(NO_DATA);
-            var readCounts = IsNoData ? new[] {0, 0} : [.. ad.Split(_delimiter).Select(x => int.Parse(x))];
+            var isNoData = ad.Contains(NO_DATA);
+            var readCounts = isNoData ? new[] {0, 0} : [.. ad.Split(_delimiter).Select(x => int.Parse(x))];
             RefCount = readCounts[0];
             AltCount = readCounts[1];
             Depth = readCounts.Sum();
@@ -29,11 +37,6 @@
         /// ADの値を取得する。
         /// </summary>
         public string Value { get; }
-
-        /// <summary>
-        /// NoDataかどうかを取得する。
-        /// </summary>
-        public bool IsNoData { get; }
 
         /// <summary>
         /// Ref型アレルリード数を取得する。

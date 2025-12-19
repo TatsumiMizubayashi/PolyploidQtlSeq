@@ -142,7 +142,7 @@
 
             // 時々FORMATを無視してGTの欠損値のみ記載されていることがあるので
             var ad = gt.IsNoData
-                ? new AD("0,0")
+                ? new AD()
                 : new AD(valueItems[adIndex]);
 
             return new RawVcfSample(ad, gt);
