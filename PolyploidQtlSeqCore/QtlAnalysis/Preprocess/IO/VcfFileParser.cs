@@ -43,8 +43,16 @@ namespace PolyploidQtlSeqCore.QtlAnalysis.Preprocess.IO
                 if (string.IsNullOrEmpty(line)) continue;
                 if (line.StartsWith(COMMENT)) continue;
 
-                var variant = ConvertToVcfVariant(line);
-                variantList.Add(variant);
+                try
+                {
+                    var variant = ConvertToVcfVariant(line);
+                    variantList.Add(variant);
+                }
+                catch (Exception ex)
+                {
+                    var message = $"Failed to load the VCF file.\n{ex.Message}\n[{line}]";
+                    throw new ArgumentException(message, ex);
+                }
             }
 
             return variantList;
