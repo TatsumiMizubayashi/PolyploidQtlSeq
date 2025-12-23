@@ -77,10 +77,15 @@ namespace PolyploidQtlSeqCore.QtlAnalysis
             var qtlSeqTargetVariantPolicy = _settings.QtlSeqTargetPolicySettings.CreatePolicy();
 
             var vcfVariants = VcfFileParser.Parse(inputVcf.Path);
-            return [.. vcfVariants
+            var variants = vcfVariants
                 .Where(x => analyzableVriantPolicy.ComplyWithAll(x))
                 .Select(x => new SnpIndexVariant(x))
-                .Where(x => qtlSeqTargetVariantPolicy.ComplyWithAll(x))];
+                .Where(x => qtlSeqTargetVariantPolicy.ComplyWithAll(x))
+                .ToArray();
+            if (variants.Length == 0) 
+                throw new InvalidOperationException("No variants are available for analysis. Try loosening the filter criteria. If that still doesn’t resolve the issue, verify that the VCF file contains variants that meet the required analysis conditions.");
+
+            return variants;
         }
 
         /// <summary>
