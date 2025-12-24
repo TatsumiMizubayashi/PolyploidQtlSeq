@@ -201,6 +201,18 @@ The VCF files must meet all the following conditions:
 - Listed in the order of Parent1, Parent2, Bulk1, and Bulk2.
 - Include GT and AD values.
 
+Only variants that meet all of the following conditions are used for QTL-Seq analysis. Variants that do not meet these conditions are excluded:
+- The variant is biallelic.
+- GT of P1 is homozygous.
+- No missing data in any sample.
+
+<br>
+GT is used to determine whether the data is missing and whether Parent1 is homozygous. <br>
+Since QTL detection is performed using the SNP-index calculated from AD, it is not a problem if GT is in diploid notation (0/1). <br>
+When detecting variants as diploid, there may be cases where heterozygous genotypes are judged as homozygous. <br>
+By using the filter based on the maximum allele ratio with the -p1r option, such variants can be excluded.<br>
+<br>
+
 |Short|Long|Default|Function|
 |:---|:---|---:|:---|
 |-i|--inputVcf| |Input VCF file.|
